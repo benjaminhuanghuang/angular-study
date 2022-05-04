@@ -14,7 +14,8 @@ child.component.css
 ## angular.json
 ```
   "styles" :[
-    "src/style.css"
+    "src/style.css",
+    "./node_modules/bootstrap/dist/css/bootstrap.min.css"
   ]
 ```
 

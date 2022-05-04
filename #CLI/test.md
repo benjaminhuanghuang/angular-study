@@ -1,0 +1,5 @@
+
+
+```
+  ng test --no-watch
+```
