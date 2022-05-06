@@ -25,3 +25,4 @@ The strict mode
 - Reduced bundle size budgets by ~75%
 - Turns on no-any TSLint rule to prevent declarations of type any
 - Marks your application as side-effect free to enable more advanced tree-shaking
+
