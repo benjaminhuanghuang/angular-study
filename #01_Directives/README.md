@@ -1,8 +1,12 @@
+# Directives
+Directives are instructions in the DOM. 
 Change the appearance or behavior of DOM elements and Angular components with attribute directives.
 
+```
+<p appTurnGreen> change background </p>
+```
 
-
-Create
+## Create
 ```
 ng generate directive highlight
 
