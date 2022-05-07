@@ -1,4 +1,8 @@
+
 ## Binding (@Input, @Output)
+- @Input('alias of property name'): Expose field to outside
+- @Output('alias of event name'): Expose event to outside
+
 parent
 ```
   <app-child [childMessage]="'Hello'" (messageEvent)="receiveMessage($event)"> </app-child>
