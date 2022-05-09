@@ -1,7 +1,8 @@
 
 ## Binding (@Input, @Output)
-- @Input('alias of property name'): Expose field to outside
-- @Output('alias of event name'): Expose event to outside
+- @Input('alias of property name'): Expose field to outside / parent
+
+- @Output('alias of event name'): Expose event to outside / parent
 
 parent
 ```
@@ -15,17 +16,26 @@ parent
 
 Child
 ```
-  import {Component, Input, Output} from '@angular/core';
+  import {Component, Input, EventEmitter} from '@angular/core';
 
   @Input() childMessage: string;
 
-  @Output() messageEvent = new EventEmitter<string>();
+  @Output() messageEvent = new EventEmitter<{name:string, content:string}>();
 
   sendMessage() {
-    this.messageEvent.emit('send to parent');
+    // emit event
+    this.messageEvent.emit({name:'send to parent', content:'the content');
   }
 
   <button (click)="sendMessage()">Send</button>
+```
+
+## Local Reference
+```
+  <input type="text" #userNameInput/>
+
+  // use the refercne in the template
+  <button (click)="onAdd(userNameInput.value)"
 ```
 
 
@@ -36,14 +46,16 @@ parent
 
   @ViewChild(ChildComponent) child;
 
+  @ViewChild('inputId') child;
+
 
   ngAfterViewInit(){
+    // use the reference
     alert(this.child.message);
   }
 
-
 ```
-
+`DO NOT` operate reference to HTML elements directly
 ## Provider (Service)
 
 
