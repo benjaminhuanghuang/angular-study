@@ -2,7 +2,7 @@
 # Angular - The Complete Guide (2022 Edition)
 https://www.udemy.com/course/the-complete-guide-to-angular-2/
 
-https://github.com/covuworie/angular-the-complete-guide-2021/tree/main/src
+https://github.com/juanpetterson/angular-the-complete-guide
 
 32 sections • 463 lectures • 34h 7m total length
 
@@ -12,17 +12,32 @@ https://github.com/covuworie/angular-the-complete-guide-2021/tree/main/src
 ## 4 - Debugging
 ## 5 - Components & Databinding Deep Dive
 ## 6 - Course Project - Components & Databinding
+
 ## 7 - Directives Deep Dive
+- Directive
+- Using the Renderer to build a Better Attribute Directive
+- Using HostListener to Listen to Host Events
+
 ## 8 - Course Project - Directives
+- Dropdown Menu 
+
 ## 9 - Using Services & Dependency Injection
 
+
 ## 10 - Course Project - Services & Dependency
+
 ## 11 - Changing Pages with Routing
+
 ## 12 - Course Project - Routing
+
 ## 13 - Understanding Observables
+
 ## 14 - Course Project - Observables
+
 ## 15 - Handling Forms in Angular Apps
+
 ## 16 - Course Project - Forms
+
 ## 17 - Using Pipes to Transform Output
 ## 18 - Making Http Requests
 ## 19 - Course Project - Http
