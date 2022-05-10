@@ -1,0 +1,8 @@
+
+
+
+```
+  @Component({
+    providers: [TheService]
+  })
+```

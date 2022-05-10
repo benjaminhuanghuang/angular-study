@@ -23,7 +23,6 @@ https://github.com/juanpetterson/angular-the-complete-guide
 
 ## 9 - Using Services & Dependency Injection
 
-
 ## 10 - Course Project - Services & Dependency
 
 ## 11 - Changing Pages with Routing
