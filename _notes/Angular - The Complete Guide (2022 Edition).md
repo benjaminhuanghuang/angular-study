@@ -22,6 +22,7 @@ https://github.com/juanpetterson/angular-the-complete-guide
 - Dropdown Menu 
 
 ## 9 - Using Services & Dependency Injection
+- Injecting service into Services
 
 ## 10 - Course Project - Services & Dependency
 
