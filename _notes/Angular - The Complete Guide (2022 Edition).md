@@ -27,6 +27,8 @@ https://github.com/juanpetterson/angular-the-complete-guide
 ## 10 - Course Project - Services & Dependency
 
 ## 11 - Changing Pages with Routing
+- Router
+
 
 ## 12 - Course Project - Routing
 
