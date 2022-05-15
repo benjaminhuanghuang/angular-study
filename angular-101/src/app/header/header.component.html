@@ -5,11 +5,9 @@
     </div>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="nav navbar-nav">
-        <li><a href="#" (click)="onFeatureSelect('recipes')">Recipes</a></li>
-        <li>
-          <a href="#" (click)="onFeatureSelect('shopping-list')"
-            >Shopping List</a
-          >
+        <li routerLinkActive="active"><a routerLink="/recipes">Recipes</a></li>
+        <li routerLinkActive="active">
+          <a routerLink="/shopping-list">Shopping List</a>
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
