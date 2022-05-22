@@ -51,11 +51,22 @@ https://github.com/juanpetterson/angular-the-complete-guide
 ## 24 - Bonus - Working with NgRx in our Project
 ## 25 - Bonus - Angular Universal
 ## 26 - Angular Animations
+- Setting up the Starting Project
+- Animations Triggers and State
+- Switching between States
+- Transitions
+- Advanced Transitions
+- Transition Phases
+- The "void" State
+- Using Keyframes for Animations
+- Grouping Transitions
+- Using Animation Callbacks
+
 ## 27 - Adding Offline Capabilities with Service
 ## 28 - A Basic Introduction to Unit Testing in
 ## 29 - Angular as a Platform & Closer Look at the CLI
 
 ## 30 - Angular Changes & New Features
 
-## 31 - Course Roundup and
+## 31 - Course Roundup
 ## 32 - Bonus: TypeScript Introduction (for Angular 2 Usage)
