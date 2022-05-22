@@ -63,7 +63,26 @@ https://github.com/juanpetterson/angular-the-complete-guide
 - Using Animation Callbacks
 
 ## 27 - Adding Offline Capabilities with Service
-## 28 - A Basic Introduction to Unit Testing in
+
+## 28 - A Basic Introduction to Unit Testing in Angular Apps
+- Why Unit Tests?
+
+- Analyzing the Testing Setup (as created by the CLI)
+
+- Running Tests (with the CLI)
+
+- Adding a Component and some fitting Tests
+
+- Testing Dependencies: Components and Services
+
+- Simulating Async Tasks
+
+- Using "fakeAsync" and "tick"
+
+- Isolated vs Non-Isolated Tests
+
+- Further Resources & Where to Go Next
+
 ## 29 - Angular as a Platform & Closer Look at the CLI
 
 ## 30 - Angular Changes & New Features
