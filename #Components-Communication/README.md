@@ -1,3 +1,18 @@
+## Components communication
+- Components communication using component @Input(s) and @Output(s)
+
+- Components communication using services
+
+- Using setters for intercepting input property changes
+
+- Using ngOnChanges to intercept input property changes
+
+- Accessing a child component in a parent template via template variables
+
+- Accessing a child component in a parent component class using ViewChild
+
+- Creating your first dynamic component in Angular
+
 
 ## Binding (@Input, @Output)
 - @Input('alias of property name'): Expose field to outside / parent
