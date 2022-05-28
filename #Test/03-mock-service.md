@@ -50,6 +50,8 @@ beforeEach(() => {
 - fakeAsync() 
 we can ensure that all asynchronous calls are completed within a test before the assertions are executed
 
+
+Test Save
 ```
 describe('saveContact() test', () => {
   it('should display contact name after contact set', fakeAsync(() => {
@@ -57,6 +59,7 @@ describe('saveContact() test', () => {
       id: 1,
       name: 'lorace'
     };
+    // hide the progress bar
     component.isLoading = false;
     component.saveContact(contact);
     // update
@@ -69,7 +72,7 @@ describe('saveContact() test', () => {
 });
 ```
 
-
+Test Load
 ```
 describe('loadContact() test', () => {
   it('should load contact', fakeAsync(() => {
