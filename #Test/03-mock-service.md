@@ -3,7 +3,7 @@ Angular’s dependency injectio system makes it easy to instantiate a component 
 
 The fake Service has the same type as the real one
 
-
+Setup 1
 ```
 beforeEach(() => {
 
@@ -32,6 +32,8 @@ beforeEach(() => {
 });
 
 ```
+
+Setup 2
 ```
 beforeEach(() => {
   fixture = TestBed.createComponent(ContactEditComponent);
@@ -44,6 +46,10 @@ beforeEach(() => {
 ```
 
 ## Test Async method
+
+- fakeAsync() 
+we can ensure that all asynchronous calls are completed within a test before the assertions are executed
+
 ```
 describe('saveContact() test', () => {
   it('should display contact name after contact set', fakeAsync(() => {
