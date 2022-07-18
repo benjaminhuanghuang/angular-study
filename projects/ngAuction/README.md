@@ -45,3 +45,22 @@ ng g c product-detail
 ng g c search
 ng g c stars
 ```
+
+## Create services
+
+```
+ng g s shared/product
+
+```
+
+## Update the html content
+
+update app.componet.html
+
+update navbar.componet.html
+
+update search.componet.html
+
+update footer.componet.html
+
+update carousel.componet.html
