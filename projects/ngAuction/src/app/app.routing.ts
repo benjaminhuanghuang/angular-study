@@ -1,7 +1,10 @@
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './home.component';
+import { ProductDetailComponent } from './product.detail.component';
 
 const routes: Routes = [
-  {path: '',        component: HomeComponent},               1
-   {path: 'product', component: ProductDetailComponent}      2
+  { path: '', component: HomeComponent },
+  { path: 'product', component: ProductDetailComponent },
 ];
 
-export const routing = RouterModule.forRoot(routes);           3”
+export const routing = RouterModule.forRoot(routes);
