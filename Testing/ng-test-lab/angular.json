@@ -121,5 +121,8 @@
         }
       }
     }},
-  "defaultProject": "testingapp"
+  "defaultProject": "testingapp",
+  "cli": {
+    "analytics": false
+  }
 }
