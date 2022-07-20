@@ -2,7 +2,9 @@ import { TestBed, fakeAsync, flushMicrotasks, inject } from "@angular/core/testi
 
 import { BrowserStorageAsync } from "./browser-storage-async.service";
 import { PreferencesAsyncService } from "./preferences-async.service";
-
+/*
+  Mock BrowserStorageAsync used in test
+ */
 class BrowserStorageAsyncMock {
   getItem = (property: string) => Promise.resolve({ key: "testProp", value: "testValue" });
   setItem = ({ key: key, value: value }) => Promise.resolve(true);

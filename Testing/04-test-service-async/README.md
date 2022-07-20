@@ -96,3 +96,7 @@ describe('ContactService', () => {
   }));
 });
 ```
+
+## Test RxJS-based observables
+
+HttpClientTestingModule, there’s no need to manually create stubs or manually configure Angular for testing,
