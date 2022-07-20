@@ -1,4 +1,6 @@
-Each pipe in Angular has a method named transform(). This method is responsible for formatting the pipe’s input.
+# Test pipe
+
+Each pipe in Angular has a method named `transform()`. This method is responsible for formatting the pipe’s input.
 
 ```
 import { PhoneNumberPipe } from './phone-number.pipe';
