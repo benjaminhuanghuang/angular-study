@@ -11,84 +11,74 @@ class NavConfigService {
 }
 
 @Component({
-  // #A
-  selector: `navigation-menu`, // #A
+  selector: `navigation-menu`,
   template: `<div>
     <a *ngFor="let item of menu" [id]="item.label" [routerLink]="item.path">{{ item.label }}</a>
-  </div>`, // #A
-}) // #A
+  </div>`,
+})
 class NavigationMenu implements OnInit {
-  // #A
-  menu: any; // #A
-  constructor(private navConfig: NavConfigService) {} // #A
-  // #A
+  menu: any;
+  constructor(private navConfig: NavConfigService) {}
   ngOnInit() {
-    // #A
-    this.menu = this.navConfig.menu; // #A
-  } // #A
-} // #A
+    this.menu = this.navConfig.menu;
+  }
+}
 
 @Component({
-  // #A
-  selector: "app-root", // #A
-  template: `<router-outlet></router-outlet>`, // #A
-}) // #A
-class AppComponent {} // #A
+  selector: "app-root",
+  template: `<router-outlet></router-outlet>`,
+})
+class AppComponent {}
 
 @Component({
-  // #B
-  selector: `simple-component`, // #B
-  template: `simple`, // #B
-}) // #B
-class SimpleComponent {} // #B
+  selector: `simple-component`,
+  template: `simple`,
+})
+class SimpleComponent {}
 
 describe("Testing routes", () => {
-  // #C
   let fixture;
   let router: Router;
   let location: Location;
 
   beforeEach(() => {
-    // #C
     TestBed.configureTestingModule({
-      // #C
       imports: [
         RouterTestingModule.withRoutes([
-          // #C
-          { path: "", component: NavigationMenu }, // #C
-          { path: "target/:id", component: SimpleComponent }, // #C
+          { path: "", component: NavigationMenu },
+          { path: "target/:id", component: SimpleComponent },
         ]),
-      ], // #C
+      ],
       providers: [
         {
-          // #C
-          provide: NavConfigService, // #C
-          useValue: { menu: [{ label: "Home", path: "/target/fakeId" }] }, // #C
+          provide: NavConfigService,
+          useValue: { menu: [{ label: "Home", path: "/target/fakeId" }] },
         },
-      ], // #C
-      declarations: [NavigationMenu, SimpleComponent, AppComponent], // #C
-    }); // #C
+      ],
+      declarations: [NavigationMenu, SimpleComponent, AppComponent],
+    });
   });
 
   beforeEach(fakeAsync(() => {
-    // #D
-    router = TestBed.get(Router); // #D
-    location = TestBed.get(Location); // #D
-    fixture = TestBed.createComponent(AppComponent); // #D
-    router.navigateByUrl("/"); // #D
-    advance(); // #D
-  })); // #D
+    router = TestBed.get(Router);
+    location = TestBed.get(Location);
+    fixture = TestBed.createComponent(AppComponent);
+    router.navigateByUrl("/");
+    advance();
+  }));
 
   function advance(): void {
     flush();
+    // update fixture
     fixture.detectChanges();
   }
 
   it("Tries to route to a page", fakeAsync(() => {
-    // #A
-    const menu = fixture.debugElement.query(By.css("a")); // #A
-    menu.triggerEventHandler("click", { button: 0 }); // #A
-    advance(); // #A
-    expect(location.path()).toEqual("/target/fakeId"); // #A
-  })); // #A
+    const menu = fixture.debugElement.query(By.css("a"));
+    menu.triggerEventHandler("click", { button: 0 });
+    advance();
+
+    //Tests that the router location updated to the expected target
+    expect(location.path()).toEqual("/target/fakeId");
+  }));
 });
