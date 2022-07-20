@@ -1,18 +1,14 @@
-import { TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { TestBed } from "@angular/core/testing";
+import { ContactService } from "./contact.service";
 
-import { ContactService } from './contact.service';
-
-describe('ContactsService', () => {
+describe("ContactsService", () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule ],
-      providers: [ ContactService ]
+      providers: [ContactService],
     });
   });
 
-  describe('getContacts', () => {
-
+  describe("getContacts", () => {
     let contactService: ContactService;
     let httpTestingController: HttpTestingController;
     let mockContact: any;
@@ -20,16 +16,15 @@ describe('ContactsService', () => {
     beforeEach(() => {
       contactService = TestBed.get(ContactService);
       httpTestingController = TestBed.get(HttpTestingController);
-      mockContact = { id: 100, name: 'Erin Dee', email: 'edee@example.com' };
+      mockContact = { id: 100, name: "Erin Dee", email: "edee@example.com" };
     });
 
-    it('should GET a list of contacts', () => {
-
+    it("should GET a list of contacts", () => {
       contactService.getContacts().subscribe((contacts) => {
         expect(contacts[0]).toEqual(mockContact);
       });
 
-      const request = httpTestingController.expectOne('app/contacts');
+      const request = httpTestingController.expectOne("app/contacts");
 
       request.flush([mockContact]);
 
