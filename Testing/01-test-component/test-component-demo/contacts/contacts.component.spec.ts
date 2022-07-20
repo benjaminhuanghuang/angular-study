@@ -1,5 +1,5 @@
 import { ContactsComponent } from "./contacts.component";
-import { Contact } from "./shared/models";
+import { Contact } from "./models";
 
 describe("ContactsComponent Tests", () => {
   let contactsComponent: ContactsComponent = null;

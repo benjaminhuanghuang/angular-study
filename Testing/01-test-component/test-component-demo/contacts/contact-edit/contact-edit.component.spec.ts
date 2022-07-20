@@ -7,14 +7,9 @@ import { RouterTestingModule } from "@angular/router/testing";
 
 import { FormsModule } from "@angular/forms";
 
-import {
-  Contact,
-  ContactService,
-  FavoriteIconDirective,
-  InvalidEmailModalComponent,
-  InvalidPhoneNumberModalComponent,
-} from "../shared";
-import { AppMaterialModule } from "../../app.material.module";
+import { Contact } from "../models";
+import { ContactService } from "../contact.service";
+// import { AppMaterialModule } from "../../app.material.module";
 import { ContactEditComponent } from "./contact-edit.component";
 
 import "../../../material-app-theme.scss";
@@ -24,6 +19,9 @@ describe("ContactEditComponent tests", () => {
   let component: ContactEditComponent;
   let rootElement: DebugElement;
 
+  /*
+  Mock the contactService
+  */
   const contactServiceStub = {
     contact: {
       id: 1,
@@ -48,17 +46,17 @@ describe("ContactEditComponent tests", () => {
     TestBed.configureTestingModule({
       declarations: [
         ContactEditComponent,
-        FavoriteIconDirective,
-        InvalidEmailModalComponent,
-        InvalidPhoneNumberModalComponent,
+        // FavoriteIconDirective,
+        // InvalidEmailModalComponent,
+        // InvalidPhoneNumberModalComponent,
       ],
-      imports: [AppMaterialModule, FormsModule, NoopAnimationsModule, RouterTestingModule],
+      // imports: [AppMaterialModule, FormsModule, NoopAnimationsModule, RouterTestingModule],
       providers: [{ provide: ContactService, useValue: contactServiceStub }],
     });
 
     TestBed.overrideModule(BrowserDynamicTestingModule, {
       set: {
-        entryComponents: [InvalidEmailModalComponent, InvalidPhoneNumberModalComponent],
+        // entryComponents: [InvalidEmailModalComponent, InvalidPhoneNumberModalComponent],
       },
     });
   });
