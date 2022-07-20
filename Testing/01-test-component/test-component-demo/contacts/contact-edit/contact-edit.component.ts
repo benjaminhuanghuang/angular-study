@@ -1,24 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { MdDialog, MdSnackBar, MdSnackBarConfig } from '@angular/material';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { MdDialog, MdSnackBar, MdSnackBarConfig } from "@angular/material";
+import { ActivatedRoute } from "@angular/router";
+import { Router } from "@angular/router";
+import { Contact } from "../models";
+import { ContactService } from "../contact.service";
+import { constants } from "./contact-edit.constants";
 
-import {
-  Contact,
-  ContactService,
-} from '../shared';
-import { constants } from './contact-edit.constants';
-import { InvalidEmailModalComponent } from '../shared';
-import { InvalidPhoneNumberModalComponent } from '../shared';
-import { countryDialingCodes } from '../shared';
-
-import 'rxjs/add/operator/map';
+import "rxjs/add/operator/map";
 
 @Component({
-  selector: 'app-contact-detail',
-  templateUrl: './contact-edit.component.html',
-  styleUrls: ['./contact-edit.component.css'],
-  providers: [MdSnackBar]
+  selector: "app-contact-detail",
+  templateUrl: "./contact-edit.component.html",
+  styleUrls: ["./contact-edit.component.css"],
+  providers: [MdSnackBar],
 })
 export class ContactEditComponent implements OnInit {
   public loadingContactMessage: string = constants.LOADING_CONTACT_MESSAGE;
@@ -27,8 +21,13 @@ export class ContactEditComponent implements OnInit {
   public contact: Contact = null;
   public countryDialingCodes: string[] = this.getKeys(countryDialingCodes);
 
-  constructor(private contactService: ContactService, private route: ActivatedRoute, private router: Router,
-              private snackBar: MdSnackBar, private dialog: MdDialog) { }
+  constructor(
+    private contactService: ContactService,
+    private route: ActivatedRoute,
+    private router: Router,
+    //private snackBar: MdSnackBar,
+    private dialog: MdDialog
+  ) {}
 
   ngOnInit() {
     this.loadContact();
@@ -44,20 +43,19 @@ export class ContactEditComponent implements OnInit {
   }
 
   public loadContact(): void {
-    this.route.params.subscribe(params => {
-      const id = +params['id'];
-      this.contactService.getContact(id)
-        .map(contact => {
-          this.isLoading = false;
-          this.contact = contact;
+    this.route.params.subscribe((params) => {
+      const id = +params["id"];
+      this.contactService.getContact(id).map((contact) => {
+        this.isLoading = false;
+        this.contact = contact;
       });
     });
   }
 
   public displayEditSnackBar(): void {
-    const message = 'Contact updated';
-    const snackConfig: MdSnackBarConfig = {duration: 2000};
-    const actionLabel = '';
+    const message = "Contact updated";
+    const snackConfig: MdSnackBarConfig = { duration: 2000 };
+    const actionLabel = "";
 
     this.snackBar.open(message, actionLabel, snackConfig);
   }
@@ -68,19 +66,20 @@ export class ContactEditComponent implements OnInit {
     }
 
     this.displayEditSnackBar();
-    this.contactService.save(contact)
+    this.contactService
+      .save(contact)
       .toPromise()
       .then(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(["/"]);
       });
   }
 
   public isEmailValid(email: string): boolean {
-    return email === '' || (email !== '' && email.includes('@') && email.includes('.'));
+    return email === "" || (email !== "" && email.includes("@") && email.includes("."));
   }
 
   public isPhoneNumberValid(phoneNumber: string): boolean {
-    return phoneNumber === '' || (phoneNumber !== '' && phoneNumber.length === 10 && /^\d+$/.test(phoneNumber));
+    return phoneNumber === "" || (phoneNumber !== "" && phoneNumber.length === 10 && /^\d+$/.test(phoneNumber));
   }
 
   public isContactValid(contact: Contact): boolean {
