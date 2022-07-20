@@ -1,6 +1,7 @@
 ```
 import { Injectable } from '@angular/core';
 import { BrowserStorage } from './browser-storage.service';
+
 @Injectable()
 export class PreferencesService {
   // browserStorage will be DI by Angular
