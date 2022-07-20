@@ -1,5 +1,4 @@
 import { Injectable } from "@angular/core";
-import { IContactPreference } from "./preferences.service";
 /*
   Stubbed class implementing storage
 
