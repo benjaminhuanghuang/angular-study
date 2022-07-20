@@ -26,3 +26,17 @@ code creating UI elements or handling user input should be in a component
 Serice should be added to the provider metadata property of a component or module to use them.
 
 Where you include a service depends on whether it’s local to a component or used throughout the module.
+
+```
+// app.module.ts
+
+@NgModule({
+{
+
+}
+providers: [
+    MyService,
+  ],
+})
+export class AppModule { }
+```

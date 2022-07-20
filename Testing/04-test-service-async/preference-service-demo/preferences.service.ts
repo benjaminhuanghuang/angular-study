@@ -10,9 +10,6 @@
 import { Injectable } from "@angular/core";
 import { BrowserStorage } from "./browser-storage.service";
 
-/*
-  
- */
 export interface IContactPreference {
   key: string;
   value: string | object;
