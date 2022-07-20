@@ -1,16 +1,18 @@
 ## Fake the service
-Angular’s dependency injectio system makes it easy to instantiate a component with a fake version of service.
+
+Angular’s dependency injection system makes it easy to instantiate a component with a fake version of service.
 
 The fake Service has the same type as the real one
 
 Setup 1
+
 ```
 beforeEach(() => {
 
   TestBed.configureTestingModule({
-    declarations: [ContactEditComponent, 
-                   FavoriteIconDirective, 
-                   InvalidEmailModalComponent, 
+    declarations: [ContactEditComponent,
+                   FavoriteIconDirective,
+                   InvalidEmailModalComponent,
                    InvalidPhoneNumberModalComponent],
     imports: [
       AppMaterialModule,
@@ -22,7 +24,7 @@ beforeEach(() => {
     // provide fake service contactServiceStub in the format of a `TestModuleMetadata`
     providers: [{provide: ContactService, useValue: contactServiceStub}]
   });
-  
+
   // use overrideModule because a couple of components will be lazily loaded.
   TestBed.overrideModule(BrowserDynamicTestingModule, {
     set: {
@@ -34,6 +36,7 @@ beforeEach(() => {
 ```
 
 Setup 2
+
 ```
 beforeEach(() => {
   fixture = TestBed.createComponent(ContactEditComponent);
@@ -47,11 +50,11 @@ beforeEach(() => {
 
 ## Test Async method
 
-- fakeAsync() 
-we can ensure that all asynchronous calls are completed within a test before the assertions are executed
-
+- fakeAsync()
+  we can ensure that all asynchronous calls are completed within a test before the assertions are executed
 
 Test Save
+
 ```
 describe('saveContact() test', () => {
   it('should display contact name after contact set', fakeAsync(() => {
@@ -73,6 +76,7 @@ describe('saveContact() test', () => {
 ```
 
 Test Load
+
 ```
 describe('loadContact() test', () => {
   it('should load contact', fakeAsync(() => {
@@ -87,7 +91,8 @@ describe('loadContact() test', () => {
 ```
 
 Test update
-````
+
+```
 it('should not update the contact if email is invalid', fakeAsync(() => {
   const newContact = {
     id: 1,
@@ -112,3 +117,4 @@ it('should not update the contact if email is invalid', fakeAsync(() => {
   tick(100);
   expect(nameInput.nativeElement.value).toBe('chauncey');
 }));
+```
