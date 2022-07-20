@@ -25,6 +25,35 @@ it('is an asynchronous test', (done) => {
 
 ## fakeAsync
 
+Using fakeAsync, you don’t need to call Jasmine’s done to end your asynchronous test.
+
+```
+it("should get a value", fakeAsync(inject(
+      [PreferencesAsyncService, BrowserStorageAsync],
+      (service: PreferencesAsyncService, browserStorage: BrowserStorageAsyncMock) => {
+
+      spyOn(browserStorage, "getItem").and.callThrough();
+
+      let results, error;
+
+      service
+        .getPropertyAsync("testProp")
+        .then((val) => (results = val))
+        .catch((err) => (error = err));
+
+      // let Angular know that it’s time to process the promises in the test
+      // make sure the promises resolve before checking your expected values
+      flushMicrotasks();
+
+      expect(results.key).toEqual("testProp");
+      expect(results.value).toEqual("testValue");
+      expect(browserStorage.getItem).toHaveBeenCalledWith("testProp");
+      expect(error).toBeUndefined();
+    }
+  )
+));
+```
+
 If you write tests inside a fakeAsync block, they can pretend to fast-forward asynchronous events by calling tick().
 
 ## Sample

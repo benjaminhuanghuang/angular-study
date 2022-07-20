@@ -34,6 +34,8 @@ describe("PreferencesAsyncService", () => {
           .then((val) => (results = val))
           .catch((err) => (error = err));
 
+        // let Angular know that it’s time to process the promises in the test
+        // make sure the promises resolve before checking your expected values
         flushMicrotasks();
 
         expect(results.key).toEqual("testProp");
