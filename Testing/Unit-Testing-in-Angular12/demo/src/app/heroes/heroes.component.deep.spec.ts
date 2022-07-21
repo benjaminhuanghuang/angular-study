@@ -53,7 +53,7 @@ describe("HerosComponent (deep tests)", () => {
     expect(heroComponentDEs[2].componentInstance.hero.name).toEqual("name3");
   });
 
-  it(`shoule call heroService.deleteHero when the Hero Component's
+  it(`should call heroService.deleteHero when the Hero Component's
    delete button is click`, () => {
     spyOn(fixture.componentInstance, "delete");
 
@@ -66,6 +66,48 @@ describe("HerosComponent (deep tests)", () => {
     heroComponents[0]
       .query(By.css("button"))
       .triggerEventHandler("click", { stopPropagation: () => {} });
+
+    expect(fixture.componentInstance.delete).toHaveBeenCalledWith(HEROES[0]);
+  });
+
+  it(`should call heroService.deleteHero when emmit event from child`, () => {
+    spyOn(fixture.componentInstance, "delete");
+
+    mockHeroService.getHeroes.and.returnValue(of(HEROES));
+    fixture.detectChanges();
+
+    const heroComponents = fixture.debugElement.queryAll(
+      By.directive(HeroComponent)
+    );
+    (<HeroComponent>heroComponents[0].componentInstance).delete.emit(undefined);
+
+    expect(fixture.componentInstance.delete).toHaveBeenCalledWith(HEROES[0]);
+  });
+
+  it(`should call heroService.deleteHero when emmit event from child- Method2`, () => {
+    spyOn(fixture.componentInstance, "delete");
+
+    mockHeroService.getHeroes.and.returnValue(of(HEROES));
+    fixture.detectChanges();
+
+    const heroComponents = fixture.debugElement.queryAll(
+      By.directive(HeroComponent)
+    );
+    heroComponents[0].triggerEventHandler("delete", null);
+
+    expect(fixture.componentInstance.delete).toHaveBeenCalledWith(HEROES[0]);
+  });
+
+  it(`should add a new hero to the hero list when the add button is clicked`, () => {
+    spyOn(fixture.componentInstance, "delete");
+
+    mockHeroService.getHeroes.and.returnValue(of(HEROES));
+    fixture.detectChanges();
+
+    const heroComponents = fixture.debugElement.queryAll(
+      By.directive(HeroComponent)
+    );
+    heroComponents[0].triggerEventHandler("delete", null);
 
     expect(fixture.componentInstance.delete).toHaveBeenCalledWith(HEROES[0]);
   });
