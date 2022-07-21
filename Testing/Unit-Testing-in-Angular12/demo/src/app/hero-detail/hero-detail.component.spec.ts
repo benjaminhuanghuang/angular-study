@@ -6,7 +6,9 @@ import { FormsModule } from "@angular/forms";
 //
 import { HeroDetailComponent } from "./hero-detail.component";
 import { HeroService } from "../hero.service";
+import { Input } from "@angular/core";
 //
+
 describe("HeroDetailComponent", () => {
   let fixture: ComponentFixture<HeroDetailComponent>;
   let mockActivatedRoute, mockHeroService, mockLocation;

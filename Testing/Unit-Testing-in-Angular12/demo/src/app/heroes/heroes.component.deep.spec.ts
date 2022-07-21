@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Input, Output, Directive } from "@angular/core";
 import { TestBed, ComponentFixture } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
 import { of } from "Rxjs";
@@ -7,6 +7,20 @@ import { HeroesComponent } from "./heroes.component";
 import { HeroComponent } from "../hero/hero.component";
 import { HeroService } from "../hero.service";
 import { Hero } from "../hero";
+
+/*
+ */
+@Directive({
+  selector: "[routerLink]",
+  host: { "(click)": "onClick()" }, // Note, NOT "onClick"
+})
+export class RouterLinkDirectiveStub {
+  @Input("routerLink") linkParams: any;
+  navigatedTo: any = null;
+  onClick() {
+    this.navigatedTo = this.linkParams;
+  }
+}
 
 describe("HerosComponent (deep tests)", () => {
   let fixture: ComponentFixture<HeroesComponent>; // wrapper for component
@@ -35,7 +49,7 @@ describe("HerosComponent (deep tests)", () => {
     ]);
     // tell Angular use the mockHeroService
     TestBed.configureTestingModule({
-      declarations: [HeroesComponent, HeroComponent],
+      declarations: [HeroesComponent, HeroComponent, RouterLinkDirectiveStub],
       providers: [{ provide: HeroService, useValue: mockHeroService }],
     });
     fixture = TestBed.createComponent(HeroesComponent);
@@ -110,5 +124,21 @@ describe("HerosComponent (deep tests)", () => {
     heroComponents[0].triggerEventHandler("delete", null);
 
     expect(fixture.componentInstance.delete).toHaveBeenCalledWith(HEROES[0]);
+  });
+
+  it(`should have the correct rout for the first hero`, () => {
+    mockHeroService.getHeroes.and.returnValue(of(HEROES));
+    fixture.detectChanges();
+
+    const heroComponents = fixture.debugElement.queryAll(
+      By.directive(HeroComponent)
+    );
+
+    let routerLink = heroComponents[0]
+      .query(By.directive(RouterLinkDirectiveStub))
+      .injector.get(RouterLinkDirectiveStub);
+
+    heroComponents[0].query(By.css("a")).triggerEventHandler("click", null);
+    expect(routerLink.navigatedTo).toBe("/detail/1");
   });
 });
