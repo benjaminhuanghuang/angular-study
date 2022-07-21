@@ -1,8 +1,14 @@
-# Angular Architecture and Best Practices by Dan Wahlin
+# Angular Architecture and Best Practices - by Dan Wahlin
 
 https://www.pluralsight.com/courses/angular-architecture-best-practices
 
+https://github.com/DanWahlin/Angular-JumpStart
+
+https://github.com/DanWahlin/angular-architecture
+
 https://www.bilibili.com/video/BV1op4y1C73W/
+
+## Content
 
 Course Overview 2mins
 
