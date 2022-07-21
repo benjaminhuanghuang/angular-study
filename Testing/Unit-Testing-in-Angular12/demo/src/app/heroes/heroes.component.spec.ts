@@ -21,8 +21,8 @@ describe("HerosComponent", () => {
   });
 
   describe("delete", () => {
-    it("should remove the indicated hero fromthe HEROES list", () => {
-      // make the mock method return a observable objectr
+    it("should remove the indicated hero from the HEROES list", () => {
+      // make the mock method return a observable object
       mockHeroService.deleteHero.and.returnValue(of(true));
       component.heroes = HEROES;
       component.delete(HEROES[2]);
@@ -30,7 +30,7 @@ describe("HerosComponent", () => {
     });
 
     it("should call deleteHero", () => {
-      // make the mock method return a observable objectr
+      // make the mock method return a observable object
       mockHeroService.deleteHero.and.returnValue(of(true));
       component.heroes = HEROES;
       component.delete(HEROES[2]);
