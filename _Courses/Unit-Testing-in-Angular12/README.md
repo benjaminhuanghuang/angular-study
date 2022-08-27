@@ -1,10 +1,12 @@
-# Unit Testing in Angular 12 by Joe Eames
+# Unit Testing in Angular 12 
+by Joe Eames
 
-https://www.pluralsight.com/courses/unit-testing-angular
+https://app.pluralsight.com/library/courses/unit-testing-angular/table-of-contents 
+
+https://github.com/joeeames/PSAngularUnitTestingCourse
 
 https://www.bilibili.com/video/BV17f4y1S7sL
 
-https://github.com/joeeames/PSAngularUnitTestingCourse
 
 - Course Overview 1min
 
