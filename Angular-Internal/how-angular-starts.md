@@ -1,16 +1,20 @@
-main.ts
+main.ts load AppModule
 ```
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.error(err));
-<<<<<<< HEAD
 ```
+
+
 
 app.module.ts
 Tell angular the component should be used when bootstrap
 ```
 @NgModule({
 
+  bootstrap: [AppComponent]
 })
-=======
->>>>>>> 4233f700a40562d626c04986b541871e24de88e2
+```
+
+app.component.ts
+```
 ```
