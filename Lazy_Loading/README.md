@@ -6,6 +6,7 @@ It renders the page faster than eager loading .
 It improves the user experience.
 
 
+
 ## Preloading Strategy
 But what if the route still has many components to be loaded? 
 The preloading strategy now comes into the picture to solve the slow rendering issue
