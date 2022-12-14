@@ -13,3 +13,9 @@
 ```
   ng g c <path>/<name> --skipTests true
 ```
+
+
+## in module
+```
+ng g c /first/components/first --module first
+```
