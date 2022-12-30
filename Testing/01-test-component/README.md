@@ -64,7 +64,13 @@ rootElement: Stores the DebugElement for your component, which is how you’ll
 
 access its children
 
-### create fack service for components testing
+
+## Get childe
+```
+  const divChildren = fixture.nativeElement.querySelectorAll('.product > *')
+```
+
+### create fake service for components testing
 
 A real Service makes HTTP calls, which would make the tests harder to run and less deterministic.
 
@@ -95,7 +101,7 @@ describe('MyComponent tests', () => {
 });
 ```
 
-### provide fake service in the providers in a beforeEach() funciton
+### provide fake service in the providers in a beforeEach() function
 
 ```
 beforeEach(() => {

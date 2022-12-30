@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
 
-describe('visual calc editor', () => {
+describe('HeaderComponent', () => {
   let component: HeaderComponent;
 
   /*
@@ -43,5 +43,16 @@ describe('visual calc editor', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  })
+
+
+  it('Check property', () => {
+    expect(component.title).toEqual('Hello World');
+  })
+
+
+  it('Check html', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelect(".content span")?.textContent).toEqual('component is loading');
   })
 });
