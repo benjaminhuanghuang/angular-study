@@ -7,7 +7,7 @@
 ```
 
 
-## import service to component
+## import service to component and the sub components of this component
 ```
 @Component({
     selector: 'my-editor',
