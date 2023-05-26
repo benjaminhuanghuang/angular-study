@@ -4,6 +4,16 @@ Mar 24, 2020
 https://app.pluralsight.com/guides/lazy-loading-angular-modules-and-preloading-strategies
 
 
+Eager loading is the `default` loading strategy for components in Angular. 
+It loads all the components registered in the app module for the first time. Once all the components are loaded, they will be rendered on the page.
+
+
+Lazy loading strategy loads only the components that are required to render the page. This saves time and renders the application much faster than eager loading.
+
+
+The preloading strategy loads the first route components to render the page as quickly as possible. After the first route, it loads the other module in the back process. The other module will be ready to use, and the user won't have to wait for all the components to load.
+
+
 ```
 $ ng new lazy-loading-demo
 

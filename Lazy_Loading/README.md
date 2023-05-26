@@ -1,4 +1,8 @@
-# Lazy Loading
+## Eager loading
+Eager loading is the `default` loading strategy for components in Angular. 
+It loads all the components registered in the app module for the first time. Once all the components are loaded, they will be rendered on the page.
+
+## Lazy Loading
 It only loads components that are required to render the page.
 
 It renders the page faster than eager loading .
