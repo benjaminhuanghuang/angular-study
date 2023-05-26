@@ -1,8 +1,6 @@
 # Angular - The Complete Guide (2022 Edition)
 
-https://www.udemy.com/course/the-complete-guide-to-angular-2/
-
-https://www.bilibili.com/video/BV1wx41127Jv/
+https://learning.oreilly.com/videos/angular-the/9781788998437/
 
 https://github.com/juanpetterson/angular-the-complete-guide
 
