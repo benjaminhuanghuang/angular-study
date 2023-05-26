@@ -1,6 +1,8 @@
 # Reactive Patterns with RxJS for Angular
 https://learning.oreilly.com/library/view/reactive-patterns-with/9781801811514/
 
+https://github.com/PacktPublishing/Reactive-Patterns-with-RxJS-for-Angular
+
 
 ## Part 1 – Introduction
 - Chapter 1: The Power Of The Reactive Paradigm
