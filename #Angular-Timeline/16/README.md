@@ -1,4 +1,4 @@
-# Angular 
+# Angular 16
 released on 03 May 2023.
 
 Angular v16 requires node.js version v16 or v18
@@ -19,3 +19,7 @@ Standalone Project Support.
 ```
 ng new --standalone
 ```
+
+
+## Angular 16.1 
+6.14
