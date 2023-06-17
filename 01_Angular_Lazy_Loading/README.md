@@ -1,3 +1,10 @@
+
+Using modules to group related pieces of functionality of application is the ability to load those pieces on demand
+
+Modules that are lazily loaded will only be loaded when the user `navigates to their routes`.
+
+
+
 ## Eager loading
 Eager loading is the `default` loading strategy for components in Angular. 
 It loads all the components registered in the app module for the first time. Once all the components are loaded, they will be rendered on the page.
