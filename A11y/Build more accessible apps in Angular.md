@@ -64,3 +64,40 @@ Use chrome inspect -> lighthouse -> check Accessibility, Desktop -> generate rep
 
 Using semantic HTML
 semantic HTML ensure that screen reader in keyboard navigation can understand the interactions and control the HTML
+use head correctly
+use button instead of div 
+add aria-label(Accessible Rich Internet Applications) labels 
+
+
+```
+import { AllyModule} from '@angular/cdk/ally';
+@NgModule ({
+declarations: [...].
+imports: [
+  A11yModule
+]
+})
+```
+
+cdkFocusInitial: 
+
+
+LiveAnnouncer
+```
+import { LiveAnnouncer } from '@angular/cdk/ally'
+
+this.liveAnnouncer.announce('Welcome to our store!', 'polite');
+```
+
+High contrast mode
+```
+// .scss
+
+@use '@angular /cdk'
+
+button {
+  @include cdk.high-contrast() {
+  outline: solid 1px;
+  }
+}
+```
