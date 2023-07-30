@@ -1,5 +1,4 @@
-# Todo Project using Angular 16 with ASP NET Web API
-https://www.youtube.com/watch?v=4Zo_c_lI0xs
+
 
 
 
