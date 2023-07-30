@@ -30,6 +30,10 @@ export class TodoService {
   }
 
   getAllDeletedTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(this.baseApiUrl + 'api/todo/deleted');
+    return this.http.get<Todo[]>(this.baseApiUrl + 'api/todo/get-deleted-todos');
+  }
+
+  undoDeletedTodo(id: string): Observable<Todo> {
+    return this.http.put<Todo>(this.baseApiUrl + 'api/todo/undo-deleted-todo/' + id, null);
   }
 }

@@ -51,9 +51,10 @@ namespace TodoApp.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> AddTodo([FromRoute] Guid guid, Todo todoUpdateRequest)
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> UpdateTodo([FromRoute] Guid id, Todo todoUpdateRequest)
         {
-            var todo = await _todoDbcontext.Todos.FindAsync(guid);
+            var todo = await _todoDbcontext.Todos.FindAsync(id);
             if (todo == null)
             {
                 return NotFound();
@@ -66,17 +67,33 @@ namespace TodoApp.API.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteTodoById([FromRoute] Guid guid)
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> DeleteTodo([FromRoute] Guid id)
         {
-            var todo = await _todoDbcontext.Todos.FindAsync(guid);
+            var todo = await _todoDbcontext.Todos.FindAsync(id);
             if (todo == null)
             {
                 return NotFound();
             }
-            todo.IsCompleted = true;
+            todo.IsDeleted = true;
             todo.CompletedDate = DateTime.Now;
             await _todoDbcontext.SaveChangesAsync();
             return Ok(todo);
         }
+
+        [HttpPut]
+        [Route("undo-deleted-todo/{id:Guid}")]
+        public async Task<IActionResult> UndoDeletedTodo([FromRoute] Guid id)
+        {
+            var todo = await _todoDbcontext.Todos.FindAsync(id);
+            if (todo == null)
+            {
+                return NotFound();
+            }
+            todo.IsDeleted = false;
+            todo.DeletedDate = null;
+            await _todoDbcontext.SaveChangesAsync();
+            return Ok(todo);
+        }   
     }
 }

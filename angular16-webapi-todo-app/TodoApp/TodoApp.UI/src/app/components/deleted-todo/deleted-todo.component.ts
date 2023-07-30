@@ -15,10 +15,17 @@ export class DeletedTodoComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.getDeletedTodos();
+  }
+  getDeletedTodos() {
     this.todoService.getAllDeletedTodos().subscribe((todos: Todo[]) => {
+      this.todos = todos;
+    });
+
+  }
+  undoDeletedTodo(id: string) {
+    this.todoService.undoDeletedTodo(id).subscribe((todo: Todo) => {
+      this.getDeletedTodos();
     });
   }
-
-  undoDeleteTado(id: string) {
-
-  }
+}
