@@ -36,7 +36,7 @@ export class App {
     this.quantity.update(curr => curr + 1);
 
     // update part of the current value
-    this.selectedVehicle.mutate(v => v.price = v.price + (v.price * 0.2);
+    this.selectedVehicle.mutate(v => v.price = v.price + (v.price * 0.2));
   }
 
   onQuantitySeLected(qty: number) {
