@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, effect, signal } from '@angular/core';
+import { Component, computed, effect, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { bootstrapApplication } from '@angular/platform-browser';
 
@@ -15,6 +15,10 @@ import { bootstrapApplication } from '@angular/platform-browser';
     <option disabled value="">--Select a quantity--</option>
     <option *ngFor="let q of qtyAvailable()">{{ q }}</option>
   </select>
+  <div>Vehicle: {{selectedVehicle().name}}</div>
+  <div>Price: {{selectedVehicle().price|number:'1.2-2'}}</div>
+
+  <div style="font-weight:bold">Total: {{exPrice()|number:'1.2-2'}}</div>
   `
 })
 export class App {
@@ -24,6 +28,7 @@ export class App {
 
   selectedVehicle = signal<Vehicle>({ id: 1, name: "ABC123", price: 1000 });
   vehicles = signal<Vehicle[]>([]);
+  exPrice = computed(() => this.selectedVehicle().price * this.quantity());
 
   constructor() {
     console.log(this.quantity());
