@@ -1,3 +1,5 @@
+Signal = value + change notification
+
 A Signal according to Angular documentation is:
 A wrapper around a value that can notify interested consumers when that value changes. Signals can contain any value, from simple primitives to complex data structures.
 
