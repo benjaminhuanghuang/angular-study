@@ -13,5 +13,7 @@
   # next major version
   ng update --next 
 
+  ng update @angular/cli @angular/core --next
+
   ng update --next --force
 ```
