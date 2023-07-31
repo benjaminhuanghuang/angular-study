@@ -12,7 +12,7 @@ import {fromObservable} from '@angular/core/rxjs-interop';
   Automatically unsubscribe
   Modifies teh signal when Observable emits
 */
-vehicles = formObservable<Vehicle[], Vehicle[]>(this.vehicles$, []);
+vehicles = toSignal(this.vehicles$, { initialValue: [] as Vehicle[] });
 ```
 
 ```

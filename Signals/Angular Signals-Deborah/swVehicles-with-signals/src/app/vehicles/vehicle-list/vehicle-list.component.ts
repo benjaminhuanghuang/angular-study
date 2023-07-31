@@ -13,11 +13,12 @@ export class VehicleListComponent {
   errorMessage = '';
 
   // Component signals
+  // replace this.vehicleService.vehicles$().pipe()
   vehicles = computed(() => {
     try {
       return this.vehicleService.vehicles();
     } catch (e) {
-      this.errorMessage = typeof e === 'string'? e : 'Error';
+      this.errorMessage = typeof e === 'string' ? e : 'Error';
       return [];
     }
   });

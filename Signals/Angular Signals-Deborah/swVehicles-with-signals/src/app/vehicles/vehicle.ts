@@ -14,7 +14,7 @@ export interface Vehicle {
   cost_in_credits: string
   passengers: number;
   vehicle_class: string;
-  films: string[];
+  films: string[];  // URL to the endpoint of the films
   price?: number;
 }
 

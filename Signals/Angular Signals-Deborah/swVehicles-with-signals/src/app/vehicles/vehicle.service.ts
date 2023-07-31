@@ -19,7 +19,7 @@ import { Film, Vehicle, VehicleResponse } from './vehicle';
 export class VehicleService {
   private url = 'https://swapi.py4e.com/api/vehicles';
 
-  // First page of vehicles
+  // First page of vehicles from the API
   // If the price is empty, randomly assign a price
   // (We can't modify the backend in this demo)
   private vehicles$ = this.http.get<VehicleResponse>(this.url).pipe(
@@ -36,9 +36,9 @@ export class VehicleService {
   );
 
   // Expose signals from this service
-  vehicles = toSignal(this.vehicles$, {initialValue: [] as Vehicle[]});
+  vehicles = toSignal(this.vehicles$, { initialValue: [] as Vehicle[] });
   selectedVehicle = signal<Vehicle | undefined>(undefined);
-  
+
   private vehicleFilms$ = toObservable(this.selectedVehicle).pipe(
     filter(Boolean),
     switchMap(vehicle =>
@@ -46,7 +46,7 @@ export class VehicleService {
         this.http.get<Film>(link)))
     )
   );
-  vehicleFilms = toSignal<Film[], Film[]>(this.vehicleFilms$, {initialValue: []});
+  vehicleFilms = toSignal<Film[], Film[]>(this.vehicleFilms$, { initialValue: [] });
 
   constructor(private http: HttpClient) {
   }
