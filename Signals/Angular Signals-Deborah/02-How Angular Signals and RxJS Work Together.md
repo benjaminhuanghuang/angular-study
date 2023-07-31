@@ -1,5 +1,6 @@
 # How Angular Signals and RxJS Work Together
-https://www.youtube.com/watch?v=5SD995zKvbk
+https://www.youtube.com/watch?v=5SD995zKvbk&list=PLErOmyzRKOCr07Kcnx75Aqh6PWSbIokPB&index=2
+
 
 ## bind a vehicles to UI
 ```
