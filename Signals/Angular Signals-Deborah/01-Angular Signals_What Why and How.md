@@ -37,6 +37,7 @@ Use signal methods
 quantity.update(current => current + 1);
 
 // Mutate content in place, not value itself 
+// update part of current value 
 selectedVehicle.mutate(v => v.price = v.price + 1);
 ```
 Define a computed 
