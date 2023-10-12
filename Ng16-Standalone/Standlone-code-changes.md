@@ -14,8 +14,8 @@ import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  standalone: true,                       // this is a standalone component
+  imports: [CommonModule, RouterOutlet],  // import the components that are used in the template
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
