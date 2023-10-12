@@ -34,5 +34,11 @@ any change so if you put a value in a signal and you change the value of the sig
 import { signal } from '@angular/core';
 
 _digit = signal(0);
+
+_digit.set(10);
 ```
-56:16
+
+In template
+```
+<div>{{_digit()}}</div>
+```

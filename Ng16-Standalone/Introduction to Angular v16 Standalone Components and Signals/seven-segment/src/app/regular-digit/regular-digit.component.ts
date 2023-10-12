@@ -12,6 +12,6 @@ export class RegularDigitComponent {
   _digit = signal(0);
 
   @Input() set digit(value: number) {
-    this._digit = value;
+    this._digit.set(value);
   }
 }
