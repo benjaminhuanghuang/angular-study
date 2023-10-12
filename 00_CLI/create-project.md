@@ -1,3 +1,15 @@
+Creating a New Angular App
+```
+ng new \
+    --directory <your-folder-name> \
+    --routing \
+    --skip-git \
+    --skip-tests \
+    --standalone \
+    --strict \
+    --style scss \
+    <your-project-name>
+``````
 
 ```
   ng new <project>
@@ -25,4 +37,3 @@ The strict mode
 - Reduced bundle size budgets by ~75%
 - Turns on no-any TSLint rule to prevent declarations of type any
 - Marks your application as side-effect free to enable more advanced tree-shaking
-
