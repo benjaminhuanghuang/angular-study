@@ -1,3 +1,9 @@
+## main.ts
+```
+bootstrapApplication(AppComponent, appConfig)
+  .catch((err) => console.error(err));
+```
+router is defined in appConfig
 
 
 ## app.component.ts
