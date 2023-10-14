@@ -42,3 +42,8 @@ In template
 ```
 <div>{{_digit()}}</div>
 ```
+
+## computed
+
+
+## Form control
