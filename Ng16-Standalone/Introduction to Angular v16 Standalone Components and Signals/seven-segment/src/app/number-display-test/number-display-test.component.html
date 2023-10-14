@@ -1,5 +1,25 @@
-<p>number-display-test works!</p>
+<form class="form-container">
+  <!-- Let the user enter a number -->
+  <label for="number">Number to display:</label>
+  <input id="number" type="number" [formControl]="numberInput" />
 
-<app-regular-number [number]="1"></app-regular-number>
+  <!-- Let the user choose the number of digits -->
+  <label for="digits">Number of digits:</label>
+  <input id="digits" type="number" [formControl]="numberOfDigitsInput" />
 
-<app-seven-segment-number [number]="1234"></app-seven-segment-number>
+  <!-- Let the user choose the precision -->
+  <label for="precision">Precision:</label>
+  <input id="precision" type="number" [formControl]="precision" />
+
+  <!-- Let the user enter text for the sixteen segments display -->
+  <label for="sixteenSegmentsDisplay">16 segments display:</label>
+  <input id="sixteenSegmentsDisplay" type="text" [formControl]="sixteenSegmentsDisplayText" />
+</form>
+
+<!-- Display the number using the regular display -->
+<h2>Regular Display</h2>
+<app-regular-number [number]="(numberInput.valueChanges | async) ?? 0"></app-regular-number>
+
+<!-- Display the number using the seven segments display -->
+<h2>Seven Segments Display</h2>
+<app-seven-segment-number [number]="(numberInput.valueChanges | async) ?? 0"></app-seven-segment-number>
