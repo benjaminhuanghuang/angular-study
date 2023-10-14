@@ -5,14 +5,29 @@ https://codelabs.developers.google.com/angular-a11y#0
 
 https://github.com/googlecodelabs/angular-accessibility
 
-Web content Accessibility Guidelines (WCAG) 2.0
+## Why
+A11y ensuring that users can perceive, understand, navigate, and interact with apps.
 
-## Manually testing accessibility
-Turn computer build-in screen reader and navigating through the app with keyboard navigation.
+1/4 US adults have a disability that impacts their major life activities.
+
+about 15% of the world's population-- more than 1 billion people have some form of disability, with about 2% to 4% experiencing significant difficulties.
+
+The demo app will meet 
+- meet WCAG(Web content Accessibility Guidelines) 2.0
+- meet ARIA(Web Accessibility Initiative Accessible Rich Internet Applications specification) 1.2
+- pass Axe and Lighthouse accessibility
+
+## How do we know what we want to fix
+
+
+
+
+### Manually testing accessibility
+- Turn computer build-in screen reader and navigating through the app with keyboard navigation.
 https://web.dev/semantics-and-screen-readers/
 
 
-Use chrome inspect -> lighthouse -> check Accessibility, Desktop -> generate report
+- Use chrome inspect -> lighthouse -> check Accessibility, Desktop -> generate report
 ![](./a11y-error.png)
 
 Use eslint
