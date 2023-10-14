@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  /*regular digits*/
+  --rd-color: red;
+  --rd-font-family: 'Courier New', Courier, monospace;
+  --rd-font-size: 85px;
+
+  --ssd-segment-fill: red;
+  --ssd-separator-stroke: #EEEEEE;
+  --ssd-separator-width: 0.25px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

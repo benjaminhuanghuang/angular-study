@@ -9,7 +9,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./regular-digit.component.scss']
 })
 export class RegularDigitComponent {
-  _digit = signal(0);
+  /** Signal for digit; -1 means that the signal should not be displayed */
+  _digit = signal<number>(-1);
 
   @Input() set digit(value: number) {
     this._digit.set(value);
