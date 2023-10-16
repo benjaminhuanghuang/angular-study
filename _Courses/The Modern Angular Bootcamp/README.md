@@ -1,4 +1,6 @@
 # The Modern Angular Bootcamp
+by Stephen Grider
+
 https://www.udemy.com/course/the-modern-angular-bootcamp/
 
 https://www.bilibili.com/video/BV18K411Q7Fx/
