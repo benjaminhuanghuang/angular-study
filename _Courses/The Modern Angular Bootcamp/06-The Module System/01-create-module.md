@@ -17,7 +17,7 @@ The folder structure will look like this:
 ```
 
 MODULE_NAME.module.ts
-```
+```ts
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -33,7 +33,7 @@ import { MODULE_NAMERoutingModule } from './MODULE_NAME-routing.module';
 ```
 
 MODULE_NAME-routing.module.ts
-```
+```ts
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
