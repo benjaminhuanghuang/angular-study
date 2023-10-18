@@ -22,7 +22,7 @@ https://www.bilibili.com/video/BV18K411Q7Fx/
 - Handling Data and HTTP Requests
 - App Security in Angular
 - RxJs From the Fundamentals ⭐
-- Bonus - Typescript † RxJs! ⭐
+- Bonus - Typescript + RxJs! ⭐
 - Exercise! A Photo-Fetching App
 - Credit Card Payments with Reactive Forms ⭐
 - Simple Data Entry with Template Forms ⭐
