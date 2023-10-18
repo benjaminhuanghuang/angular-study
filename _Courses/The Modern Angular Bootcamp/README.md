@@ -4,6 +4,7 @@ by Stephen Grider
 https://www.udemy.com/course/the-modern-angular-bootcamp/
 
 https://www.bilibili.com/video/BV18K411Q7Fx/
+https://www.bilibili.com/video/BV1Ld4y1y7ue/
 
 
 ## Table of Contents
@@ -27,7 +28,7 @@ https://www.bilibili.com/video/BV18K411Q7Fx/
 - Credit Card Payments with Reactive Forms ⭐
 - Simple Data Entry with Template Forms ⭐
 - Build a Fast-Paced Math Game
-- Custom Validators
+- Custom Validators ⭐
 - Handling Authentication ⭐
 - More on Angular App Security
 - Build a Real Email Client! ⭐
