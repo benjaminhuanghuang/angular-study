@@ -23,3 +23,17 @@
 
   ng g c shared/Input
 ```
+![](./modules-routing.png)
+
+
+## Signup
+
+
+## Style
+```
+  npm i semantic-ui-css
+```
+Modify style.css
+```
+  @import 'semantic-ui-css/semantic.css'
+```
