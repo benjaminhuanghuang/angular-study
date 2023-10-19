@@ -3,5 +3,11 @@ const input = document.querySelector("input");
 input.addEventListener("input", (event) => {
   let text = event.target.value;
 
-  console.log(parsInt(text));
+  if (isNaN(text)) {
+    throw new Error("You must enter a number!");
+  }
 });
+
+const logValue = (value) => {
+  console.log(`Your value: ${value}`);
+};
