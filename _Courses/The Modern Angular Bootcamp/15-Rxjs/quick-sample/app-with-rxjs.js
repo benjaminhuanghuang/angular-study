@@ -3,7 +3,7 @@ const { map } = rxjs.operators;
 
 const input = document.querySelector("input");
 const observable = fromEvent(input, "input").pipe(
-  map((event) => event.target.value),
+  pluck("target", "value"), // return event.target.value
   map((value) => parseInt(value)),
   map((value) => {
     if (isNaN(value)) {
