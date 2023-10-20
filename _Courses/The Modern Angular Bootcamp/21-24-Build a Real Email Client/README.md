@@ -104,3 +104,9 @@ Error handling
 ```
 
 ## Nav Header
+
+
+## Auth status
+```
+  Observable<boolean>
+```
