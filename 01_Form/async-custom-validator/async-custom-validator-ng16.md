@@ -1,3 +1,6 @@
+
+https://itnext.io/custom-async-form-validator-in-angular-f42082a31e03
+
 ## Create custom validation
 ```
    ng g class auth/validators/UniqueUsername
@@ -6,39 +9,21 @@
 
 ## Validator class
 ```ts
-import { AsyncValidator, FormControl } from '@angular/forms'; // validator = interface
-import { Injectable } from '@angular/core';
-import { map, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
-import { AuthService } from '../auth.service';
+import { AbstractControl, AsyncValidatorFn } from '@angular/forms';
+import {  timer } from 'rxjs';
+import {  map, switchMap } from 'rxjs/operators';
+import { UsernameService } from '../services/username.service';
 
-@Injectable({ providedIn: 'root' })
-export class UniqueUsername implements AsyncValidator {
-    constructor(private authService: AuthService) { }
-
-    validate = (control: FormControl) => {
-        const { value } = control;
-        // Call api 
-        return this.authService.usernameAvailable(value).pipe(
-            map((value) => {
-                // if (value.available) {
-                //     return null;
-                // }
-                // errors won't ever hit a map function, so we can be sure whatever is here is 200
-                return null;
-            }),
-            catchError((err) => {
-                // we always need to return an observable from catchError
-                // of is a shortcut to create an observable, it will just emit that value and that's it
-                if (err.error.username) {
-                    return of({ nonUniqueUsername: true });
-                } else {
-                    return of({ noConnection: true });
-                }
-
-            })
+export function userNameValidator(
+    usernameService: UsernameService,
+): AsyncValidatorFn {
+    return (control: AbstractControl) => {
+        return timer(500).pipe(
+            switchMap(() =>
+                usernameService.checkUserNameAvailable(control.value)
+                .pipe(map((result: {exists: boolean}) => result.exists ? {asyncInvalid: true} : null)))
         );
-    }
+    };
 }
 ```
 
@@ -60,8 +45,6 @@ export class SignupComponent implements OnInit {
   });
 
   constructor(
-    private router: Router,
-    private matchPassword: MatchPassword,
     private uniqueUsername: UniqueUsername,
     private authService: AuthService) { }
 }

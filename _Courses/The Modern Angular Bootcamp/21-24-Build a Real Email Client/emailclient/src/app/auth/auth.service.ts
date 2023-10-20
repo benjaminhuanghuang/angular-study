@@ -30,6 +30,9 @@ interface SigninResponse {
   username: string;
 }
 
+/*
+
+*/
 @Injectable({
   providedIn: 'root'
 })
@@ -39,6 +42,7 @@ export class AuthService {
   signedin$ = new BehaviorSubject(null);
   username = '';
 
+  // Inject HttpClient
   constructor(private http: HttpClient) { }
 
   usernameAvailable(username: string): Observable<UsernameAvailableResponse> {

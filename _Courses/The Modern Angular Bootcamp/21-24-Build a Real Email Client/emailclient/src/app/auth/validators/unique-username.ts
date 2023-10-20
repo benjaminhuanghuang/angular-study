@@ -1,17 +1,14 @@
-import { AsyncValidator, FormControl } from '@angular/forms'; // validator = interface
-import { Injectable } from '@angular/core';
-import { map, catchError } from 'rxjs/operators';
+import { AbstractControl, AsyncValidatorFn } from '@angular/forms';
 import { of } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+//
 import { AuthService } from '../auth.service';
 
-@Injectable({ providedIn: 'root' })
-export class UniqueUsername implements AsyncValidator {
-  constructor(private authService: AuthService) { }
-
-  validate = (control: FormControl) => {
+export function userNameValidator(authService: AuthService): AsyncValidatorFn {
+  return (control: AbstractControl) => {
     const { value } = control;
-    // Call api
-    return this.authService.usernameAvailable(value).pipe(
+
+    return authService.usernameAvailable(value).pipe(
       map((value) => {
         // if (value.available) {
         //     return null;
@@ -27,8 +24,7 @@ export class UniqueUsername implements AsyncValidator {
         } else {
           return of({ noConnection: true });
         }
-
       })
     );
-  }
+  };
 }
