@@ -39,7 +39,7 @@ interface SigninResponse {
 export class AuthService {
 
   rootUrl = 'https://api.angular-email.com/auth';
-  signedin$ = new BehaviorSubject(null);
+  signedin$ = new BehaviorSubject(false);
   username = '';
 
   // Inject HttpClient

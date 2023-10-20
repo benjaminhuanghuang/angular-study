@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 //
 import { matchPassword } from '../validators/match-password';
 import { AuthService } from '../auth.service';
-import { UniqueUsername } from '../validators/unique-username';
+import { userNameValidator } from '../validators/unique-username';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +18,7 @@ export class SignupComponent {
       Validators.minLength(3),
       Validators.maxLength(20),
       Validators.pattern(/^[a-z0-9]+$/)
-    ]),
+    ], [userNameValidator(this.authService)]),
     password: new FormControl('', [
       Validators.required,
       Validators.minLength(4),
@@ -32,6 +32,5 @@ export class SignupComponent {
   }, { validators: matchPassword });  //custom validator
 
   constructor(private router: Router,
-    private uniqueUsername: UniqueUsername,
     private authService: AuthService) { }
 }

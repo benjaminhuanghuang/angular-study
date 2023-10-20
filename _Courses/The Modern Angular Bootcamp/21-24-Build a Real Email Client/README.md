@@ -85,6 +85,7 @@ Class-Based Custom Sync Validator
   ng g c shared/Input
 ```
 export InputComponent in shared.module.ts
+import ReactiveFormsModule in shared.module.ts
 
 import SharedModule in auth.module.ts
 
@@ -94,3 +95,12 @@ use InputComponent in signup.component.html
 ```
 
 Error handling
+```html
+<div *ngIf="showErrors()" class="ui pointing red basic label">
+      <p *ngIf="control.errors?.['required']">
+          Value is required`
+      </p>
+</div>
+```
+
+## Nav Header
