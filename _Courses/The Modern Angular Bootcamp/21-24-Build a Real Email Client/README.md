@@ -72,3 +72,9 @@ Class-Based Custom Sync Validator
 
   ng g class auth/validators/UniqueUsername
 ```
+
+
+## Create Auth Service
+```
+  ng g service auth/Auth
+```
