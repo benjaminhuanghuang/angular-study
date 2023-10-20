@@ -107,6 +107,11 @@ Error handling
 
 
 ## Auth status
+Requirements of the Signedin Observable
+- We must be able to get it to emit a new value 'from the outside'
+- We must be able to give it a default, or starting, value
+- New subscribers must be given the value from it immediately after subscribing
+
 ```
-  Observable<boolean>
+  BehaviorSubject<boolean>
 ```
