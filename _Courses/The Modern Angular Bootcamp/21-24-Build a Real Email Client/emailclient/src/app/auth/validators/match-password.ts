@@ -1,16 +1,14 @@
-import { Injectable } from '@angular/core';
-import { Validator, FormGroup } from '@angular/forms';
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
 
-@Injectable({ providedIn: 'root' })
-export class MatchPassword implements Validator {
-  validate(formGroup: FormGroup) {
-    const { password, passwordConfirmation } = formGroup.value;
-    if (password === passwordConfirmation) {
-      return null;
-    } else {
-      return {
-        passwordsDontMatch: true
-      };
+export const matchPassword: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  const password = control.get('password');
+  const passwordConfirmation = control.get('passwordConfirmation');
+  if (password && passwordConfirmation && password?.value !== passwordConfirmation?.value) {
+    return {
+      passwordmatcherror: true
     }
+  }
+  else {
+    return null;
   }
 }

@@ -6,6 +6,7 @@ https://www.udemy.com/course/the-modern-angular-bootcamp/
 https://www.bilibili.com/video/BV18K411Q7Fx/
 https://www.bilibili.com/video/BV1Ld4y1y7ue/
 
+https://github.com/JadeHendricks/the-modern-angular-bootcamp
 
 ## Table of Contents
 - Welcome! Start Here!

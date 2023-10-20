@@ -25,3 +25,17 @@ const observable = fromEvent (input, 'input');
 // write this in the real world
 observable;
 ```
+
+## Unicast Observables / Cold Observables
+Emit a separate set of values for each observer that subscribes
+All of the operators in a pipe will be executed for each separate observer that subscribes
+Can easily lead to bad behavior!
+Event stream recreated for each new subscriber
+
+## Multicast Observables / Hot Observables
+Emit a single set of values for all observers that subscribe
+All of the operators in a pipe are executed just once
+The observable will be 'reset' if it gets 'completed' or 'errored' then another subscriber is added
+Quickly runs into issues with a later subscriber not seeing earlier events!
+
+Single event stream shared for all subscribers old and new

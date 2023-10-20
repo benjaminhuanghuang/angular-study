@@ -1,7 +1,27 @@
-import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
-//
-import { matchPassword } from '../validators/match-password';
+
+
+
+## Custom Validator
+The validator is ValidatorFn
+```ts
+import { AbstractControl, ValidationErrors, ValidatorFn } from "@angular/forms";
+
+export const matchPassword: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+  const password = control.get('password');
+  const passwordConfirmation = control.get('passwordConfirmation');
+  if (password && passwordConfirmation && password?.value !== passwordConfirmation?.value) {
+    return {
+      passwordmatcherror: true
+    }
+  }
+  else {
+    return null;
+  }
+}
+```
+
+## Use the validator
+```ts
 
 @Component({
   selector: 'app-signup',
@@ -27,6 +47,5 @@ export class SignupComponent {
       Validators.maxLength(20),
     ])
   }, { validators: matchPassword });  //custom validator
-
-  constructor() { }
 }
+```
