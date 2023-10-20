@@ -5,19 +5,18 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutingModule } from './auth-routing.module';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
-import { MatchPassword } from './validators/match-password';
-
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     SigninComponent,
     SignupComponent,
-    MatchPassword
   ],
   imports: [
     CommonModule,
     AuthRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ]
 })
 export class AuthModule { }

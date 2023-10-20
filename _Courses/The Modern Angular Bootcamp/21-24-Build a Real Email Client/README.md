@@ -78,3 +78,19 @@ Class-Based Custom Sync Validator
 ```
   ng g service auth/Auth
 ```
+
+
+## Reusable Input Component
+```
+  ng g c shared/Input
+```
+export InputComponent in shared.module.ts
+
+import SharedModule in auth.module.ts
+
+use InputComponent in signup.component.html
+```html
+  <app-input label="Username" [control]="authForm.get('username')" inputType="text"></app-input>
+```
+
+Error handling
