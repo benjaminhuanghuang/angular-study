@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 //
 import { matchPassword } from '../validators/match-password';
+import { AuthService } from '../auth.service';
+import { UniqueUsername } from '../validators/unique-username';
 
 @Component({
   selector: 'app-signup',
@@ -28,5 +31,7 @@ export class SignupComponent {
     ])
   }, { validators: matchPassword });  //custom validator
 
-  constructor() { }
+  constructor(private router: Router,
+    private uniqueUsername: UniqueUsername,
+    private authService: AuthService) { }
 }
