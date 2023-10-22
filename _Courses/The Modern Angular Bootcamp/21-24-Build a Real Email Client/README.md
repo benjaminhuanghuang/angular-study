@@ -106,6 +106,18 @@ Error handling
 ## Nav Header
 
 
+## Auth routing
+app-routing.module.ts
+```ts
+const routes: Routes = [
+  { path: 'signout', component: SignoutComponent },
+  {
+    path: 'signup', component: SignupComponent
+  },
+  { path: '', component: SigninComponent }
+];
+```
+
 ## Auth status
 Requirements of the Signedin Observable
 - We must be able to get it to emit a new value 'from the outside'
@@ -114,4 +126,14 @@ Requirements of the Signedin Observable
 
 ```
   BehaviorSubject<boolean>
+```
+
+## AuthHttpInterceptor
+```
+  ng g class auth/AuthHttpInterceptor
+```
+
+## Sign out
+```
+  ng g c auth/Signout
 ```

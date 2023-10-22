@@ -1,3 +1,11 @@
+## auth-routing.module.ts
+```ts
+const routes: Routes = [
+  { path: 'signout', component: SignoutComponent },
+  { path: 'signup', component: SignupComponent },
+  { path: '', component: SigninComponent }
+];
+```
 
 ## Show different links based on authentication status
 ```html
