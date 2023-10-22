@@ -22,3 +22,22 @@ app-routing.module.ts
     { path: 'inbox', loadChildren: () => import('./inbox/inbox.module').then(m => m.InboxModule) },
   ];
 ```
+
+## Navigate to 'index' after sign in /sing up
+signin.component.ts
+```ts
+ onSubmit(): void {
+    if (this.authForm.invalid) {
+      return;
+    }
+
+    this.authService.signin(this.authForm.value as SigninCredentials).subscribe({
+      next: (response) => {
+        // Navigate to some other route
+        this.router.navigateByUrl('/inbox');
+      }
+    });
+  }
+```
+
+## Guard path

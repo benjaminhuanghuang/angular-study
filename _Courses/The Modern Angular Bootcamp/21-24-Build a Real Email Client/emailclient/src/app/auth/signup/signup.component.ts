@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 //
 import { matchPassword } from '../validators/match-password';
-import { AuthService } from '../auth.service';
+import { AuthService, SignupCredentials } from '../auth.service';
 import { userNameValidator } from '../validators/unique-username';
 
 @Component({
@@ -33,4 +33,23 @@ export class SignupComponent {
 
   constructor(private router: Router,
     private authService: AuthService) { }
+
+
+  onSubmit(): void {
+    if (this.authForm.invalid) {
+      return;
+    }
+
+    this.authService.signup(this.authForm.value as SignupCredentials).subscribe({
+      next: (response) => {
+        // Navigate to some other route
+        this.router.navigateByUrl('/inbox');
+      },
+      error: ({ error }) => {
+        if (error.username || error.password) {
+          this.authForm.setErrors({ credentials: true });
+        }
+      }
+    });
+  }
 }

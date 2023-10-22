@@ -7,7 +7,7 @@ interface UsernameAvailableResponse {
   available: boolean;
 }
 
-interface SignupCredentials {
+export interface SignupCredentials {
   username: string;
   password: string;
   passwordConfirmation: string;
