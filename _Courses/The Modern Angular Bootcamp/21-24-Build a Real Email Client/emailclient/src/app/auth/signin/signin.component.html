@@ -5,7 +5,7 @@
     <div
         *ngIf="authForm.errors"
         class="ui red basic label">
-        <p *ngIf="authForm.errors.credentials">
+        <p *ngIf="authForm.errors['credentials']">
             Invalid username or password.
         </p>
     </div>

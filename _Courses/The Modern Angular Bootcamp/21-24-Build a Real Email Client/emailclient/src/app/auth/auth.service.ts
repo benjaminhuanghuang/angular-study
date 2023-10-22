@@ -12,7 +12,8 @@ interface SignupCredentials {
   password: string;
   passwordConfirmation: string;
 }
-interface SigninCredentials {
+
+export interface SigninCredentials {
   username: string;
   password: string;
 }

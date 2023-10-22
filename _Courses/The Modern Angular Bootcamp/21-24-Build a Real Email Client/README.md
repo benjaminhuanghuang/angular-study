@@ -137,3 +137,12 @@ Requirements of the Signedin Observable
 ```
   ng g c auth/Signout
 ```
+
+
+## Sign in
+```
+  ng g c auth/Signin
+```
+
+
+## inbox module

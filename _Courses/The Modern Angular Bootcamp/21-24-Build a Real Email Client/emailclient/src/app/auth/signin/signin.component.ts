@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 //
-import { AuthService } from '../auth.service';
+import { AuthService, SigninCredentials } from '../auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -33,19 +33,18 @@ export class SigninComponent implements OnInit {
   onSubmit(): void {
     if (this.authForm.invalid) {
       return;
-    } else {
-      this.authService.signin(this.authForm.value).subscribe({
-        next: (response) => {
-          // Navigate to some other route
-          this.router.navigateByUrl('/inbox');
-        },
-        error: ({ error }) => {
-          if (error.username || error.password) {
-            this.authForm.setErrors({ credentials: true });
-          }
-        }
-      });
     }
-  }
 
+    this.authService.signin(this.authForm.value as SigninCredentials).subscribe({
+      next: (response) => {
+        // Navigate to some other route
+        this.router.navigateByUrl('/inbox');
+      },
+      error: ({ error }) => {
+        if (error.username || error.password) {
+          this.authForm.setErrors({ credentials: true });
+        }
+      }
+    });
+  }
 }
