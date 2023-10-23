@@ -2,9 +2,29 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 //
 import { HomeComponent } from './home/home.component';
+import { PlaceholderComponent } from './placeholder/placeholder.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }    // the path is not 'index'
+  {
+    path: '',  // the path is not 'index'
+    component: HomeComponent,
+    children: [
+      // {
+      //   path: 'not-found',
+      //   component: NotFoundComponent,
+      // },
+      // {
+      //   path: ':id',
+      //   component: EmailShowComponent,
+      //   resolve: { email: EmailResolverService }
+      // },
+      {
+        path: '',
+        component: PlaceholderComponent
+      }
+    ]
+  },
+
 ];
 
 
