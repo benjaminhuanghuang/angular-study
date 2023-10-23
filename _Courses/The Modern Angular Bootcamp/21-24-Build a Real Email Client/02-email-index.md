@@ -63,6 +63,7 @@ call in the App component
   ng g c Inbox/EmailIndex
   ng g c Inbox/EmailShow
   ng g c Inbox/PLaceholder
+  ng g c Inbox/NotFound
 
   ng g s Inbox/Email
 
@@ -71,3 +72,37 @@ call in the App component
 
 
 ## Child Routing
+
+
+
+## Resolver service
+```
+  ng g s Inbox/EmailResolver
+```
+Resolve was deprecated in v15.2 and will be removed in v17
+
+
+## Reusable EmailFormComponent 
+```
+  ng g c shared/Modal
+```
+export ModalComponent in shared.module.ts
+```ts
+  @NgModule({
+    declarations: [ModalComponent],
+    exports: [ModalComponent]
+  })
+  export class SharedModule { }
+```
+
+import ModalComponent in inbox/inbox.module.ts
+```ts
+  @NgModule({
+    declarations: [
+    ],
+    imports: [
+      SharedModule
+    ]
+  })
+  export class InboxModule { }
+```
