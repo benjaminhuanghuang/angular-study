@@ -65,7 +65,8 @@ call in the App component
   ng g c Inbox/PLaceholder
 
   ng g s Inbox/Email
-  
+
+  ng g interface Inbox/Email
 ```
 
 

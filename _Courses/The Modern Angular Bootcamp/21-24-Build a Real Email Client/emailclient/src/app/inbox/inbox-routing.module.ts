@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 //
 import { HomeComponent } from './home/home.component';
 import { PlaceholderComponent } from './placeholder/placeholder.component';
+import { EmailShowComponent } from './email-show/email-show.component';
 
 const routes: Routes = [
   {
@@ -13,11 +14,11 @@ const routes: Routes = [
       //   path: 'not-found',
       //   component: NotFoundComponent,
       // },
-      // {
-      //   path: ':id',
-      //   component: EmailShowComponent,
-      //   resolve: { email: EmailResolverService }
-      // },
+      {
+        path: ':id',
+        component: EmailShowComponent,
+        //resolve: { email: EmailResolverService }
+      },
       {
         path: '',
         component: PlaceholderComponent
