@@ -55,3 +55,14 @@ Change the default value of the behavior subject to 'null'
 
 If we move the 'checkAuth' call to the guard, we risk not running the function+at all if a user only loads another route: Leave the 'checkAuth'
 call in the App component
+
+## Create email index component
+```
+  ng g c Inbox/EmailCreate
+  ng g c Inbox/EmailReply
+  ng g c Inbox/EmailIndex
+  ng g c Inbox/EmailShow
+
+  ng g s Inbox/Email
+  
+```
