@@ -6,10 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { AuthHttpInterceptor } from './auth/auth-http-interceptor';
+import { EmailFormComponent } from './index/email-form/email-form.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EmailFormComponent
   ],
   imports: [
     BrowserModule,
