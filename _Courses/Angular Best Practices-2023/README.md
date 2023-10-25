@@ -6,7 +6,7 @@ https://app.pluralsight.com/course-player?courseId=72ee291f-986f-45c5-b1b1-4ef20
 https://github.com/jmcooper/whitebeards
 
 ## Course Overview
-Project and folder organization
+Project and folder organization and file naming
 Module organization
 Component and services best practices
 Performance best practices
