@@ -1,6 +1,4 @@
-## Lazy loading feature modules
-1. bundle a feature module
-2. lazy load the feature module in application's routes
+1. lazy load the feature module in application's routes
 app-routing.module.ts
 change
 ```ts
@@ -28,26 +26,7 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent }
 ];
 ```
+
 import user-routing.module.ts in user.module.ts
 
 stop loading the user module eagerly in app.module.ts
-
-
-## Deploying Production Builds
-Build the application for production
-```
-  ng run build --prod
-```
-## Monitoring application bundle sizes
-angular.json
-```json
-"budgets": [
-
-]
-```
-## Immutability and OnPush change
-ChangeDetectionStrategy.OnPush
-
-## detection
-
-## Pure and impure pipes
