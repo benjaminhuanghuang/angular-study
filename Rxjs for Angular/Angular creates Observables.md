@@ -8,11 +8,11 @@ Http client emits the response via an Observable
 ```ts
 // Service
 getProducts(): Observable<Product[]> {
-  return this.http.get<Product|]>(this.productUr1);
+  return this.http.get<Product[]>(this.productUrl);
 }
 
 // Component
 ngOnInit(): void {
-  this.productService.getProducts);
+  this.productService.getProducts();
 }
 ```
