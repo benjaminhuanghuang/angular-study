@@ -42,3 +42,7 @@ bs$.next( 2 );
 // 2
 ```
 BehaviorSubject is hot i.e: code gets executed and emits value even if there is no observer.
+
+
+## ReplaySubject
+can help by keeping a buffer of previous values that will be emitted to new subscriptions.
