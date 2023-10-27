@@ -46,3 +46,41 @@ BehaviorSubject is hot i.e: code gets executed and emits value even if there is 
 
 ## ReplaySubject
 can help by keeping a buffer of previous values that will be emitted to new subscriptions.
+```ts
+import { ReplaySubject } from 'rxjs';
+
+/* create an instance of ReplaySubject. */
+const replaySubject = new ReplaySubject<number>();
+
+/* Subscribe to subject. */
+replaySubject.subscribe({
+  next: (value) => console.log('before:', value),
+  error: (error) => console.error('before', error),
+  complete: () => console.log('complete before')
+});
+
+/* Emit some values. */
+replaySubject.next(1);
+replaySubject.next(2);
+replaySubject.next(3);
+
+/* Subscribe late to subject. */
+replaySubject.subscribe({
+  next: (value) => console.log('after:', value),
+  error: (error) => console.error('after:', error),
+  complete: () => console.log('complete after')
+});
+
+/* Complete the observable stream. */
+replaySubject.complete();
+
+before: 1
+before: 2
+before: 3
+after: 1
+after: 2
+after: 3
+complete before
+complete after
+
+```
