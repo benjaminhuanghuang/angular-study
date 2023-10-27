@@ -1,2 +1,4 @@
-# RxJS in Angular: Reactive Development
-https://app.pluralsight.com/library/courses/rxjs-angular-reactive-development
+# RxJS in Angular: Reactive Development by Deborah Kurata
+https://app.pluralsight.com/course-player?courseId=c3d1cf6f-addf-4f27-8ce4-f90e9814d2cd
+
+https://github.com/DeborahK/Angular-GettingStarted/
