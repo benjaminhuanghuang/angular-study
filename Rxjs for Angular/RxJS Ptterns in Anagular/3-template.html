@@ -1,0 +1,5 @@
+<div *ngIf="products$ | async as products">
+    <button type='button' *ngFor="let product of products">
+        {{ product.productName}}  ({{product.category}})
+    </button>
+</div>
