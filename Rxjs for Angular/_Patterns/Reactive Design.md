@@ -37,4 +37,4 @@ Use observable in template
 ```
 The benefit:
     The async pipe unsubscribe from the observable once the component get destroyed
-    No need to subscribe/unsubscribe from the observable
+    No need to subscribe/unsubscribe the observable at component level, the subscription is managed by the async pipe at the template level
