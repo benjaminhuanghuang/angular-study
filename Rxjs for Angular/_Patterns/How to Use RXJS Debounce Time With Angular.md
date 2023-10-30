@@ -1,5 +1,8 @@
-Debounce time helps efficiently manage user input and optimize application
+# How to Use RXJS Debounce Time With Angular 
 
+https://dev.to/mana95/how-to-use-rxjs-debounce-time-with-angular-4aj5#:~:text=Debounce%20time%20is%20a%20powerful,and%20responsiveness%20of%20your%20application.
+
+Debounce time helps efficiently manage user input and optimize application
 
 ## What is Debounce Time?
 Debounce time is a technique used to prevent an event from being triggered too frequently
