@@ -1,4 +1,6 @@
 # Reactive Patterns with RxJS for Angular
+by Lamis Chebbi, 2021
+
 https://learning.oreilly.com/library/view/reactive-patterns-with/9781801811514/
 
 https://github.com/PacktPublishing/Reactive-Patterns-with-RxJS-for-Angular
