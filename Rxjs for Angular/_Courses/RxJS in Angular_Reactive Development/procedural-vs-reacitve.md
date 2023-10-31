@@ -1,2 +1,0 @@
-## Procedural data retrieval pattern
-
