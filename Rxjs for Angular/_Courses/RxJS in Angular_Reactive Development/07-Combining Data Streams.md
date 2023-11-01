@@ -4,10 +4,11 @@ Flatten higher-order Observables: mergeAll
 Emit a combined value: combineLatest, withLatestFrom, zip
 
 
-## forkJoin
+Don't emit until each input observable emits at least one value:
+- forkJoin
 
 
-## withLatestFrom
+- withLatestFrom
 
 
-## combineLatest
+- combineLatest
