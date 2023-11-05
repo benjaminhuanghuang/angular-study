@@ -58,3 +58,19 @@ use it in app.component.html
 ```
   <app-header></app-header>
 ```
+
+## Crate pages
+```
+cd pages
+ng g c home
+ng g c cart
+```
+
+## Add routing 
+app-routing.module.ts
+```
+  const routes: Routes = [
+    { path: 'home', component: HomeComponent },
+    { path: 'cart', component: CartComponent },
+  ];
+```
