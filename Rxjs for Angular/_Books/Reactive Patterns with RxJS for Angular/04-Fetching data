@@ -1,0 +1,22 @@
+
+# Chapter 4: Fetching Data as Streams
+
+Start the backend:
+```
+  npm  run  server-start
+```
+The server will be running at http://localhost:3001
+
+
+
+Create a Recipe model
+```
+  cd src/app/core/model
+  ng g i Recipe
+```
+
+Create service and retrieve data from the server
+```
+  cd src/app/core/services
+  ng g s Recipe
+```
