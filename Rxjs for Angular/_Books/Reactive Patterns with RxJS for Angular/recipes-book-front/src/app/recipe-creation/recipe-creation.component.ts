@@ -29,7 +29,9 @@ export class RecipeCreationComponent implements OnInit {
     prepTime: [''],
     steps: ['']
   });
+
   tags = recipeTags.TAGS;
+
   valueChanges$ = this.recipeForm.valueChanges.pipe(
     concatMap(formValue => this.service.saveRecipe(formValue as Recipe)),
     catchError(errors => of(errors)),
