@@ -22,4 +22,9 @@ export class RecipesService {
   updateFilter(criteria: Recipe) {
     this.filterRecipeSubject.next(criteria);
   }
+
+  saveRecipe(formValue: Recipe): Observable<Recipe> {
+    return this.http.post<Recipe>(`${BASE_PATH}/recipes/save`, formValue);
+  }
+
 }

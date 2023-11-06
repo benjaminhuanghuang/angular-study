@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { concatMap, map } from 'rxjs/operators';
 import { RecipesService } from '../core/services/recipes.service';
+import { Recipe } from '../core/model/recipe.model';
 
 @Component({
   selector: 'app-recipes-filter',
@@ -24,7 +25,7 @@ export class RecipesFilterComponent implements OnInit {
   }
 
   filterResults() {
-    this.service.updateFilter(this.recipeForm.value);
+    this.service.updateFilter(this.recipeForm.value as Recipe);
   }
 
   clearFilter() {

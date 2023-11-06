@@ -10,6 +10,7 @@ import { DropdownModule } from 'primeng/dropdown';
 import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { RatingModule } from 'primeng/rating';
+import { RadioButtonModule } from 'primeng/radiobutton';
 import { RippleModule } from 'primeng/ripple';
 //
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +20,7 @@ import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipesService } from './core/services/recipes.service';
 import { HeaderComponent } from './components/header/header.component';
 import { RecipesFilterComponent } from './recipes-filter/recipes-filter.component';
+import { RecipeCreationComponent } from './recipe-creation/recipe-creation.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { RecipesFilterComponent } from './recipes-filter/recipes-filter.componen
     HomeComponent,
     RecipesListComponent,
     HeaderComponent,
-    RecipesFilterComponent
+    RecipesFilterComponent,
+    RecipeCreationComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { RecipesFilterComponent } from './recipes-filter/recipes-filter.componen
     ButtonModule,
     RippleModule,
     RatingModule,
+    RadioButtonModule,
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule
