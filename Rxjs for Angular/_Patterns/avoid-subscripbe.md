@@ -1,0 +1,1 @@
+But try to ask yourself, do I really need to subscribe here? Can I instead compose multiple streams together, or use RxJS operators, to achieve what I need without subscribing? Aside from cases where it is unavoidable, never use subscribe().
