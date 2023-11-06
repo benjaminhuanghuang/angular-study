@@ -2,7 +2,7 @@
 ## The backend
 https://github.com/PacktPublishing/Reactive-Patterns-with-RxJS-7-in-Angular-applications
 
-Add proxy.config.json to the root of the frontend project
+Add proxy.conf.json to the root of the frontend project
 ```json
 {
   "/api": {
@@ -17,8 +17,10 @@ Bootstrap
 
 PrimeNG 
 ```
-  npm i primeng primeicons
+  npm i primeng primeicons primeflex
 ```
+DataView depends on PrimeFlex Grid functionality
+
 
 import primeng modules in app.module.ts
 ```ts

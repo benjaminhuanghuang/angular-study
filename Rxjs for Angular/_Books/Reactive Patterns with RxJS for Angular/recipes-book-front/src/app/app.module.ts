@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //
 import { DataViewModule } from 'primeng/dataview';
 import { ButtonModule } from 'primeng/button';
@@ -18,13 +18,15 @@ import { HomeComponent } from './home/home.component';
 import { RecipesListComponent } from './recipes-list/recipes-list.component';
 import { RecipesService } from './core/services/recipes.service';
 import { HeaderComponent } from './components/header/header.component';
+import { RecipesFilterComponent } from './recipes-filter/recipes-filter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RecipesListComponent,
-    HeaderComponent
+    HeaderComponent,
+    RecipesFilterComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { HeaderComponent } from './components/header/header.component';
     RippleModule,
     RatingModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [RecipesService],
