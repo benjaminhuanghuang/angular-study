@@ -19,3 +19,5 @@ contactForm = new FormGroup(
       }),
     });
 ```
+
+The template is updated to use the new form group structure.
