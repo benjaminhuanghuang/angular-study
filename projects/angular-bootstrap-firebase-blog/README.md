@@ -45,6 +45,59 @@ https://www.patreon.com/Octacademy72/shop/angular-complete-blog-app-source-code-
   ng g c pages/about
 
   ng g c subscription-form
+
   ng g c comments/comment-form
   ng g c comments/comment-list
+```
+
+## Routing and Navigation
+Modify projects\angular-bootstrap-firebase-blog\ang-blog-app\src\app\app-routing.module.ts
+
+
+## Bootstrap
+Install bootstrap
+```bash
+   npm i bootstrap
+```
+
+add bootstrap to angular.json
+```json
+"styles": [
+  "node_modules/bootstrap/dist/css/bootstrap.min.css",
+  "src/styles.css"
+],
+```
+
+Or add bootstrap to index.html
+```html
+   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+```
+
+Or add bootstrap to styles.css
+```css   
+   @import "~bootstrap/dist/css/bootstrap.min.css";
+```
+
+## Create Theme and CSS variables
+styles.css
+```css
+:root {
+  --primary-color: #026467;
+  --secondary-color: #E5F5EA;
+  --body-text-color: #596392;
+  --navbar-footer-color: #F9F9F9;
+}
+```
+
+## Google Fonts
+import and use google fonts in styles.css
+```css
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto',
+  sans-serif;
+  font-size: 12px;
+  color: var(--body-text-color);
+}
 ```
