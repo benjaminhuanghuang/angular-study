@@ -108,3 +108,8 @@ body {
 3. Design the Footer Component.
 4. Design the Post Card Component.
 5. Design the Subscription Card Component.
+
+### Category Navbar Component
+Navbar css
+
+### Footer
