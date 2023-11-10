@@ -112,4 +112,4 @@ body {
 ### Category Navbar Component
 Navbar css
 
-### Footer
+### Footer  --- 1:03:39
