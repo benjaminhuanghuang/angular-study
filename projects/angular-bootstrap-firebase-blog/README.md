@@ -102,7 +102,7 @@ body {
 }
 ```
 
-## Main components
+## DESIGN BLOG FRONT VIEW II (Main components)
 1. Design Header Component.
 2. Design the Category Navbar Component.
 3. Design the Footer Component.
@@ -112,7 +112,7 @@ body {
 ### Category Navbar Component
 Navbar css
 
-### Footer  --- 1:03:39
+### Footer
 Move definition of .site-logo and .nav-link to styles.css. They are shared by header, category-navbar and footer.
 
 
@@ -122,3 +122,16 @@ Move definition of .site-logo and .nav-link to styles.css. They are shared by he
 ```
 
 # Subscription FormComponent
+
+
+## DESIGN BLOG FRONT VIEW III (PAGES DESIGN)
+1. Prepare the App Component.
+2. Design the Home Page Component.
+3. Design the Single Category Component.
+4. Design the Single Page Component.
+5. Design the Comment Component.
+6. Design the All Other Pages Component.
+
+
+### Home page
+Feature area
