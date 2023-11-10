@@ -113,3 +113,12 @@ body {
 Navbar css
 
 ### Footer  --- 1:03:39
+Move definition of .site-logo and .nav-link to styles.css. They are shared by header, category-navbar and footer.
+
+
+## Post card
+```
+   ng g c layouts/post-card
+```
+
+# Subscription FormComponent
