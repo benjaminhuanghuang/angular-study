@@ -59,4 +59,28 @@ import { AbstractControl, ValidationErrors } from "@angular/forms";
 export function restrictedWordsvalidator (control: AbstractControl): ValidationErrors | null {
   return control.value. includes ('foo') ? { restrictedWords: true }  : null;
 }
+
+// use the custom validator
+notes: ['', restrictedWords]
+
+```
+or
+```ts
+export function restrictedWords(words: string[]) {
+  return (control: AbstractControl): ValidationErrors | null=> {
+    const invalidwords = words.map(w => control.value.includes(w) ? w : null).filter (w => w !== null);
+    return invalidwords.length > 0 ? { restrictedWords: true } : null;
+  }
+}
+
+```
+
+```html
+<section>
+  <nav>Notes</nav>
+  <div>
+    <textarea placeholder="Notes" rows="5" formControlName="notes"></textarea>
+    <em *ngIf="notes.errors?. ['restrictedWords']">Restricted words found</em>
+</div>
+</section>
 ```
