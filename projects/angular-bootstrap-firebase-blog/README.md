@@ -23,15 +23,15 @@ https://www.patreon.com/Octacademy72/shop/angular-complete-blog-app-source-code-
    11. Comment-Form Component
    12. Comment-List Component
 
-
-## Create Angular Project
+## Preparing
+### Create Angular Project
 ```bash
  ng new ang-blog-app
  router: yes
  style: css
 ```
 
-## Create Components
+### Create Components
 ```bash
   ng g c layouts/header
   ng g c layouts/category-navbar
@@ -50,11 +50,11 @@ https://www.patreon.com/Octacademy72/shop/angular-complete-blog-app-source-code-
   ng g c comments/comment-list
 ```
 
-## Routing and Navigation
+### Routing and Navigation
 Modify projects\angular-bootstrap-firebase-blog\ang-blog-app\src\app\app-routing.module.ts
 
 
-## Bootstrap
+### Bootstrap
 Install bootstrap
 ```bash
    npm i bootstrap
@@ -78,7 +78,7 @@ Or add bootstrap to styles.css
    @import "~bootstrap/dist/css/bootstrap.min.css";
 ```
 
-## Create Theme and CSS variables
+### Create Theme and CSS variables
 styles.css
 ```css
 :root {
@@ -89,7 +89,7 @@ styles.css
 }
 ```
 
-## Google Fonts
+### Fonts
 import and use google fonts in styles.css
 ```css
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
@@ -101,3 +101,10 @@ body {
   color: var(--body-text-color);
 }
 ```
+
+## Main components
+1. Design Header Component.
+2. Design the Category Navbar Component.
+3. Design the Footer Component.
+4. Design the Post Card Component.
+5. Design the Subscription Card Component.
