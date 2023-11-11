@@ -178,3 +178,47 @@ fontawesome.com/v5.15/how-to-use/customizing-wordpress/snippets/setup-cdn-webfon
 
 <Link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
 ```
+
+
+## Firebase
+1. Real-Time Database.
+2. Cloud Functions.
+3. Analytic Tools.
+4. Testing Tools.
+5. Push Notifications
+6. Authentications.
+7. Cloud Hosting
+8. Scaling Tools.
+
+Create a google account
+Create a project in firebase console (I reused an existing project called ben-firebase-study)
+Create an app named 'ang-blog-app' because need some credentials
+Copy the credentials to environment.prod.ts
+```typescript
+export const environment = {
+  production: true,
+  firebaseConfig: {
+   ....
+  }
+}
+```
+
+Install library
+```bash
+   ng add @angular/fire
+```
+
+Import module
+```ts
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+
+
+imports: [
+   AngularFireModule.initializeApp(environment.firebaseConfig),
+   AngularFireStorageModule
+],
+```
