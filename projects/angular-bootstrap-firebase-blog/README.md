@@ -236,3 +236,7 @@ const routes: Routes = [
   { path: 'categories', component: CategoriesComponent }
 ];
 ```
+Add Link
+```html
+<div class="card shadow-effect" routerLink="/categories">
+```
