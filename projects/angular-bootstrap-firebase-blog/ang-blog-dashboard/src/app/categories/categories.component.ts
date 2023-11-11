@@ -33,6 +33,8 @@ export class CategoriesComponent implements OnInit {
     }
     else if (this.formStatus === 'Edit') {
       this.categoryService.updateData(this.categoryId, categoryData);
+      formData.reset();
+      this.formStatus = 'Add';
     }
   }
 
@@ -40,5 +42,9 @@ export class CategoriesComponent implements OnInit {
     this.categoryId = id;
     this.formCategory = category;
     this.formStatus = 'Edit';
+  }
+
+  onDelete(id: string) {
+    this.categoryService.deleteData(id);
   }
 }

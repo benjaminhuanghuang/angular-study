@@ -224,7 +224,7 @@ imports: [
 ],
 ```
 
-### Admin CRUD I
+### Admin CRUD I (categories)
 ```
    ng g c categories
 ```
@@ -328,3 +328,30 @@ Bind data template
 
 ### Update category
 Add 'Edit' action 
+
+
+### Delete category
+
+
+## Admin CRUD I (post)
+1. How to save new post to the cloud firestore?
+2. How to upload post images to the Cloud Storage?
+3. How to load the post with the post images?
+4. How to setup an HTMl table with post image Preview
+5. How to update an existing post?
+6. How to do the delete operation?
+
+
+Create components
+```
+ng g c posts/all-post  
+ng g c posts/new-post  
+```
+
+Add routing
+```ts
+  { path: 'posts', component: AllPostComponent },
+  { path: 'posts/new', component: NewPostComponent },
+```
+
+Add link in dashboard.component.html

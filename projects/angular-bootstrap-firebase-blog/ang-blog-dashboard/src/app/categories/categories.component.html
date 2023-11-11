@@ -36,6 +36,7 @@
                 <td>{{category.data.category}}</td>
                 <td>
                   <button class="btn btn-sm btn-warning" (click)="onEdit(category.id, category.data.category)">Edit</button>
+                  <button class="btn btn-sm btn-danger ms-2" (click)="onDelete(category.id)">Delete</button>
                 </td>
               </tr>
             </tbody>
