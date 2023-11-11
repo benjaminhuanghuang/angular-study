@@ -309,3 +309,17 @@ import { ToastrService } from 'ngx-toastr';
 
 
 ## Load data
+Add function into service
+```ts
+ loadData() {
+    return this.afs.collection('categories').snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, data }
+        })
+      })
+    )
+  }
+```

@@ -8,7 +8,7 @@ import { Category } from '../models/category';
   templateUrl: './categories.component.html',
   styleUrls: ['./categories.component.css']
 })
-export class CategoriesComponentL implements OnInit {
+export class CategoriesComponent implements OnInit {
   constructor(private categoryService: CategoriesService) { }
 
   ngOnInit(): void {
