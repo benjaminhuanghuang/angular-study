@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ben-firebase-study": {
+      "hosting": {
+        "ang-blog-dashboard": [
+          "ben-firebase-study"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ben-firebase-study"
+  }
+}

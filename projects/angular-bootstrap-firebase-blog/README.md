@@ -220,7 +220,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 imports: [
    AngularFireModule.initializeApp(environment.firebaseConfig),
-   AngularFireStorageModule
+   AngularFirestoreModule
 ],
 ```
 
@@ -239,4 +239,70 @@ const routes: Routes = [
 Add Link
 ```html
 <div class="card shadow-effect" routerLink="/categories">
+```
+
+
+### Create firebase database
+add rules for the database
+```
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write;
+    }
+  }
+}
+```
+
+### Save data into firebase
+```ts
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
+constructor(private afs: AngularFirestore) { }
+
+onSubmit(formData: any) {
+   const categoryData = {
+      category: formData.value.category
+   }
+
+   this.afs.collection('categories').add(categoryData).then(docRef => {
+      console.log('Document written', docRef);
+      this.asf.collection('categories').doc(docRef.id).collection('posts').add(subData).then(docRef => {
+         console.log('Document written', docRef);
+      })
+   })
+   .catch(err => {
+      console.error('Error adding document: ', err);
+   });
+
+}
+```
+
+
+### Create service
+```
+ng g s services/categories
+ng g i models/category
+```
+
+
+### Toaster message
+```
+   npm i ngx-toastr
+   npm i @angular/animations
+```
+
+import css in styles.css
+```css
+@import "~ngx-toastr/toastr";
+```
+
+import module in app.module.ts
+```ts
+import { ToastrModule } from 'ngx-toastr';
+```
+
+use ToastrService in service
+```ts
+import { ToastrService } from 'ngx-toastr';
 ```
