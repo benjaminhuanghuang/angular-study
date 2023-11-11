@@ -306,3 +306,6 @@ use ToastrService in service
 ```ts
 import { ToastrService } from 'ngx-toastr';
 ```
+
+
+## Load data
