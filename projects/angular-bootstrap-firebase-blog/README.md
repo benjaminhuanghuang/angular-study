@@ -161,3 +161,20 @@ Main Components for the Backend Dashboard
 6. Dashboard Component.
 7. Header component.
 8. Footer component.
+
+```bash
+ng g c layouts/header
+ng g c layouts/footer
+
+ng g c dashboard
+
+
+```
+
+Use fontawesome icon library
+```
+fontawesome.com/v5.15/how-to-use/customizing-wordpress/snippets/setup-cdn-webfont
+
+
+<Link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+```
