@@ -190,6 +190,7 @@ fontawesome.com/v5.15/how-to-use/customizing-wordpress/snippets/setup-cdn-webfon
 7. Cloud Hosting
 8. Scaling Tools.
 
+### Firebase Setup
 Create a google account
 Create a project in firebase console (I reused an existing project called ben-firebase-study)
 Create an app named 'ang-blog-app' because need some credentials
@@ -221,4 +222,17 @@ imports: [
    AngularFireModule.initializeApp(environment.firebaseConfig),
    AngularFireStorageModule
 ],
+```
+
+### Admin CRUD I
+```
+   ng g c categories
+```
+
+Add routing
+```ts
+const routes: Routes = [
+  { path: '', component: DashboardComponent },
+  { path: 'categories', component: CategoriesComponent }
+];
 ```
