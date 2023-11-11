@@ -308,7 +308,7 @@ import { ToastrService } from 'ngx-toastr';
 ```
 
 
-## Load data
+## Load categories
 Add function into service
 ```ts
  loadData() {
@@ -323,3 +323,8 @@ Add function into service
     )
   }
 ```
+
+Bind data template
+
+### Update category
+Add 'Edit' action 

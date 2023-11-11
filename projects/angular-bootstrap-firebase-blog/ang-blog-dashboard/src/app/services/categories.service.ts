@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 //
 import { Category } from '../models/category';
+import { doc } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,11 @@ export class CategoriesService {
         })
       })
     )
+  }
+
+  updateData(id: string, editData: Category) {
+    this.afs.collection('categories').doc(id).update(editData).then(docRef => {
+      this.toaster.success('Category updated successfully', 'Success');
+    });
   }
 }
