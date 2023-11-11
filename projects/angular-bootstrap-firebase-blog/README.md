@@ -355,3 +355,6 @@ Add routing
 ```
 
 Add link in dashboard.component.html
+
+
+5:08
