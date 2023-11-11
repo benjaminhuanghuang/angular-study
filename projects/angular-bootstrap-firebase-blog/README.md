@@ -135,4 +135,29 @@ Move definition of .site-logo and .nav-link to styles.css. They are shared by he
 
 ### Home page
 Feature area
-1:41
+
+
+
+## Admin dashboard
+1. Generate a Separate Angular app for the Dashboard
+2. Planning the Components
+3. Designing the layout using Bootstrap
+4. What is Firebase & Firestore?
+5. NoSql vs Sql Database
+6. Connect to firebase
+
+
+Create a new angular project
+```bash
+ng new ang-blog-dashboard
+```
+
+Main Components for the Backend Dashboard
+1. Login Component.
+2. Category Component.
+3. Post Component.
+4. Subscription Component.
+5. Comments Component
+6. Dashboard Component.
+7. Header component.
+8. Footer component.
