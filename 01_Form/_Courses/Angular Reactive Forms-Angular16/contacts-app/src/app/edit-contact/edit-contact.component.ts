@@ -44,9 +44,10 @@ export class EditContactComponent implements OnInit {
     this.contactsService.getContact(contactId).subscribe(contact => {
       if (!contact) return;
       for (let i = 1; i < contact.phones.length; i++) {
-        this.contactForm.controls.phones.push(this.createPhoneGroup());
+        this.addPhone();
       }
       this.contactForm.setValue(contact);
+      this.subscribeToAddressChanges();
     });
   }
 
