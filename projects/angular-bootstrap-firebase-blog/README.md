@@ -404,4 +404,12 @@ Disable the submit button
 ## Submit and save
 ```
    ng g interface models/post  
+   ng g s services/posts
+```
+Upload image
+Start the Firebase storage, change the Rules to allow read and write
+
+```ts
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 ```

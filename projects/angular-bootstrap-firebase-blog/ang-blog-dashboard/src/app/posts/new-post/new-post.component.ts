@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Post } from 'src/app/models/post';
 import { CategoriesService } from 'src/app/services/categories.service';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-new-post',
@@ -15,15 +16,15 @@ export class NewPostComponent implements OnInit {
 
   categories: Array<any> = [];
   postForm = this.fb.group({
-    title: ['', [Validators.required, Validators.minLength(10)]],
+    title: ['', [Validators.required, Validators.minLength(1)]],
     permalink: ['', [Validators.required]],
-    excerpt: ['', [Validators.required, Validators.minLength(50)]],
+    excerpt: ['', [Validators.required, Validators.minLength(1)]],
     category: ['', [Validators.required]],
     postImg: ['', [Validators.required]],
     content: ['', [Validators.required]],
   });
 
-  constructor(private categoryService: CategoriesService, private fb: FormBuilder) {
+  constructor(private categoryService: CategoriesService, private fb: FormBuilder, private postService: PostsService) {
   }
 
   ngOnInit(): void {
@@ -51,12 +52,13 @@ export class NewPostComponent implements OnInit {
   }
 
   onSubmit() {
+    const splitted = this.postForm.value.category?.split('-');
     const postData: Post = {
       title: this.postForm.value.title ?? '',
       permalink: this.postForm.value.permalink ?? '',
       category: {
-        categoryId: '',
-        category: '',
+        categoryId: splitted?.[0] ?? '',
+        category: splitted?.[1] ?? '',
       },
       postImgPath: '',
       excerpt: this.postForm.value.excerpt ?? '',
@@ -65,6 +67,10 @@ export class NewPostComponent implements OnInit {
       views: 0,
       status: 'new',
       createdAt: new Date()
-    }
+    };
+
+    console.log(postData);
+
+    this.postService.uploadImage(this.selectedImg);
   }
 }

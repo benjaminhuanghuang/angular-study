@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http'
 //
 import { AngularFireModule } from '@angular/fire/compat'
 import { FirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularEditorModule } from '@kolkov/angular-editor';
@@ -40,7 +41,8 @@ import { NewPostComponent } from './posts/new-post/new-post.component';
     FirestoreModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    AngularEditorModule
+    AngularEditorModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
