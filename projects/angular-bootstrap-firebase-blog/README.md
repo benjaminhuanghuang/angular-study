@@ -374,6 +374,34 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 ```
 
 ### Use reactive form
-````
+```
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+```
+
+Use fromGroup and formControlName in template
+```html
+<form [formGroup]="postForm  ">
+   <input type="text" class="form-control" (keyup)="onTitleChanged($event)" formControlName="title">
+```
+
+### Form validation
+```html
+<input type="text" class="form-control" (keyup)="onTitleChanged($event)" formControlName="title"
+   [ngClass]="{'is-invalid': fc.title.invalid && fc.title.touched}">
+<div *ngIf="fc.title.errors?.['required']">
+   <div class="alert alert-danger" *ngIf="fc.title.invalid && fc.title.touched"> Title is required. </div>
+</div>
+<div *ngIf="fc.title.errors?.['minlength']">
+   <div class="alert alert-danger" *ngIf="fc.title.invalid && fc.title.touched"> Title must be at least 10 characters. </div>
+</div>
+```
+Disable the submit button
+```html
+  <button class="btn btn-info btn-theme" [disabled]="postForm.invalid"> Save Post </button>
+```
+
+
+## Submit and save
+```
+   ng g interface models/post  
 ```
