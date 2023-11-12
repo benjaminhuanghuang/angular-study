@@ -362,3 +362,18 @@ Add link in dashboard.component.html
 
 
 ### Load category in new post
+
+
+### Editor
+```
+   npm i @kolkov/angular-editor
+```
+import module
+```
+import { AngularEditorModule } from '@kolkov/angular-editor';
+```
+
+### Use reactive form
+````
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+```
