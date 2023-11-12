@@ -6,9 +6,10 @@
     <section>
       <nav>Name/Info</nav>
       <div>
-        <input formControlName="firstName" placeholder="First Name" />
+        <con-profile-icon-selector/>
+        <input formControlName="firstName" placeholder="First Name" [class.error]="firstName.invalid && firstName.touched" />
         <input formControlName="lastName" placeholder="Last Name" />
-        <input formControlName="dateOfBirth" placeholder="Date of Birth" />
+        <input formControlName="dateOfBirth" type="date" placeholder="Date of Birth" />
         <input formControlName="favoritesRanking" placeholder="Favorites Ranking" />
       </div>
     </section>
