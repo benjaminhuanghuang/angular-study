@@ -3,22 +3,21 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 //
 import { ContactsService } from '../contacts/contacts.service';
+import { phoneTypeValues } from '../contacts/contact.model';
 
 @Component({
   templateUrl: './edit-contact.component.html',
   styleUrls: ['./edit-contact.component.css']
 })
 export class EditContactComponent implements OnInit {
+  phoneTypes = phoneTypeValues;
   contactForm = this.fb.nonNullable.group({
     id: '',
     firstName: '',
     lastName: '',
     dateOfBirth: <Date | null>null,
     favoritesRanking: <number | null>null,
-    phone: this.fb.nonNullable.group({
-      phoneNumber: '',
-      phoneType: '',
-    }),
+    phones: this.fb.array([this.createPhoneGroup()]),
     address: this.fb.nonNullable.group({
       streetAddress: '',
       city: '',
@@ -40,8 +39,22 @@ export class EditContactComponent implements OnInit {
 
     this.contactsService.getContact(contactId).subscribe(contact => {
       if (!contact) return;
+      for (let i = 1; i < contact.phones.length; i++) {
+        this.contactForm.controls.phones.push(this.createPhoneGroup());
+      }
       this.contactForm.setValue(contact);
     });
+  }
+
+  createPhoneGroup() {
+    return this.fb.nonNullable.group({
+      phoneNumber: '',
+      phoneType: '',
+    });
+  }
+
+  addPhone() {
+    this.contactForm.controls.phones.push(this.createPhoneGroup());
   }
 
   saveContact() {
