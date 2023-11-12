@@ -357,4 +357,8 @@ Add routing
 Add link in dashboard.component.html
 
 
-5:08
+
+### Image preview
+
+
+### Load category in new post
