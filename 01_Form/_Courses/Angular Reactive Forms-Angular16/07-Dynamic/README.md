@@ -38,15 +38,15 @@ phones.push(this.fb.group(...));
 ## Bind from array to template
 formArrayName
 ```html
-<div formArrayName="phones" class="flex-column">
+ <div *ngFor="let phone of contactForm.controls.phones.controls; let i=index" [formGroupName]="i" class="flex-column">
   <div class="flex-group">
     <input formControlName="phoneNumber" placeholder="Phone" />
-    <img src="/assets/plus-grey-blue.png" class="add" />
+    <img src="/assets/plus-grey-blue.png" class="add" (click) = "addPhone()" />
   </div>
   <div class="radio">
-    <input type="radio" formControlName="phoneType" value="mobile"> Mobile
-    <input type="radio" formControlName="phoneType" value="work"> Work
-    <input type="radio" formControlName="phoneType" value="other"> Other
+    <span *ngFor="let phoneType of phoneTypes">
+      <input type="radio" formControlName="phoneType" [value]="phoneType.value"> {{phoneType.title}}
+    </span>
   </div>
 </div>
 ```
