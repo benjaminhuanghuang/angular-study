@@ -412,4 +412,10 @@ Start the Firebase storage, change the Rules to allow read and write
 ```ts
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
+uploadImage(selectedImage: any) {
+   const filePath = `postIMG/${Date.now()}`;
+   this.storage.upload(filePath, selectedImage).then(() => { });
+}
 ```
+
+## Load post

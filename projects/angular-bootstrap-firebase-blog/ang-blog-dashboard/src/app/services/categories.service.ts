@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 
 //
 import { Category } from '../models/category';
-import { doc } from 'firebase/firestore';
+
 
 @Injectable({
   providedIn: 'root'
