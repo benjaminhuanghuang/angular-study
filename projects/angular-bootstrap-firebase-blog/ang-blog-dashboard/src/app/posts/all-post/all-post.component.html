@@ -6,7 +6,7 @@
           <h3 class="text-theme-center"> All Blog Posts </h3>
           <p> From here you can manage your blog posts.</p>
           <button class="btn btn-info bg-theme" routerLink='/posts/new'> Add New Post </button>
-          <button class="btn btn-warning ml-2" routerLink='/'>Back to Dashboard </button>
+          <button class="btn btn-warning ms-2" routerLink='/'>Back to Dashboard </button>
         </div>
       </div>
     </div>
@@ -35,6 +35,10 @@
                 <td width='300'> {{ post.data.excerpt }} </td>
                 <td> {{ post.data.category.category}} </td>
                 <td> {{ post.data.createdAt.toMillis() | date }}
+                </td>
+                <td>
+                  <button class="btn btn-sm btn-warning" routerLink='/posts/new' [queryParams]="{id: post.id}"> Edit </button>
+                  <button class="btn btn-warning ms-2" routerLink='/'>Back to Dashboard </button>
                 </td>
               </tr>
             </tbody>

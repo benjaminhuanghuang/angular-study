@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Post } from 'src/app/models/post';
 import { CategoriesService } from 'src/app/services/categories.service';
 import { PostsService } from 'src/app/services/posts.service';
@@ -15,6 +16,8 @@ export class NewPostComponent implements OnInit {
   selectedImg: any = null;
 
   categories: Array<any> = [];
+  post!: Post;
+
   postForm = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(1)]],
     permalink: ['', [Validators.required]],
@@ -24,8 +27,27 @@ export class NewPostComponent implements OnInit {
     content: ['', [Validators.required]],
   });
 
-  constructor(private categoryService: CategoriesService, private fb: FormBuilder, private postService: PostsService) {
+  constructor(
+    private categoryService: CategoriesService,
+    private fb: FormBuilder,
+    private postService: PostsService,
+    private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      this.postService.loadOneData(params['id']).subscribe(post => {
+        this.post = post as Post;
+
+        this.postForm = this.fb.group({
+          title: [this.post.title, [Validators.required, Validators.minLength(10)]],
+          permalink: [this.post.permalink, Validators.required],
+          excerpt: [this.post.excerpt, [Validators.required, Validators.minLength(50)]],
+          category: [this.post.category.categoryId, Validators.required],
+          postImg: ['', Validators.required],
+          content: [this.post.content, Validators.required]
+        });
+      })
+    });
   }
+
 
   ngOnInit(): void {
     this.categoryService.loadData().subscribe(val => {

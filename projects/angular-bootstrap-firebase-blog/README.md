@@ -418,4 +418,18 @@ uploadImage(selectedImage: any) {
 }
 ```
 
-## Load post
+## Edit post
+Pass id as query parameter
+```html
+  <button class="btn btn-sm btn-warning" routerLink='/posts/new' [queryParams]="{id: post.id}"> Edit </button>
+```
+Read query parameter
+```ts
+constructor(
+   private route: ActivatedRoute) {
+   this.route.queryParams.subscribe(params => {
+      his.postService.loadOneData(params['id']).subscribe(post => {});
+   });
+}
+
+```
