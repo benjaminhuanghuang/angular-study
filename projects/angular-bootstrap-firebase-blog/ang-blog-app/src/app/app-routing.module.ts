@@ -11,7 +11,7 @@ import { TermsConditionsComponent } from './pages/terms-conditions/terms-conditi
 const routes: Routes = [
   { path: '', component: HomeComponent },
   {
-    path: 'category/:id', component: SingleCategoryComponent
+    path: 'category/:category/:id', component: SingleCategoryComponent
   },
   { path: 'post', component: SinglePostComponent },
   {

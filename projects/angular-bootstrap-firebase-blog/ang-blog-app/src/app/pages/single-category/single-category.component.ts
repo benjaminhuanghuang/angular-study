@@ -9,9 +9,12 @@ import { PostsService } from 'src/app/services/posts.service';
 })
 export class SingleCategoryComponent {
   postArray!: Array<any>;
+  categoryObj: any;
 
   constructor(private route: ActivatedRoute, private postService: PostsService) {
     this.route.params.subscribe(params => {
+      this.categoryObj = params;
+
       this.postService.loadCategoryPosts(params['id']).subscribe(data => {
         this.postArray = data;
       });
