@@ -10,6 +10,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class AuthService {
   loggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isLoggedInGuard: boolean = false;
 
   constructor(private afAuth: AngularFireAuth, private toastr: ToastrService, private router: Router) { }
 
@@ -20,7 +21,7 @@ export class AuthService {
         this.loadUser();
 
         this.loggedIn$.next(true);
-
+        this.isLoggedInGuard = true;
         this.router.navigate(['/']);
       })
       .catch(error => {
@@ -40,6 +41,8 @@ export class AuthService {
       this.toastr.success('User Logged Out Successfully');
       localStorage.removeItem('user');
       this.loggedIn$.next(false);
+      this.isLoggedInGuard = false;
+
       this.router.navigate(['/login']);
     });
   };

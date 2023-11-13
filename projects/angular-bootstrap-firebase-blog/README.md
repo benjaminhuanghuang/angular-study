@@ -484,3 +484,33 @@ ng g s services/auth
 ```
 
 ### Add login info to header
+```html
+<div class="container justify-content-center" *ngIf="isLoggedIn$ | async">
+   <a href="#" class="mr-3">{{userEmail}}</a>
+   <button class="btn btn-sm btn-info bg-secondary-theme text-theme-primary" (click)="onLogout()">Logout</button>
+</div>
+```
+
+### Router guard
+Create guard
+```bash
+   ng g guard services/auth
+   CanActivate
+```
+```ts
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+```
+
+
+Add guard to router
+```ts
+  { path: '', component: DashboardComponent, canActivate: [authGuard] },
+```
+
+
+## Dynamic Blog Front View
+1. Will make the featured post section dynamic
+2. Firestore Filtering Methods, (WHERE, LIMIT, ORDERBY)
+3. Will make the latest post section dynamic
+4. Will make the single post category page dynamic
+5. Will make the single post component dynamic
