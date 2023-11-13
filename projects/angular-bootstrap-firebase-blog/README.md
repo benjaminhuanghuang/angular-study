@@ -508,9 +508,17 @@ Add guard to router
 ```
 
 
-## Dynamic Blog Front View
+## Dynamic Blog Front View(render data from firestore)
 1. Will make the featured post section dynamic
 2. Firestore Filtering Methods, (WHERE, LIMIT, ORDERBY)
 3. Will make the latest post section dynamic
 4. Will make the single post category page dynamic
 5. Will make the single post component dynamic
+
+
+### Load  categories
+Create service
+```bash
+ng g s services/categories
+```
+CategoryNavbarComponent
