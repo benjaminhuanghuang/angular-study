@@ -15,4 +15,15 @@ export class AllPostComponent {
       this.postArray = val;
     });
   }
+
+  onDelete(postImgPath: string, id: string) {
+    this.postService.deleteImage(postImgPath, id);
+  }
+
+  onFeatured(id: string, featured: boolean) {
+    const featuredData: any = {
+      isFeatured: featured
+    }
+    this.postService.markFeatured(id, featuredData);
+  }
 }

@@ -401,7 +401,7 @@ Disable the submit button
 ```
 
 
-## Submit and save
+### Submit and save
 ```
    ng g interface models/post  
    ng g s services/posts
@@ -418,7 +418,7 @@ uploadImage(selectedImage: any) {
 }
 ```
 
-## Edit post
+### Edit post
 Pass id as query parameter
 ```html
   <button class="btn btn-sm btn-warning" routerLink='/posts/new' [queryParams]="{id: post.id}"> Edit </button>
@@ -433,3 +433,13 @@ constructor(
 }
 
 ```
+
+
+### Mark feature
+
+
+## Auth
+1. How to design the Login Component?
+2. How to do the Login Queries and Logics?
+3. Firebase Authentication & How to use it?
+4. Angular Router Guard

@@ -17,14 +17,19 @@ export class PostsService {
     private toaster: ToastrService,
     private router: Router) { }
 
-  uploadImage(selectedImage: any, postData: any) {
+  uploadImage(selectedImage: any, postData: any, formStatus: string, docId: string) {
     const filePath = `postIMG/${Date.now()}`;
 
     this.storage.upload(filePath, selectedImage).then(() => {
       this.storage.ref(filePath).getDownloadURL().subscribe((url) => {
         postData.postImgPath = url;
         //console.log(postData);
-        this.saveData(postData);
+        if (formStatus === 'Add New') {
+          this.saveData(postData);
+        }
+        else if (formStatus === 'Edit') {
+          this.updateData(docId, postData);
+        }
       });
     });
   }
@@ -50,5 +55,30 @@ export class PostsService {
 
   loadOneData(id: string) {
     return this.afs.doc(`posts/${id}`).valueChanges();
+  }
+
+  updateData(id: string, postData: any) {
+    this.afs.doc(`posts/${id}`).update(postData).then(() => {
+      this.toaster.success('Data Updated Successfully');
+      this.router.navigate(['/posts']);
+    });
+  }
+
+  deleteImage(postImgPath: string, id: string) {
+    this.storage.storage.refFromURL(postImgPath).delete().then(() => {
+      this.deleteData(id);
+    })
+  }
+
+  deleteData(id: string) {
+    this.afs.doc(`posts/${id}`).delete().then(() => {
+      this.toaster.warning('Data Deleted ..!');
+    });
+  }
+
+  markFeatured(id: string, featuredData: any) {
+    this.afs.doc(`posts/${id}`).update(featuredData).then(() => {
+      this.toaster.info('Featured Status Updated');
+    })
   }
 }

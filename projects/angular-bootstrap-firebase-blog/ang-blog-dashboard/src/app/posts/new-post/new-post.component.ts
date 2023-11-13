@@ -18,6 +18,9 @@ export class NewPostComponent implements OnInit {
   categories: Array<any> = [];
   post!: Post;
 
+  formStatus: string = 'Add New';
+  docId: string = '';
+
   postForm = this.fb.group({
     title: ['', [Validators.required, Validators.minLength(1)]],
     permalink: ['', [Validators.required]],
@@ -33,6 +36,8 @@ export class NewPostComponent implements OnInit {
     private postService: PostsService,
     private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
+      this.docId = params['id'];
+
       this.postService.loadOneData(params['id']).subscribe(post => {
         this.post = post as Post;
 
@@ -40,10 +45,13 @@ export class NewPostComponent implements OnInit {
           title: [this.post.title, [Validators.required, Validators.minLength(10)]],
           permalink: [this.post.permalink, Validators.required],
           excerpt: [this.post.excerpt, [Validators.required, Validators.minLength(50)]],
-          category: [this.post.category.categoryId, Validators.required],
+          category: [`${this.post.category.categoryId}-${this.post.category.category}`, Validators.required],
           postImg: ['', Validators.required],
           content: [this.post.content, Validators.required]
         });
+
+        this.imgSrc = this.post.postImgPath;
+        this.formStatus = 'Edit';
       })
     });
   }
@@ -93,7 +101,7 @@ export class NewPostComponent implements OnInit {
 
     //console.log(postData);
 
-    this.postService.uploadImage(this.selectedImg, postData);
+    this.postService.uploadImage(this.selectedImg, postData, this.formStatus, this.docId);
     this.postForm.reset();
   }
 }
