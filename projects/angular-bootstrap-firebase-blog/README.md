@@ -544,3 +544,8 @@ PostCardComponent
 2. Will Add Form Validations
 3. Will Store the Subscribers in the firestore
 4. Will load all the subscribed users inside of our Admin Dashboard
+
+```
+   ng g i models/sub
+   ng g s services/subscribers
+```

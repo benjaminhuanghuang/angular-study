@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //
 import { AngularFireModule } from '@angular/fire/compat'
 import { FirestoreModule } from '@angular/fire/firestore';
@@ -41,6 +42,8 @@ import { environment } from 'environments/environment.prod';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FirestoreModule,
