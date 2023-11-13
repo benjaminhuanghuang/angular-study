@@ -443,3 +443,44 @@ constructor(
 2. How to do the Login Queries and Logics?
 3. Firebase Authentication & How to use it?
 4. Angular Router Guard
+
+
+### Create login component
+```bash
+ng g c auth/login
+```
+Add routing
+```ts
+  { path: 'login', component: LoginComponent },
+```
+
+Template driving form
+```html
+<form #loginForm=ngForm (ngSubmit)="onSubmit(loginForm)">
+
+   <div class="form-group">
+      <input type="email" class="form-control" placeholder="Email" name="email" #Email='ngModel' ngModel
+         required email [ngClass]="{'is-invalid': Email. touched && Email. invalid }">
+      <div class="alert alert-danger" *ngIf="Email.touched && Email.invalid">
+         <div *ngIf = "Email.errors?.['required']"> Email Cannot be Empty </div>
+         <div *ngIf = "Email.errors?.['email']"> Please Enter a Valid Email Address </div>
+      </div>
+   </div>
+```
+
+### Firebase Authentication
+Authentication -> Sign-in method -> Email/Password -> Enable
+
+settings -> Authorized domains -> add localhost
+
+import module
+```ts
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+```
+
+Create service
+```bash  
+ng g s services/auth
+```
+
+### Add login info to header
