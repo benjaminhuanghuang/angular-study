@@ -549,3 +549,14 @@ PostCardComponent
    ng g i models/sub
    ng g s services/subscribers
 ```
+
+
+### list subscribers in admin dashboard
+```
+   ng g c subscribers
+   ng g s services/subscribers
+```   
+Add routing
+```ts
+  { path: 'subscribers', component: SubscribersComponent },
+```
