@@ -520,5 +520,15 @@ Add guard to router
 Create service
 ```bash
 ng g s services/categories
+ng g s services/posts
 ```
 CategoryNavbarComponent
+```ts
+<ul class="navbar-nav" *ngFor= "let category of categoryArray">
+   <li class="nav-item ml-3"><a href="" class="nav-link"> {{ category.data.category }}</a></li>
+</ul>
+```
+
+HomeComponent
+```ts
+```
