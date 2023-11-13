@@ -560,3 +560,23 @@ Add routing
 ```ts
   { path: 'subscribers', component: SubscribersComponent },
 ```
+
+
+## Build & Deploy
+```
+   ng build --prod
+```
+
+Firebase hosting
+```
+   npm install -g firebase-tools
+   
+
+   cd ang-blog-app/dist
+
+   firebase login
+
+   firebase init
+
+   firebase deploy
+```
