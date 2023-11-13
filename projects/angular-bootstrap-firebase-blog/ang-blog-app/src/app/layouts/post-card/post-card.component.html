@@ -1,11 +1,13 @@
-<div class="card shadow-effect">
-  <img src="https://images.pexels.com/photos/1174932/pexels-photo-1174932.jpeg?auto=compress&cs=tinys" alt="">
-  <small class="card-body text-danger text-center">design</small>
-  <small class="card-body text-danger text-center ml-3">Featured </small>
-  <small class="card-body text-danger text-center" ml-3>Views</small>
-  <h5 class="mt-1"></h5>
+<div class="card shadow-effect" *ngIf="postData">
+  <img src="{{postData.data.postImgPath}}" alt="">
+  <div class="card-body">
+  <small class="card-body text-danger text-center">{{postData.data.category.category}}</small>
+  <small class="card-body text-danger text-center ms-3">Featured</small>
+  <small class="card-body text-danger text-center ms-3">{{postData.data.view}}</small>
+  <h5 class="mt-1">{{postData.data.title}}</h5>
   <p>
-
+    {{postData.data.excerpt}}
   </p>
-  <small class="bg-light text-warning tet-center ml-3"></small>
+  <small class="bg-light text-warning tet-center">Last Updated - {{postData.data.createdAt.toMillis() | date}}</small>
+</div>
 </div>

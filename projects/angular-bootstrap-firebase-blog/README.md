@@ -523,12 +523,17 @@ ng g s services/categories
 ng g s services/posts
 ```
 CategoryNavbarComponent
-```ts
+```html
 <ul class="navbar-nav" *ngFor= "let category of categoryArray">
    <li class="nav-item ml-3"><a href="" class="nav-link"> {{ category.data.category }}</a></li>
 </ul>
 ```
 
 HomeComponent
-```ts
+```html
+<div class="col-lg-3" *ngFor="let featuredPost of featuredPostsArray">
+    <app-post-card [postData]="featuredPost"></app-post-card>
+</div>
 ```
+
+PostCardComponent
