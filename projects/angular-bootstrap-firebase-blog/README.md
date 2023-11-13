@@ -537,3 +537,10 @@ HomeComponent
 ```
 
 PostCardComponent
+
+
+## Subscription
+1. Will make Sub Form to Angular Template Driven
+2. Will Add Form Validations
+3. Will Store the Subscribers in the firestore
+4. Will load all the subscribed users inside of our Admin Dashboard

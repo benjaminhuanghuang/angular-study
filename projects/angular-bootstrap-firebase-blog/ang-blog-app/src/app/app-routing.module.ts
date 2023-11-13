@@ -13,7 +13,7 @@ const routes: Routes = [
   {
     path: 'category/:category/:id', component: SingleCategoryComponent
   },
-  { path: 'post', component: SinglePostComponent },
+  { path: 'post/:id', component: SinglePostComponent },
   {
     path: 'about', component: AboutComponent
   },

@@ -2,26 +2,27 @@
   <div class="row">
     <div class="col-md-g">
       <div class="card shadow-effect">
-        <img src="https://images.pexels.com/photos/1227497/pexels-photo-1227497.jpeg" alt="" class="card-img-top img-fluid">
+        <img src="{{postData.postImgPath}}" alt="" class="card-img-top img-fluid">
         <div class="card-body">
-          <small class="bg-light text-danger text-center">Design</small>
-          <small class="bg-light text-danger text-center ml-2">Design</small>
-          <small class="bg-light text-danger text-center ml-2">Design</small>
-          <small class="bg-light text-danger text-center ml-2">Design</small>
+          <small class="bg-light text-danger text-center">{{postData.category.category}}</small>
+          <small class="bg-light text-danger text-center ms-2">Design</small>
+          <small class="bg-light text-danger text-center ms-2">View - {{postData.views}}</small>
+          <small class="bg-light text-danger text-center ms-2">Last update - {{postData.createdAt.toMillis() |
+            date}}</small>
 
           <h1 class="mt-3 mb-3">
-
+            {{postData.title}}
           </h1>
+          <p [innerHTML]="postData.content"> </p>
         </div>
       </div>
       <app-comment-form></app-comment-form>
       <app-comment-list></app-comment-list>
     </div>
     <div class="col-md-3">
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
-      <app-post-card></app-post-card>
+      <div *ngFor="let similarPost  similarPostArray">
+        <app-post-card [postData]="similarPost"></app-post-card>
+      </div>
     </div>
   </div>
 </div>
