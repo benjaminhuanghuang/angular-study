@@ -11,13 +11,16 @@ Subscribe to state change notifications
 
 
 ## setup
+Install library
 ```bash
 npm i @ngrx/store
 ```
 
-import 
+Import StoreModule in app.module.ts
 ```ts
 import { StoreModule } from '@ngrx/store';
 
-StoreModule.forRoot({}),
+imports: [
+  StoreModule.forRoot({}),
+]
 ```
