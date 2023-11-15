@@ -8,3 +8,16 @@ Build a reducer to process actions and set
 the store state
 Dispatch an action to change state
 Subscribe to state change notifications
+
+
+## setup
+```bash
+npm i @ngrx/store
+```
+
+import 
+```ts
+import { StoreModule } from '@ngrx/store';
+
+StoreModule.forRoot({}),
+```
