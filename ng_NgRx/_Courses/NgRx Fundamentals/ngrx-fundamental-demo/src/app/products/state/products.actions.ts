@@ -17,7 +17,7 @@ export const ProductsAPIActions = createActionGroup({
   source: 'Products API',
   events:
   {
-    'Products Loaded Success': props<{ products: Product }>,
+    'Products Loaded Success': props<{ products: Product[] }>(),
     'Products Loaded Fail': props<{ message: string }>(),
     'Product Added Success': props<{ product: Product }>(),
     'Product Added Fail': props<{ message: string }>(),

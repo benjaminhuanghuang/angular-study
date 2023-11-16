@@ -1,13 +1,20 @@
-import { createAction, createReducer, on } from '@ngrx/store';
-import { ProductsPageActions } from './products.actions';
+import { createReducer, on } from '@ngrx/store';
+import { ProductsAPIActions, ProductsPageActions } from './products.actions';
+import { Product } from '../product.model';
 
-export interface ProductState {
+export interface ProductsState {
   showProductCode: boolean;
+  loading: boolean;
+  products: Product[];
 }
 
-const initialState: ProductState = {
-  showProductCode: true
-}
+
+const initialState: ProductsState = {
+  showProductCode: true,
+  loading: false,
+  products: [],
+};
+
 
 export const productsReducer = createReducer(
   initialState,
@@ -18,5 +25,16 @@ export const productsReducer = createReducer(
       ...state,
       showProductCode: !state.showProductCode
     };
-  })
+  }),
+
+  on(ProductsPageActions.loadProducts, (state) => ({
+    ...state,
+    loading: true,
+  })),
+
+  on(ProductsAPIActions.productsLoadedSuccess, (state, { products }) => ({
+    ...state,
+    loading: false,
+    products
+  }))
 );
