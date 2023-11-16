@@ -32,7 +32,19 @@ Dispatch
   }
 ```
 
-Selector
+Subscribe the store
 ```ts
-showProductCode$ = this.store.select((state: any) => state.products.showProductCode);
+  constructor(private productsService: ProductsService, private store: Store) {
+    this.store.subscribe((store) => console. log({ store }));
+  }
+```
+
+Use Selector to subscribe the store
+```ts
+  showProductCode$ = this.store.select((state: any) => state.products.showProductCode);
+```
+
+Bind state to the component
+```html
+  <input type="checkbox" [checked]="(showProductCode$ | async)" (change)="checkChanged()" />
 ```
