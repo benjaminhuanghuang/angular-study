@@ -20,7 +20,8 @@ const initialState: ProductsState = {
 
 export const productsReducer = createReducer(
   initialState,
-  // handle the action
+  // handle the actions
+  /* Load products*/
   on(ProductsPageActions.toggleShowProductCode, state => {
     //console.log('original state: ' + JSON.stringify(state));
     return {
@@ -33,7 +34,7 @@ export const productsReducer = createReducer(
     ...state,
     loading: true,
   })),
-
+  /* Update product*/
   on(ProductsAPIActions.productsLoadedSuccess, (state, { products }) => ({
     ...state,
     loading: false,
@@ -46,8 +47,26 @@ export const productsReducer = createReducer(
     errorMessage: message,
     loading: false,
   })),
+  /* Add product*/
+  on(ProductsPageActions.addProduct, (state) => ({
+    ...state,
+    loading: true,
+  })),
 
-  on(ProductsPageActions.deleteProduct, (state) = ({
+  on(ProductsAPIActions.productAddedSuccess, (state, { product }) => ({
+    ...state,
+    loading: false,
+    products: [...state.products, product]
+  })),
+
+  on(ProductsAPIActions.productAddedFail, (state, { message }) => ({
+    ...state,
+    products: [],
+    errorMessage: message,
+    loading: false,
+  })),
+  /* Delete product*/
+  on(ProductsPageActions.deleteProduct, (state) => ({
     ...state,
     loading: true,
     errorMessage: '',
@@ -56,7 +75,7 @@ export const productsReducer = createReducer(
     ...state,
     loading: false,
     products: state.products.filter(
-      (existingProduct) = existingProduct.id !== id
+      (existingProduct) => existingProduct.id !== id
     ),
   })),
   on(ProductsAPIActions.productDeletedFail, (state, { message }) => ({

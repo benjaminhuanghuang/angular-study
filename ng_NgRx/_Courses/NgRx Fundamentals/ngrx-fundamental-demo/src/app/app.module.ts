@@ -12,6 +12,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { HomeComponent } from './home/home.component';
 import { environment } from 'src/environments/environment.development';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -26,7 +27,8 @@ import { EffectsModule } from '@ngrx/effects';
       maxAge: 25,
       logOnly: environment.production
     }),
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

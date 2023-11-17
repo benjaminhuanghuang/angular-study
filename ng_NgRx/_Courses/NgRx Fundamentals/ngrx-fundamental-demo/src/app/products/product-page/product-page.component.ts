@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Product } from '../product.model';
 import { ProductsService } from '../products.service';
 import { Store } from '@ngrx/store';
+import { selectProductById } from '../state/products.selectors';
 
 @Component({
   selector: 'app-product-page',
@@ -11,12 +12,13 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./product-page.component.css'],
 })
 export class ProductPageComponent {
-  product$: Observable<Product> | undefined;
+  product$ = this.store.select(selectProductById);
 
   constructor(
     private productsService: ProductsService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
+    private store: Store
   ) {
   }
 
