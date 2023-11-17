@@ -45,5 +45,23 @@ export const productsReducer = createReducer(
     products: [],
     errorMessage: message,
     loading: false,
+  })),
+
+  on(ProductsPageActions.deleteProduct, (state) = ({
+    ...state,
+    loading: true,
+    errorMessage: '',
+  })),
+  on(ProductsAPIActions.productDeletedSuccess, (state, { id }) => ({
+    ...state,
+    loading: false,
+    products: state.products.filter(
+      (existingProduct) = existingProduct.id !== id
+    ),
+  })),
+  on(ProductsAPIActions.productDeletedFail, (state, { message }) => ({
+    ...state,
+    loading: false,
+    errorMessage: message
   }))
 );
