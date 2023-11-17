@@ -16,4 +16,4 @@ NgRx is the most popular state management library for Angular using the redux pa
 - Actions
 - Reducers
 - Effects
-- Selectors
+- Selectors: Selectors are pure functions used for obtaining slices of store state
