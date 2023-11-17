@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ProductsService } from '../products.service';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { concatMap, map } from 'rxjs';
+import { catchError, concatMap, map, of } from 'rxjs';
 import { ProductsAPIActions, ProductsPageActions } from './products.actions';
 
 
@@ -21,6 +21,11 @@ export class ProductEffects {
           .pipe(
             map((products) =>
               ProductsAPIActions.productsLoadedSuccess({ products })
+            ),
+            catchError(
+              (error) =>
+                of(ProductsAPIActions.productsLoadedFail({ message: error })
+                )
             )
           )
       )
