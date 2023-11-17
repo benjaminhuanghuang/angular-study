@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HomeComponent } from './home/home.component';
 import { environment } from 'src/environments/environment.development';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -24,7 +25,8 @@ import { environment } from 'src/environments/environment.development';
       name: 'APM Demo App DevTools',
       maxAge: 25,
       logOnly: environment.production
-    })
+    }),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent],
