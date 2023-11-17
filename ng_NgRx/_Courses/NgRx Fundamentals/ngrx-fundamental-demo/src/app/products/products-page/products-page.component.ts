@@ -32,7 +32,6 @@ export class ProductsPageComponent {
     this.productsService.getAll().subscribe({
       next: (products) => {
         this.store.dispatch(ProductsAPIActions.productsLoadedSuccess({ products }));
-        this.total = sumProducts(products);
       },
       error: (error) => (this.errorMessage = error),
     });
