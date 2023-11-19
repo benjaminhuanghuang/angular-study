@@ -1,6 +1,6 @@
 # Ultimate Courses - RxJS Masterclass
 
-5Chapters 35Lessons 3Hours
+5 Chapters 35 Lessons 3 Hours
 
 https://ultimatecourses.com/learn/rxjs-masterclass
 
