@@ -15,6 +15,13 @@ ng new \
   ng new <project>
 ```
 
+Define the prefix of the selector
+```
+  ng new ngAuction --prefix nga --routing
+
+  --prefix nga: In angular.json, nga- prefix to all selectors 
+  --routing   : generate a boilerplate module for routing support
+```
 
 ```
   ng new <app>  --style=scss --routing

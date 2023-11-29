@@ -1,5 +1,8 @@
 # Angular Development with TypeScript 2ed
+By Anton Moiseev, Yakov Fain, 2018, Angular 9
 
+
+https://learning.oreilly.com/library/view/angular-development-with/9781617295348/
 https://github.com/Farata/angulartypescript
 
 ## Create project
