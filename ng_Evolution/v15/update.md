@@ -5,3 +5,6 @@
 > Since Angular v15, the `RouterLink` contains the logic of the `RouterLinkWithHref` directive.
   This migration replaces all `RouterLinkWithHref` references with `RouterLink`.
   Migration completed (No changes made).
+
+
+> .browserslistrc is removed.
