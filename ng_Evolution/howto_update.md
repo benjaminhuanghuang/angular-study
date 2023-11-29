@@ -7,7 +7,7 @@ Updating multiple major versions of '@angular/cli' at once is not supported. Ple
 
 ## Update to specific version
 ```
-  ng update @angular/cli@8 @angular/core@8
+  ng update @angular/cli@16 @angular/core@16
 ```
 
 ## update to next major version
