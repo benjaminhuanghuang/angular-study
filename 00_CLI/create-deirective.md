@@ -1,6 +1,6 @@
 
 
-## attach something only if the conditioni is false
+## attach something only if the condition is false
 ```
   ng g d unless
 ```
