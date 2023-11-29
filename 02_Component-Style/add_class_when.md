@@ -1,7 +1,7 @@
 
 
 ##  Add the CSS class `selected` if isSelected(myProduct) returns true.
-```
+```html
 <div class="ui items">
  <product-row *ngFor="let myProduct of productList"
   [product]="myProduct"
@@ -11,7 +11,7 @@
 </div>
 ```
 
-```
+```ts
 isSelected(product: Product): boolean {
  if (!product || !this.currentProduct) { 
    return false;
