@@ -3,6 +3,8 @@
 ```
   ng update @angular/cli @angular/core
 ```
+Updating multiple major versions of '@angular/cli' at once is not supported. Please migrate each major version individually.
+
 ## Update to specific version
 ```
   ng update @angular/cli@8 @angular/core@8
