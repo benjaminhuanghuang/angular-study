@@ -22,3 +22,12 @@ app.component.css: applied to only the HTML created by the app.component.html fi
 
 
 ## *ngFor
+```html
+<app-card *ngFor="let post of posts"
+  [title]="post.title"
+  [imageUrl]="post. imageUrl"
+  [username]="post.username"
+  [content]="post. content">
+</app-card>
+I
+```
