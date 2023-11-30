@@ -19,3 +19,6 @@ app.component.css: applied to only the HTML created by the app.component.html fi
 - Components can be nested, or shown inside of each other
 - Every app has a component called the 'App' component, and it is always the most parent component
 - Each component has its own Component Class, Component Template, Component CSS File, and Spec File
+
+
+## *ngFor
