@@ -1,13 +1,16 @@
 ## Use Bootstrap
 
-Installing Bootstrap, jQuery
-
+Installing Bootstrap
 ```
-  npm i bootstrap jquery -D
+  npm i bootstrap
 ```
 
-Add reference in angular.json
+## Import Bootstrap in styles.css
+```css
+@import '~bootstrap/dist/css/bootstrap.min.css';
+```
 
+## Import Bootstrap method 2: Add reference in angular.json
 ```
  "styles": [
     "src/styles.css",
@@ -18,4 +21,15 @@ Add reference in angular.json
     "node_modules/jquery/dist/jquery.min.js",
     "node_modules/bootstrap/dist/js/bootstrap.min.js"
   ]
+```
+
+
+## container
+```html
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <h1>Angular</h1>
+    </div>
+  </div>
 ```
