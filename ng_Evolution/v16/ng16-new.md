@@ -15,10 +15,6 @@ Required Inputs. ...
 
 Router Inputs. ...
 
-Standalone Project Support.
-```
-ng new --standalone
-```
 
 
 ## Angular 16.1 
