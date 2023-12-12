@@ -1,27 +1,59 @@
-# swVehicles
+## Angular-Signals
+by Deborah Kurata
+https://github.com/DeborahK/Angular-Signals
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.0.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Angular Signal vs BehaviorSubject
+https://www.youtube.com/watch?v=a6XKMj-WRhM
 
-## Code scaffolding
+observable:
+```ts
+  cartItems$ = this.cartService.cartItems$;
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```html
+<div *ngFor="let item of cartItems$ | async">
+  <sw-cart-item [item]='item'></sw-cart-item>
+</div>
+```
 
-## Build
+cart-item.component.ts
+```ts
+  @Input() set item(item: CartItem) {
+    this._item = item;
+    this.itemChangedSubject.next(item);
+  }
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+  private itemChangedSubject = new BehaviorSubject<CartItem>(this._item);
+  items$ = this.itemChangedSubject.asObservable();
 
-## Running unit tests
+  exPrice$ = this.item$.pipe(
+    map(it = it.quantity * Number(it.vehicle.cost_in_credits))
+  );
+```
+cart-item.component.html
+```html
+<div class="card border-primary" *ngIf='item$ | async as item'>
+</div>
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Signal
+cart-item.component.ts
+```ts
+  @Input() set item(item: CartItem) {
+    this._item = item;
+    this.cartItem.set(item);
+  }
 
-## Running end-to-end tests
+  cartItem = signal(this._item); 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  exPrice = computed(() => {
+    return this.cartItem().quantity * Number(this.cartItem().vehicle.cost_in_credits);
+  });
+```
+cart-item.component.html
+```html
+<div class="card border-primary" *ngIf='cartItem()'>
+</div>
+```
