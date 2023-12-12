@@ -7,7 +7,7 @@ Installing Bootstrap
 
 ## Import Bootstrap in styles.css
 ```css
-@import '~bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
 ## Import Bootstrap method 2: Add reference in angular.json
