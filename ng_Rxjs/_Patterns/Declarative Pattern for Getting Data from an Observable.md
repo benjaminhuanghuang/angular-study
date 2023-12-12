@@ -1,3 +1,7 @@
+# Declarative Pattern for Getting Data from an Observable
+https://www.youtube.com/watch?v=0XPxUa8u-LY
+
+
 Product service
 ```ts
   private productsUrl = 'api/products';

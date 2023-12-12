@@ -7,6 +7,11 @@ https://github.com/DeborahK/Angular-Signals
 ## Angular Signal vs BehaviorSubject
 https://www.youtube.com/watch?v=a6XKMj-WRhM
 
+- Simplified binding
+- No need to subscribe
+- Computed signals
+- Improved change detection
+
 observable:
 ```ts
   cartItems$ = this.cartService.cartItems$;
