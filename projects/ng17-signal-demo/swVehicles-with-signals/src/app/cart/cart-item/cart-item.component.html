@@ -11,13 +11,9 @@
       {{ cartItem().vehicle.cost_in_credits | number:'1.2-2' }}
     </div>
     <div class="col-md-2 text-center">
-      <select class="form-select"
-              aria-label="Quantity list"
-              style="margin-bottom: 10px; width:60px; margin: 0 auto"
-              [ngModel]="cartItem().quantity"
-              (ngModelChange)="onQuantitySelected($event)">
-        <option disabled
-                value="">--Select a quantity--</option>
+      <select class="form-select" aria-label="Quantity list" style="margin-bottom: 10px; width:60px; margin: 0 auto"
+        [ngModel]="cartItem().quantity" (ngModelChange)="onQuantitySelected($event)">
+        <option disabled value="">--Select a quantity--</option>
         <option *ngFor="let q of qtyArr()">{{ q }}</option>
       </select>
     </div>
@@ -25,10 +21,7 @@
       {{ exPrice() | number:'1.2-2'}}
     </div>
     <div class="col-md-2 text-center">
-      <button type="button"
-              class="btn btn-warning"
-              aria-label="Close"
-              (click)="onRemove()">
+      <button type="button" class="btn btn-warning" aria-label="Close" (click)="onRemove()">
         Delete
       </button>
     </div>

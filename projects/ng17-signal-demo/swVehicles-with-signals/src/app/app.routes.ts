@@ -6,12 +6,12 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
     path: 'vehicles',
-    loadComponent: () => 
+    loadComponent: () =>
       import('./vehicles/vehicle-shell/vehicle-shell.component').then(c => c.VehicleShellComponent)
   },
   {
     path: 'cart',
-    loadComponent: () => 
+    loadComponent: () =>
       import('./cart/cart-shell/cart-shell.component').then(c => c.CartShellComponent)
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
