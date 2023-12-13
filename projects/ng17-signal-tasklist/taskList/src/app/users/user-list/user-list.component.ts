@@ -18,8 +18,8 @@ export class UserListComponent {
   pageTitle = 'User List';
 
   // Expose the state as signals
-  users = signal<User[]>([]);
-  selectedUserId = signal<number>(0);
+  users = this.userService.users;
+  selectedUserId = this.userService.selectedUserId;
 
   // Set the selected user
   onSelected(userId: number): void {
