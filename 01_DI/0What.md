@@ -1,4 +1,6 @@
 ## Dependency Injection
+"DI is a coding pattern in which a class asks for dependencies from external sources rather than creating them itself"
+
 - substitute out the implementation of B for MockB during testing
 - share a single instance of the B class across our whole app (e.g. the Singleton
 pattern)
