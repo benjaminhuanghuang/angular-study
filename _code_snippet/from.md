@@ -22,3 +22,9 @@ addArticle(title: HTMLInputElement, link: HTMLInputElement): boolean {
   
 }
 ```
+
+
+## get input
+```html
+  <input (input)="onChange($event.target.value)">
+```
