@@ -1,9 +1,14 @@
-# Why you should never use function calls in Angular template expressions
+Calling function in Angular templates may cause `serious performance issues`.
+
+The function Angular template is executed every time Angular change detection runs(E.g. mouse is moved over the div). And that can be many times!
+
+Furthermore, change detection can be triggered outside of the component.
+
+
+## Case 1 
+Why you should never use function calls in Angular template expressions
 https://medium.com/showpad-engineering/why-you-should-never-use-function-calls-in-angular-template-expressions-e1a50f9c0496
 
-While function calls in Angular templates are super convenient and technically valid, they may cause `serious performance issues`.
-
-## The problem
 ```ts
 @Component({
   template: `
@@ -13,22 +18,23 @@ While function calls in Angular templates are super convenient and technically v
 })
 export class PersonComponent {
   @Input() person: { firstName: string, lastName: string };
+
   constructor() { }
+  
   fullName() {
     return this.person.firstName + ' ' + this.person.lastName
   }
+
   onClick() {
     console.log('Button was clicked');
   }
 }
 ```
-Here, the fullName() function is executed every time Angular change detection runs. And that can be many times!
-The fullName() function is executed hundreds of times when the mouse is moved over the div.
-
 
 Furthermore, change detection can be triggered outside of the PersonComponent:
 ```ts
 <person [person]="person"></person>
+
 <button (click)="onClick()">
   Trigger change detection outside of PersonComponent
 </button>
@@ -51,3 +57,30 @@ When we enable ChangeDetectionStrategy.OnPush for the PersonComponent, we tell A
 Strategy 1— Pure pipes
 
 Strategy 2— Manually calculate the values
+
+
+
+## Sample 2 
+Why You Should Never Use Methods Inside Templates in Angular
+https://betterprogramming.pub/why-you-should-never-use-methods-inside-templates-in-angular-497e0e11f948
+
+```html
+<textarea value="{{getAddress()}}">
+```
+
+The getAddress() method has been triggered `four times` after the page refreshed. 
+And every time I click on the page, hover the mouse over the text area, or click on it, I get more and more consoles.
+
+This happens because of `Angular change detection`.
+
+
+## Fix
+```html
+<textarea value="{{getAddress()}}">
+```
+Call the method in the `ngOnInit` hook and assign the result to a variable.
+```ts
+ngOnInit() {
+  this.address = this.getAddress();
+}
+```
