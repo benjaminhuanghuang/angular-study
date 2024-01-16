@@ -35,11 +35,10 @@ export class AppModule { }
 ## RecipesModule
 Move the recipes related components, from app.module.ts to recipes/recipes.module.ts
 
-
 ## Add router to feature module
 
 Create a recipes-routing.module.ts
-
+Import it in recipes.module.ts
 
 ## Add Auth feature module
 Add auth/auth.module.ts
@@ -51,4 +50,17 @@ Add AuthModule to imports[] in app.module.ts
 Move the route into auth.module.ts
 ```ts
   RouterModule.forChild([{ path: 'auth', component: AuthComponent }])
+```
+
+## Lazy Loading
+add route for the lazy loading module in app-routing.module.ts
+```ts
+  // Older than angular 9
+  { path: 'recipes', loadChildren: './recipes/recipes.module.ts#RecipesModule' },
+
+  {
+    path: 'recipes',
+    loadChildren: () =>
+      import('./recipes/recipes.module').then(module => module.RecipesModule)
+  },
 ```
