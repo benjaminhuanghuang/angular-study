@@ -3,6 +3,8 @@ import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+  // { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule' }
+  // Older than angular 9
   {
     path: 'recipes',
     loadChildren: () =>
@@ -20,8 +22,6 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('./auth/auth.module').then(module => module.AuthModule)
   }
-  // { path: 'recipes', loadChildren: './recipes/recipes.module#RecipesModule' }
-  // Older than angular 9
 ];
 
 @NgModule({

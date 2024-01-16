@@ -51,16 +51,3 @@ Move the route into auth.module.ts
 ```ts
   RouterModule.forChild([{ path: 'auth', component: AuthComponent }])
 ```
-
-## Lazy Loading
-add route for the lazy loading module in app-routing.module.ts
-```ts
-  // Older than angular 9
-  { path: 'recipes', loadChildren: './recipes/recipes.module.ts#RecipesModule' },
-
-  {
-    path: 'recipes',
-    loadChildren: () =>
-      import('./recipes/recipes.module').then(module => module.RecipesModule)
-  },
-```

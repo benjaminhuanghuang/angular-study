@@ -10,7 +10,7 @@ import { RecipesResolverService } from './recipes-resolver.service';
 
 const routes: Routes = [
   {
-    path: '',
+    path: '',  // This is root the route inside module. The module is loaded when the path is "/recipes"
     component: RecipesComponent,
     canActivate: [AuthGuard],
     children: [
