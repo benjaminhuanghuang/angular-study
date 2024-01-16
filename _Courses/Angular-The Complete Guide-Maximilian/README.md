@@ -2,6 +2,9 @@
 by Maximilian Schwarzmüller
 https://learning.oreilly.com/videos/angular-the/9781788998437/
 
+Angular - The Complete Guide (2024 Edition)
+https://www.udemy.com/course/the-complete-guide-to-angular-2/
+
 https://github.com/PacktPublishing/Angular---The-Complete-Guide---2023-Edition
 
 https://github.com/juanpetterson/angular-the-complete-guide
