@@ -1,6 +1,8 @@
-# Angular - The Complete Guide (2022 Edition)
-
+# Angular - The Complete Guide (2023 Edition)
+by Maximilian Schwarzmüller
 https://learning.oreilly.com/videos/angular-the/9781788998437/
+
+https://github.com/PacktPublishing/Angular---The-Complete-Guide---2023-Edition
 
 https://github.com/juanpetterson/angular-the-complete-guide
 
@@ -81,7 +83,7 @@ https://github.com/juanpetterson/angular-the-complete-guide
 
 ## 27 - Adding Offline Capabilities with Service
 
-## 28 - A Basic Introduction to Unit Testing in Angular Apps
+## 30 - A Basic Introduction to Unit Testing in Angular Apps
 
 - Why Unit Tests?
 
