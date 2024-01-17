@@ -1,7 +1,7 @@
 
 ## ng generate compoent
 ```
-  ng g c <anem>
+  ng g c <name>
 ```
 
 ## without test
