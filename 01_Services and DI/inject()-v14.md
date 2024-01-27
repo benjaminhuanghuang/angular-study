@@ -1,5 +1,4 @@
 
-Instead of using @Injectable() decorator, we can use inject() function to provide dependency. 
 
 ```ts
 import { Component, inject } from '@angular/core';

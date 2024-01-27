@@ -1,6 +1,6 @@
 
 
-```
+```ts
 @Injectable()
 export class YouTubeSearchService {
   constructor(

@@ -34,7 +34,7 @@ dependencies and injecting them when creating objects
 
 - the Dependency that is what’s being injected
 
-```
+```ts
 // Create an _injector_ and ask for it to resolve and create a UserService
 const injector: any = ReflectiveInjector.resolveAndCreate([UserService]);
 
@@ -43,3 +43,8 @@ this.userService = injector.get(UserService);
 ```
 
 The ReflectiveInjector is a concrete implementation of Injector that uses reflection to look up the proper parameter types.
+
+## References
+
+Angular Dependency Injection: Complete Guide
+https://blog.angular-university.io/angular-dependency-injection/

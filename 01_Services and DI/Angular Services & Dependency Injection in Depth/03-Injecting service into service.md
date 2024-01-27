@@ -12,3 +12,16 @@ export class UserService {
 ```
 
 Angular recommended to add @Injectable() decorator to all services
+
+## Inject from root
+
+```ts
+@Injectable({
+  providedIn: 'root'
+})
+export class LoggerService {
+
+}
+```
+
+we don't need to provide that service explicitly in the providers array of the root module.
