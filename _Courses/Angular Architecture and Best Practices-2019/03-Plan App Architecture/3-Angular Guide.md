@@ -1,5 +1,7 @@
 
-## Angular architecture concepts
+https://angular.io/guide/styleguide
+
+## Angular guide
 
 - Coding convention
 - Naming rules
@@ -18,3 +20,4 @@
 - CDN container server
 - UT
 - E2E testing
+- APIs
