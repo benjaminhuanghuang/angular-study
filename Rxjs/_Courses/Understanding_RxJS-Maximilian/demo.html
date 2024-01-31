@@ -1,0 +1,25 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>Click me</button>
+    <script src="https://unpkg.com/rxjs@7.5.6/dist/bundles/rxjs.umd.min.js"></script>
+
+    <script>
+        const button = document.querySelector('button');
+        //
+        const { fromEvent, throttleTime } = rxjs;
+
+        const clicks = fromEvent(button, 'click');
+        const result = clicks.pipe(throttleTime(3000));
+
+        result.subscribe(x => console.log(x));   </script>
+</body>
+
+</html>

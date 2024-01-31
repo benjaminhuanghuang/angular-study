@@ -1,0 +1,1 @@
+ from Rxjs Version 8, they will depreciate toPromise and instead they encourage us to use fromFirstValue or fromLastValue. RxJS - Conversion to Promises. It seems like we are not currently up to date.

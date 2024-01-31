@@ -1,0 +1,27 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RxJs 7 Playground</title>
+</head>
+
+<body>
+
+    <button>Click me</button>
+    <script src="https://unpkg.com/rxjs@7.5.6/dist/bundles/rxjs.umd.min.js"></script>
+
+    <script>var button = document.querySelector('button');
+//
+var _rxjs = rxjs,
+  fromEvent = _rxjs.fromEvent,
+  throttleTime = _rxjs.throttleTime;
+var clicks = fromEvent(button, 'click');
+var result = clicks.pipe(throttleTime(3000));
+result.subscribe(function (x) {
+  return console.log(x);
+});</script>
+</body>
+
+</html>

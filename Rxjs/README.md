@@ -12,4 +12,35 @@
 
 
 
-## Get http
+
+## Reference
+    - RxJS and Observables with Angular 2
+        - https://github.com/coryrylan/observable-rxjs-demos
+    - RxJS Essentials
+
+
+## Key concepts
+- Data stream
+    One-way, Asynchronous, Independent, immutable(modification creates new stream)
+
+    sample: Twitter Feed, Click Events, Http Calls
+
+- imperative vs reactive
+
+    reactive: program reacts on changes
+
+- Observable: a producer of sequences of values / data stream
+
+- Observer: Consumer of observable values, processor of the data stream
+
+- Subscriber: connects observer with observable, setup observer
+
+- Operator:  value transformation
+
+- Subject: Includes both an observable and Observer
+
+- Cold observables / Hot observables
+    cold: start from the beginning for each new subscriber
+    hot:  start from the moment subscribe
+    movie stream / Movie Theater
+    File read, Http request, DB Query / Mouse events 
