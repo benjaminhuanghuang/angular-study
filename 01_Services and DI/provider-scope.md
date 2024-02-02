@@ -5,12 +5,12 @@ https://itnext.io/understanding-provider-scope-in-angular-4c2589de5bc
 Service is just a TypeScript class with or even without @Injectable decorator.
 
 To create a service all we need to do is create a class
-```
+```ts
   export class VoteService {}
 ```
 
 register it in providers array of @NgModule
-```
+```ts
 import {VoteService} from './vote.service';
 ...
 
@@ -23,7 +23,7 @@ import {VoteService} from './vote.service';
 ```
 
 The second way (more preferred in Angular 6) is to use @Injectable decorator and specify providedIn property
-```
+```ts
 import { Injectable } from '@angular/core';
 
 @Injectable({   
