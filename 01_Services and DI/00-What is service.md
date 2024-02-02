@@ -1,12 +1,15 @@
-## Angular service
-A service is a global class that can be injected in any component. It's used to encapsulate code that can be common between multiple components in one place instead of repeating it throughout various components.
+# Angular service
 
-Angular services are the parts of your application that don’t interact directly with the UI.
+A service is a `global class` that `can be injected` in any component.
 
-Well-designed applications have most of the application logic and I/O inside a service. Any
+It's used to encapsulate code that can be common between multiple components in one place instead of repeating it throughout various components.
+
+Angular services are the parts of your application that don’t interact directly with the UI. Any
 code creating UI elements or handling user input should be in a component
 
-- Singletons
+Well-designed applications have most of the application logic and I/O inside a service.
+
+## Singletons
 
   Angular services are `singletons`, you create them `once` and can use them anywhere in the application. Components that define that service as a dependency will share that instance.
 
