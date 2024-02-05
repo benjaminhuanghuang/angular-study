@@ -4,6 +4,8 @@
 
 Programming paradigm that works with asynchronous data streams
 
+Data stream is a sequence of ongoing events ordered in time
+
 Data streams can be created from many things
 - Ul Events
 - Http Requests
@@ -24,7 +26,6 @@ The reactive paradigm is centered around the idea of modeling `changes in state`
 
 
 ## Reactive Components & Services
-
 
 
 ## Resources
