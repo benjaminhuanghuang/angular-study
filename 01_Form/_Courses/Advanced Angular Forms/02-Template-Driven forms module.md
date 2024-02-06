@@ -1,6 +1,8 @@
 
 To the html form, when we click the Save/Submit button, the page will be reloaed.
 
+## FormsModule and the directives
+
 FormsModule is needed to template-driven form
 
 Import FormsModule will add some directives to the form automatically, which changes the form behavior.
