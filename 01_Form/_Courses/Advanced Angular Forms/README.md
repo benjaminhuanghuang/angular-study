@@ -1,4 +1,5 @@
 # Advanced Angular Forms
+By Dmytro Mezhenskyi
 
 https://courses.decodedfrontend.io/courses/advanced-angular-forms
 
