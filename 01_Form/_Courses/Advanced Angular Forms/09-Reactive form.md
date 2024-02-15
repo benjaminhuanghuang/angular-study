@@ -1,15 +1,18 @@
 
 ## import ReactiveFormsModule
-Apply some directives to the form automatically
 
-
-```html
-<form [formGroup] ="form">
-
-  <input formControlName="firstName">
-</form>
+```ts
+imports: [    ReactiveFormsModule]
 ```
 
+Apply some directives to the form automatically
+
+```html
+<form [formGroup] ="form"> <!-- "form" is the name of the FormGroup -->
+
+  <input formControlName="firstName">  <!-- value of formControlName should match the key in the FormGroup -->
+</form>
+```
 
 ```ts
   form = new FormGroup({
