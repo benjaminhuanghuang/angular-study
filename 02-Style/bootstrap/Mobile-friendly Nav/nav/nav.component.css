@@ -1,0 +1,68 @@
+header {
+  padding: 10px;
+  background: #f8f8f8;
+}
+
+
+.logo {
+  width: 200px;
+}
+
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.desktopMenu {
+  margin-top: 24px;
+}
+
+.desktopMenu ul li {
+  list-style-type: none;
+  display: inline-block;
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.desktopMenu ul li:hover {
+  font-size: 19px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.menuIcon {
+  display: none;
+}
+
+
+@media screen and (max-width: 900px) and (min-width: 128px) {
+  .desktopMenu {
+    position: fixed;
+    transition: 0.4s ease-in-out;
+    right: -200px;
+    top: 64px;
+    width: 200px;
+    height: 100%;
+  }
+
+  .desktopMenu ul li {
+    display: block;
+    text-align: left;
+    margin: 0;
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .menuIcon {
+    display: block;
+    /* color: white; */
+    font-size: 40px;
+    padding: 10px;
+  }
+
+  .mobileMenu {
+    right:0;
+    transition: 0.4s ease-in-out;
+  }
+}
