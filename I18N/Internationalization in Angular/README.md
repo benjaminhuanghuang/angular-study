@@ -81,3 +81,16 @@ Add serve configuration in angular.json
 ```bash
   ng serve --configuration <id>
 ```
+
+## Translate the application
+- Identify the text that needs to be translated
+
+- Add i18n attribute to the HTML element
+```html
+  <li><a routerLink="/" i18n>Shop</a></li>
+```
+
+- Add i18n attribute to the HTML element attributes
+```html
+<img src="assets/img/logo.png" alt="Bethany's Pie Shop Logo" i18n-alt/>
+```
