@@ -91,6 +91,30 @@ Add serve configuration in angular.json
 ```
 
 - Add i18n attribute to the HTML element attributes
+
 ```html
 <img src="assets/img/logo.png" alt="Bethany's Pie Shop Logo" i18n-alt/>
+
+<input type="text" name="discount-code" id="discount-code" placeholder="Discount code or gift card" i18n-placeholder/>
+<input type="submit" name="submit" id="submit" value="Checkout" i18n-value/>
 ```
+
+extract the translation files
+
+```bash
+  ng extract-i18n --format json
+```
+
+Run application with different locale
+
+```bash
+  ng serve --configuration <id>
+```
+
+
+## Translating applications
+
+- Mark all presentation messages for translation, including accessibility attributes
+- Take care in forming messages with implied grammar construct
+- Prefer translations in templates, but not at the expense of creating complications
+- Provide meaning, description, and custom ids to your translators for accuracy and maintainability
