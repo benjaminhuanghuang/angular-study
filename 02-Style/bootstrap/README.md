@@ -1,30 +1,30 @@
-## Use Bootstrap
+## Install Bootstrap
 
-Installing Bootstrap
-```
+```bash
   npm i bootstrap
 ```
 
 ## Import Bootstrap in styles.css
+
 ```css
 @import 'bootstrap/dist/css/bootstrap.min.css';
 ```
 
 ## Import Bootstrap method 2: Add reference in angular.json
-```
+
+```json
  "styles": [
     "src/styles.css",
     "node_modules/bootstrap/dist/css/bootstrap.min.css"
   ],
 
   "scripts": [
-    "node_modules/jquery/dist/jquery.min.js",
     "node_modules/bootstrap/dist/js/bootstrap.min.js"
   ]
 ```
 
-
 ## container
+
 ```html
 <div class="container">
   <div class="row">
