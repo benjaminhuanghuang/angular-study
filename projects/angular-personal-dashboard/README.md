@@ -30,3 +30,24 @@ Use google fonts Inter
 ```bash
 ng g c tabs
 ```
+
+```html
+<div class="tabs">
+    <div class="tab">
+      <div class="tab-title">
+          <i class="material-icons-outlined">bookmarks</i>
+      </div>
+    </div>
+</div>
+```
+
+Use the Material icon
+
+```scss
+@import url('https://fonts.googleapis.com/css?family=Material+Icons+Outlined|Material+Icons');
+```
+
+Set background image using https://source.unsplash.com/random/1920x1080
+
+
+Setup routing

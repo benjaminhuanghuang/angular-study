@@ -1,6 +1,6 @@
 .tabs {
   display: flex;
-  gap: 14px;
+  gap: 14px;   // space between tabs
 
   background-color: rgba(white, 0.25);
   backdrop-filter: blur(3px);
@@ -21,7 +21,7 @@
 }
 
 .tab-tile {
-  display: flex;
+  display: flex;  // fix the extra space caused by the line hight of the text icon
 
   padding: 18px;
 
@@ -74,6 +74,7 @@
   background: linear-gradient(45deg, #d2cdff, #5fffbc);
 }
 
+// Hover affection
 .tab-tile:hover::before {
   opacity: 1;
   transform: scale(1.1);
