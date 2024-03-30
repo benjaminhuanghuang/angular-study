@@ -1,4 +1,4 @@
-app-wrapper {
+.app-wrapper {
   display: flex;
   flex-direction: column;
 
@@ -37,8 +37,8 @@ app-wrapper {
 }
 
 .content-section {
-  // background-color: cadetblue;
-  flex-grow: 1;  // fill all free space
+  //background-color: cadetblue;
+  flex: 1;  // fill all free space
   min-height: 0;
 }
 

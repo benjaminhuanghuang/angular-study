@@ -4,11 +4,15 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
 import { Todo } from '../shared/todo.model';
 import { TodoService } from '../shared/todo.service';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-todos',
   standalone: true,
-  imports: [TodoItemComponent],
+  imports: [
+    CommonModule,  // for the ngFor directive
+    TodoItemComponent
+  ],
   templateUrl: './todos.component.html',
   styleUrl: './todos.component.scss'
 })
