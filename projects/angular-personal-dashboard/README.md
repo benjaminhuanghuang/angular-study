@@ -49,5 +49,10 @@ Use the Material icon
 
 Set background image using https://source.unsplash.com/random/1920x1080
 
-
 Setup routing
+
+## Part 3 Bookmarks
+
+BookmarkTile
+
+## Part 4 Todo items

@@ -15,7 +15,7 @@
 .tab {
   position: relative;
 
-  text-decoration: none;
+  text-decoration: none; // remove the underline of the link on the tab
 
   z-index: 1;
 }
@@ -31,9 +31,10 @@
       color: #222;
   }
 
-  transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out; // transition starts fast, then slows down towards the end.
 }
 
+// Effect on the tab-tile when the tab is selected
 .tab.selected .tab-tile {
   transform: translateY(-50%);
 
@@ -74,12 +75,13 @@
   background: linear-gradient(45deg, #d2cdff, #5fffbc);
 }
 
-// Hover affection
+// Hover effect
 .tab-tile:hover::before {
   opacity: 1;
   transform: scale(1.1);
 }
 
+// Effect on the shape of tab-tile when the tab is selected
 .tab.selected .tab-tile::before {
   opacity: 1;
   transform: scale(1.1);
