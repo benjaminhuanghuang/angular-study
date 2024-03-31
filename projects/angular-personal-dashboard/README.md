@@ -58,4 +58,24 @@ BookmarkTile
 ## Part 4 Todo items
 
 
-## Part 5 Weather
+## Part 5 Notes
+
+
+## Part 6 Route transition
+
+```html
+<div class="content-section" [@routeAnim]="prepareRoute(outlet)">
+    <router-outlet  #outlet="outlet"></router-outlet>
+</div>
+```
+
+## Part 7 Add note
+
+
+## Part 8 Note service
+
+```bash
+ng g s shard/note
+```
+
+## Part 8 Note card

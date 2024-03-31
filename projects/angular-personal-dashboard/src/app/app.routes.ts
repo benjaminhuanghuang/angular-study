@@ -3,6 +3,7 @@ import { Routes } from '@angular/router';
 import { BookmarksComponent } from './bookmarks/bookmarks.component';
 import { TodosComponent } from './todos/todos.component';
 import { NotesComponent } from './notes/notes.component';
+import { AddNoteComponent } from './add-note/add-note.component';
 
 export const routes: Routes = [
   { path: 'bookmarks', component: BookmarksComponent, data: { tab: 1 } },
@@ -14,6 +15,6 @@ export const routes: Routes = [
   // { path: 'todos/add', component: AddTodoComponent },
   // { path: 'todos/:id', component: EditTodoComponent },
   { path: 'notes', component: NotesComponent, data: { tab: 3 } },
-  // { path: 'notes/add', component: AddNoteComponent },
+  { path: 'notes/add', component: AddNoteComponent },
   // { path: 'notes/:id', component: EditNoteComponent }
 ];
