@@ -78,4 +78,18 @@ BookmarkTile
 ng g s shard/note
 ```
 
-## Part 8 Note card
+## Part 9 Note card
+
+
+## Part 9 Note form in AddNoteComponent
+
+
+## Part 10 Note form
+
+## Part 11 Form validation in AddNoteComponent
+
+## Part 12 Edit note
+
+```bash
+ng g c edit-note
+```
