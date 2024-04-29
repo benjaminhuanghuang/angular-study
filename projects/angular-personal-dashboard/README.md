@@ -93,3 +93,15 @@ ng g s shard/note
 ```bash
 ng g c edit-note
 ```
+
+## Part 13 Todo service
+
+```bash
+  ng g s shared/todo
+```
+
+## Part 14 Todo item
+
+## Part 15 Add Todo 
+
+## Part 16 Add Todo 

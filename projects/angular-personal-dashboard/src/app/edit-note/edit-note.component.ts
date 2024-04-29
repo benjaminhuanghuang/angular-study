@@ -3,12 +3,14 @@ import { Note } from '../shared/note.model';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { NoteService } from '../shared/note.service';
 import { NotificationService } from '../shared/notification.service';
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-note',
   standalone: true,
-  imports: [],
+  imports: [
+    FormsModule
+  ],
   templateUrl: './edit-note.component.html',
   styleUrl: './edit-note.component.scss'
 })

@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './add-note.component.html',
   styleUrl: './add-note.component.scss'
 })
-export class AddNoteComponent {
+export class AddNoteComponent implements OnInit {
   showValidationErrors: boolean = false;
 
   constructor(
