@@ -39,3 +39,15 @@ export const pieceImagePaths: Readonly<Record<FENChar, string>> = {
   [FENChar.BlackQueen]: "assets/pieces/black queen.svg",
   [FENChar.BlackKing]: "assets/pieces/black king.svg"
 }
+
+type KingChecked = {
+  isInCheck: true;
+  x: number;
+  y: number;
+}
+
+type KingNotChecked = {
+  isInCheck: false;
+}
+
+export type CheckState = KingChecked | KingNotChecked;
