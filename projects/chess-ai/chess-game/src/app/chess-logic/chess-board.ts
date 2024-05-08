@@ -1,6 +1,5 @@
-import { columns } from "../modules/chess-board/models";
-import { FENConverter } from "./FENConverter";
-import { CheckState, Color, Coords, FENChar, GameHistory, LastMove, MoveList, MoveType, SafeSquares } from "./models";
+
+import { Color, Coords, FENChar } from "./models";
 import { Bishop } from "./pieces/bishop";
 import { King } from "./pieces/king";
 import { Knight } from "./pieces/knight";
@@ -14,9 +13,6 @@ export class ChessBoard {
   private chessBoard: (Piece | null)[][];
   private readonly chessBoardSize: number = 8;
   private _playerColor = Color.White;
-  private _safeSquares: SafeSquares;
-  private _lastMove: LastMove | undefined;
-  private _checkState: CheckState = { isInCheck: false };
   private fiftyMoveRuleCounter: number = 0;
   constructor() {
     this.chessBoard = [
@@ -53,5 +49,16 @@ export class ChessBoard {
     return this.chessBoard.map(row => {
       return row.map(piece => piece instanceof Piece ? piece.FENChar : null);
     })
+  }
+
+  /**
+   Draw the chess board white/black squares
+   [ngClass]="{
+        'dark': isSquareDark(x, y),
+        'light': !isSquareDark(x, y),
+      }">
+  */
+  public static isSquareDark(x: number, y: number): boolean {
+    return x % 2 === 0 && y % 2 === 0 || x % 2 === 1 && y % 2 === 1;
   }
 }
