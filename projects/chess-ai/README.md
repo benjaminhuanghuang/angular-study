@@ -3,3 +3,5 @@
 https://www.youtube.com/watch?v=fJIsqZmQVZQ
 
 https://github.com/awsomeCStutorials/chess-game
+
+20m
