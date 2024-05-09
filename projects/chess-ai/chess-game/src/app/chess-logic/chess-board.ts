@@ -313,6 +313,9 @@ export class ChessBoard {
     return safeSqures;
   }
 
+  /*
+    王车易位
+  */
   private canCastle(king: King, kingSideCastle: boolean): boolean {
     if (king.hasMoved) return false;
 
@@ -331,13 +334,15 @@ export class ChessBoard {
 
     if (!kingSideCastle && this.chessBoard[kingPositionX][1]) return false;
 
-
-
     return this.isPositionSafeAfterMove(kingPositionX, kingPositionY, kingPositionX, firstNextKingPositionY) &&
       this.isPositionSafeAfterMove(kingPositionX, kingPositionY, kingPositionX, secondNextKingPositionY);
   }
 
 
+  /*
+    The en passant rule is a special pawn capturing move in chess.
+    "En passant" is a French expression that translates to "in passing", which is precisely how this capture works.
+  */
   private canCaptureEnPassant(pawn: Pawn, pawnX: number, pawnY: number): boolean {
     if (!this._lastMove) return false;
     const { piece, prevX, prevY, currX, currY } = this._lastMove;
@@ -360,6 +365,9 @@ export class ChessBoard {
     return isPositionSafe;
   }
 
+  /*
+    王车易位
+  */
   private handlingSpecialMoves(piece: Piece, prevX: number, prevY: number, newX: number, newY: number, moveType: Set<MoveType>): void {
     if (piece instanceof King && Math.abs(newY - prevY) === 2) {
       // newY > prevY  === king side castle
