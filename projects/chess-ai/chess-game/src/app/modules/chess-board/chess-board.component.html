@@ -12,3 +12,17 @@
     </div>
   </div>
 </div>
+
+<button (click)="flipBoard()">Flip</button>
+
+<h2 *ngIf="gameOverMessage" class="game-over-message">
+    {{gameOverMessage}}
+</h2>
+
+<div *ngIf="isPromotionActive" class="promotion-dialog">
+    <img *ngFor="let piece of promotionPieces()" [src]="pieceImagePaths[piece]" (click)="promotePiece(piece)">
+
+    <span class="close-promotion-dialog" (click)="closePawnPromotionDialog()">
+        &times;
+    </span>
+</div>

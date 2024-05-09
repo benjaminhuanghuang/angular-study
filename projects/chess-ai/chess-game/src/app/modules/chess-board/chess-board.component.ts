@@ -3,8 +3,10 @@ import { Component } from '@angular/core';
 import { Subscription, filter, fromEvent, tap } from 'rxjs';
 //
 import { ChessBoard } from '../../chess-logic/chess-board';
-import { Color, Coords, FENChar, LastMove, SafeSquares, pieceImagePaths } from '../../chess-logic/models';
+import { CheckState, Color, Coords, FENChar, GameHistory, LastMove, MoveList, MoveType, SafeSquares, pieceImagePaths } from '../../chess-logic/models';
 import { SelectedSquare } from './models';
+import { ChessBoardService } from './chess-board.service';
+import { FENConverter } from '../../chess-logic/FENConverter';
 
 @Component({
   selector: 'app-chess-board',
@@ -26,11 +28,18 @@ export class ChessBoardComponent {
   private selectedSquare: SelectedSquare = { piece: null };
   private pieceSafeSquares: Coords[] = [];
   private lastMove: LastMove | undefined = this.chessBoard.lastMove;
+  private checkState: CheckState = this.chessBoard.checkState;
+
+  // Game history
+  public get moveList(): MoveList { return this.chessBoard.moveList; };
+  public get gameHistory(): GameHistory { return this.chessBoard.gameHistory; };
+  public gameHistoryPointer: number = 0;
 
   // promotion properties
-  public isPromotionActive: boolean = false;
+  public isPromotionActive: boolean = false;  // if true, show promotion dialog
   private promotionCoords: Coords | null = null;
   private promotedPiece: FENChar | null = null;
+
   public promotionPieces(): FENChar[] {
     return this.playerColor === Color.White ?
       [FENChar.WhiteKnight, FENChar.WhiteBishop, FENChar.WhiteRook, FENChar.WhiteQueen] :
@@ -40,6 +49,41 @@ export class ChessBoardComponent {
   public flipMode: boolean = false;
   private subscriptions$ = new Subscription();
 
+  constructor(protected chessBoardService: ChessBoardService) { }
+
+  public ngOnDestroy(): void {
+    this.subscriptions$.unsubscribe();
+    this.chessBoardService.chessBoardState$.next(FENConverter.initalPosition);
+  }
+
+  /*------------------------------------------------
+    UI events
+  ------------------------------------------------*/
+  public flipBoard(): void {
+    this.flipMode = !this.flipMode;
+  }
+
+  public promotePiece(piece: FENChar): void {
+    if (!this.promotionCoords || !this.selectedSquare.piece) return;
+    this.promotedPiece = piece;
+    const { x: newX, y: newY } = this.promotionCoords;
+    const { x: prevX, y: prevY } = this.selectedSquare;
+    this.updateBoard(prevX, prevY, newX, newY, this.promotedPiece);
+  }
+
+  public closePawnPromotionDialog(): void {
+    this.unmarkingPreviouslySelectedAndSafeSquares();
+  }
+
+  public move(x: number, y: number): void {
+    this.selectingPiece(x, y);
+    this.placingPiece(x, y);
+  }
+  /*------ UI events end------------*/
+
+  /*------------------------------------------------
+    UI State
+  ------------------------------------------------*/
   public isSquareDark(x: number, y: number): boolean {
     return ChessBoard.isSquareDark(x, y);
   }
@@ -52,11 +96,7 @@ export class ChessBoardComponent {
   public isSquareSafeForSelectedPiece(x: number, y: number): boolean {
     return this.pieceSafeSquares.some(coords => coords.x === x && coords.y === y);
   }
-
-  public move(x: number, y: number): void {
-    this.selectingPiece(x, y);
-    this.placingPiece(x, y);
-  }
+  /* UI State end*/
 
   /*
     select piece and show the possible moves
@@ -68,7 +108,7 @@ export class ChessBoardComponent {
     if (this.isWrongPieceSelected(piece)) return;
 
     const isSameSquareClicked: boolean = !!this.selectedSquare.piece && this.selectedSquare.x === x && this.selectedSquare.y === y;
-    this.unmarkingPreviouslySlectedAndSafeSquares();
+    this.unmarkingPreviouslySelectedAndSafeSquares();
     if (isSameSquareClicked) return;
 
     this.selectedSquare = { piece, x, y };
@@ -100,12 +140,20 @@ export class ChessBoardComponent {
     this.chessBoard.move(prevX, prevY, newX, newY, promotedPiece);
     this.chessBoardView = this.chessBoard.chessBoardView;
     this.markLastMoveAndCheckState(this.chessBoard.lastMove, this.chessBoard.checkState);
-    this.unmarkingPreviouslySlectedAndSafeSquares();
+    this.unmarkingPreviouslySelectedAndSafeSquares();
     this.chessBoardService.chessBoardState$.next(this.chessBoard.boardAsFEN);
     this.gameHistoryPointer++;
   }
 
+  private markLastMoveAndCheckState(lastMove: LastMove | undefined, checkState: CheckState): void {
+    this.lastMove = lastMove;
+    this.checkState = checkState;
 
+    if (this.lastMove)
+      this.moveSound(this.lastMove.moveType);
+    else
+      this.moveSound(new Set<MoveType>([MoveType.BasicMove]));
+  }
   /*
   */
   private isWrongPieceSelected(piece: FENChar): boolean {
@@ -114,7 +162,7 @@ export class ChessBoardComponent {
       !isWhitePieceSelected && this.playerColor === Color.White;
   }
 
-  private unmarkingPreviouslySlectedAndSafeSquares(): void {
+  private unmarkingPreviouslySelectedAndSafeSquares(): void {
     this.selectedSquare = { piece: null };
     this.pieceSafeSquares = [];
 
@@ -123,5 +171,18 @@ export class ChessBoardComponent {
       this.promotedPiece = null;
       this.promotionCoords = null;
     }
+  }
+
+  private moveSound(moveType: Set<MoveType>): void {
+    const moveSound = new Audio("assets/sound/move.mp3");
+
+    if (moveType.has(MoveType.Promotion)) moveSound.src = "assets/sound/promote.mp3";
+    else if (moveType.has(MoveType.Capture)) moveSound.src = "assets/sound/capture.mp3";
+    else if (moveType.has(MoveType.Castling)) moveSound.src = "assets/sound/castling.mp3";
+
+    if (moveType.has(MoveType.CheckMate)) moveSound.src = "assets/sound/checkmate.mp3";
+    else if (moveType.has(MoveType.Check)) moveSound.src = "assets/sound/check.mp3";
+
+    moveSound.play();
   }
 }

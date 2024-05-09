@@ -375,7 +375,7 @@ export class ChessBoard {
   }
 
   /*
-    王车易位
+    王车易位, en passant
   */
   private handlingSpecialMoves(piece: Piece, prevX: number, prevY: number, newX: number, newY: number, moveType: Set<MoveType>): void {
     if (piece instanceof King && Math.abs(newY - prevY) === 2) {
@@ -403,14 +403,14 @@ export class ChessBoard {
     }
   }
 
-  private promotedPiece(promtoedPieceType: FENChar): Knight | Bishop | Rook | Queen {
-    if (promtoedPieceType === FENChar.WhiteKnight || promtoedPieceType === FENChar.BlackKnight)
+  private promotedPiece(promotedPieceType: FENChar): Knight | Bishop | Rook | Queen {
+    if (promotedPieceType === FENChar.WhiteKnight || promotedPieceType === FENChar.BlackKnight)
       return new Knight(this._playerColor);
 
-    if (promtoedPieceType === FENChar.WhiteBishop || promtoedPieceType === FENChar.BlackBishop)
+    if (promotedPieceType === FENChar.WhiteBishop || promotedPieceType === FENChar.BlackBishop)
       return new Bishop(this._playerColor);
 
-    if (promtoedPieceType === FENChar.WhiteRook || promtoedPieceType === FENChar.BlackRook)
+    if (promotedPieceType === FENChar.WhiteRook || promotedPieceType === FENChar.BlackRook)
       return new Rook(this._playerColor);
 
     return new Queen(this._playerColor);
