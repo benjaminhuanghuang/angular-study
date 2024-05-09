@@ -342,6 +342,15 @@ export class ChessBoard {
   /*
     The en passant rule is a special pawn capturing move in chess.
     "En passant" is a French expression that translates to "in passing", which is precisely how this capture works.
+
+    Pawns can usually capture only pieces that are directly and diagonally in front of them on an adjacent file.
+    It moves to the captured piece's square and replaces it.
+
+    With en passant, though, things are a little different. This type of capture is the only one in chess where the capturing
+    piece doesn't land on the same square as its victim.
+    To perform this capture, you must take your opponent's pawn as if it had moved just one square.
+    You move your pawn diagonally to an adjacent square, one rank farther from where it had been, on the same file where the enemy's
+    pawn is, and remove the opponent's pawn from the board
   */
   private canCaptureEnPassant(pawn: Pawn, pawnX: number, pawnY: number): boolean {
     if (!this._lastMove) return false;
