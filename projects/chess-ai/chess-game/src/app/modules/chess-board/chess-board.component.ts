@@ -7,11 +7,12 @@ import { CheckState, Color, Coords, FENChar, GameHistory, LastMove, MoveList, Mo
 import { SelectedSquare } from './models';
 import { ChessBoardService } from './chess-board.service';
 import { FENConverter } from '../../chess-logic/FENConverter';
+import { MoveListComponent } from '../move-list/move-list.component';
 
 @Component({
   selector: 'app-chess-board',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MoveListComponent],
   templateUrl: './chess-board.component.html',
   styleUrl: './chess-board.component.css'
 })
@@ -52,29 +53,29 @@ export class ChessBoardComponent implements OnInit, OnDestroy {
   constructor(protected chessBoardService: ChessBoardService) { }
 
   public ngOnInit(): void {
-    // const keyEventSubscription$: Subscription = fromEvent<KeyboardEvent>(document, "keyup")
-    //   .pipe(
-    //     filter(event => event.key === "ArrowRight" || event.key === "ArrowLeft"),
-    //     tap(event => {
-    //       switch (event.key) {
-    //         case "ArrowRight":
-    //           if (this.gameHistoryPointer === this.gameHistory.length - 1) return;
-    //           this.gameHistoryPointer++;
-    //           break;
-    //         case "ArrowLeft":
-    //           if (this.gameHistoryPointer === 0) return;
-    //           this.gameHistoryPointer--;
-    //           break;
-    //         default:
-    //           break;
-    //       }
+    const keyEventSubscription$: Subscription = fromEvent<KeyboardEvent>(document, "keyup")
+      .pipe(
+        filter(event => event.key === "ArrowRight" || event.key === "ArrowLeft"),
+        tap(event => {
+          switch (event.key) {
+            case "ArrowRight":
+              if (this.gameHistoryPointer === this.gameHistory.length - 1) return;
+              this.gameHistoryPointer++;
+              break;
+            case "ArrowLeft":
+              if (this.gameHistoryPointer === 0) return;
+              this.gameHistoryPointer--;
+              break;
+            default:
+              break;
+          }
 
-    //       this.showPreviousPosition(this.gameHistoryPointer);
-    //     })
-    //   )
-    //   .subscribe();
+          this.showPreviousPosition(this.gameHistoryPointer);
+        })
+      )
+      .subscribe();
 
-    // this.subscriptions$.add(keyEventSubscription$);
+    this.subscriptions$.add(keyEventSubscription$);
   }
   public ngOnDestroy(): void {
     this.subscriptions$.unsubscribe();
@@ -205,6 +206,13 @@ export class ChessBoardComponent implements OnInit, OnDestroy {
       this.promotedPiece = null;
       this.promotionCoords = null;
     }
+  }
+
+  public showPreviousPosition(moveIndex: number): void {
+    const { board, checkState, lastMove } = this.gameHistory[moveIndex];
+    this.chessBoardView = board;
+    this.markLastMoveAndCheckState(lastMove, checkState);
+    this.gameHistoryPointer = moveIndex;
   }
 
   private moveSound(moveType: Set<MoveType>): void {

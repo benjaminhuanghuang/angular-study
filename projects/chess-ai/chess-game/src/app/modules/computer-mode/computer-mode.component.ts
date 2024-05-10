@@ -7,14 +7,16 @@ import { ChessBoardComponent } from '../chess-board/chess-board.component';
 import { StockfishService } from './stockfish.service';
 import { ChessBoardService } from '../chess-board/chess-board.service';
 import { Color } from '../../chess-logic/models';
+import { MoveListComponent } from '../move-list/move-list.component';
 
 /*
   Using the same template and styles as the ChessBoardComponent
+  Need to import MoveListComponent. otherwise, NG8001: 'app-move-list' is not a known element:
 */
 @Component({
   selector: 'app-computer-mode',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MoveListComponent],
   templateUrl: '../chess-board/chess-board.component.html',
   styleUrl: '../chess-board/chess-board.component.css'
 })

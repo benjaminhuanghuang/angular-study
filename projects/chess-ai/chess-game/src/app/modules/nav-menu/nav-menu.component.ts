@@ -3,7 +3,8 @@ import { RouterModule } from '@angular/router';
 //
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialog, MatDialogModule } from "@angular/material/dialog";
+import { MatDialog } from "@angular/material/dialog";
+import { PlayAgainstComputerDialogComponent } from '../play-against-computer-dialog/play-against-computer-dialog.component';
 
 
 @Component({
@@ -17,6 +18,6 @@ export class NavMenuComponent {
   constructor(private dialog: MatDialog) { }
 
   public playAgainstComputer(): void {
-    //this.dialog.open(PlayAgainstComputerDialogComponent);
+    this.dialog.open(PlayAgainstComputerDialogComponent);
   }
 }
