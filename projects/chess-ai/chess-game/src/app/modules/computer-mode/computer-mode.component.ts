@@ -1,16 +1,22 @@
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+//
+import { Subscription, firstValueFrom } from 'rxjs';
+//
 import { ChessBoardComponent } from '../chess-board/chess-board.component';
 import { StockfishService } from './stockfish.service';
 import { ChessBoardService } from '../chess-board/chess-board.service';
-import { Subscription, firstValueFrom } from 'rxjs';
 import { Color } from '../../chess-logic/models';
 
+/*
+  Using the same template and styles as the ChessBoardComponent
+*/
 @Component({
   selector: 'app-computer-mode',
   standalone: true,
-  imports: [],
-  templateUrl: './computer-mode.component.html',
-  styleUrl: './computer-mode.component.css'
+  imports: [CommonModule],
+  templateUrl: '../chess-board/chess-board.component.html',
+  styleUrl: '../chess-board/chess-board.component.css'
 })
 export class ComputerModeComponent extends ChessBoardComponent implements OnInit, OnDestroy {
   private computerSubscriptions$ = new Subscription();

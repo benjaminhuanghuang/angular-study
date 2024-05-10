@@ -51,5 +51,21 @@ if coordinates are out of range: CONTINUE
 declare piece on new coordinates as newPiece
 if newPiece is not null AND newPiece.color === piece.color: CONTINUE
 if (position is SAFE after move) THEN update piece safe squares list
-Checking if there is possiblity for en passant and castling
+Checking if there is possibility for en passant and castling
 If piece have safe squares append it to player map
+
+## UI
+
+```bash
+  ng add @angular/material
+  proceed: Y
+  Theme: Custom
+  Global typography: N
+  Include animations: N
+
+  ng g c modules/nav-menu --skip-tests
+  ng g c modules/play-against-computer-dialog --skip-tests
+  ng g c modules/move-list --skip-tests
+```
+
+Create routing
