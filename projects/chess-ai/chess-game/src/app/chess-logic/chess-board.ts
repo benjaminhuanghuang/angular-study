@@ -25,6 +25,7 @@ export class ChessBoard {
 
   //
   private fullNumberOfMoves: number = 1;
+  // In chess, the threefold repetition rule states that a player may claim a draw if the same position occurs three times during the game.
   private threeFoldRepetitionDictionary = new Map<string, number>();
   private threeFoldRepetitionFlag: boolean = false;
 
@@ -82,6 +83,7 @@ export class ChessBoard {
   public get checkState(): CheckState {
     return this._checkState;
   }
+
   public get isGameOver(): boolean {
     return this._isGameOver;
   }
@@ -89,6 +91,7 @@ export class ChessBoard {
   public get gameOverMessage(): string | undefined {
     return this._gameOverMessage;
   }
+
   public get boardAsFEN(): string {
     return this._boardAsFEN;
   }
@@ -422,6 +425,7 @@ export class ChessBoard {
       return true;
     }
 
+    // No safe squares
     if (!this._safeSquares.size) {
       if (this._checkState.isInCheck) {
         const prevPlayer: string = this._playerColor === Color.White ? "Black" : "White";
@@ -431,7 +435,7 @@ export class ChessBoard {
 
       return true;
     }
-
+    // claim a draw if the same position occurs three times during the game.
     if (this.threeFoldRepetitionFlag) {
       this._gameOverMessage = "Draw due three fold repetition rule";
       return true;

@@ -1,10 +1,12 @@
-<div class="chess-board">
+<div class="chess-board"  [ngClass]="{'rotated': flipMode}">
   <div *ngFor="let row of chessBoardView; let x = index" class="row">
     <div *ngFor="let piece of row; let y = index" class="square"
       [ngClass]="{
         'dark': isSquareDark(x, y),
         'light': !isSquareDark(x, y),
         'selected-square': isSquareSelected(x, y),
+        'king-in-check': isSquareChecked(x, y),
+        'promotion-square': isSquarePromotionSquare(x, y)
       }"
       (click)="move(x, y)">
       <div [ngClass]="{'safe-square': isSquareSafeForSelectedPiece(x, y)}"></div>

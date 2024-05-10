@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, filter, fromEvent, tap } from 'rxjs';
 //
 import { ChessBoard } from '../../chess-logic/chess-board';
@@ -15,7 +15,7 @@ import { FENConverter } from '../../chess-logic/FENConverter';
   templateUrl: './chess-board.component.html',
   styleUrl: './chess-board.component.css'
 })
-export class ChessBoardComponent {
+export class ChessBoardComponent implements OnInit, OnDestroy {
   // Images for the pieces, defined in the models.ts file
   public pieceImagePaths = pieceImagePaths;
 
@@ -51,6 +51,31 @@ export class ChessBoardComponent {
 
   constructor(protected chessBoardService: ChessBoardService) { }
 
+  public ngOnInit(): void {
+    // const keyEventSubscription$: Subscription = fromEvent<KeyboardEvent>(document, "keyup")
+    //   .pipe(
+    //     filter(event => event.key === "ArrowRight" || event.key === "ArrowLeft"),
+    //     tap(event => {
+    //       switch (event.key) {
+    //         case "ArrowRight":
+    //           if (this.gameHistoryPointer === this.gameHistory.length - 1) return;
+    //           this.gameHistoryPointer++;
+    //           break;
+    //         case "ArrowLeft":
+    //           if (this.gameHistoryPointer === 0) return;
+    //           this.gameHistoryPointer--;
+    //           break;
+    //         default:
+    //           break;
+    //       }
+
+    //       this.showPreviousPosition(this.gameHistoryPointer);
+    //     })
+    //   )
+    //   .subscribe();
+
+    // this.subscriptions$.add(keyEventSubscription$);
+  }
   public ngOnDestroy(): void {
     this.subscriptions$.unsubscribe();
     this.chessBoardService.chessBoardState$.next(FENConverter.initalPosition);
@@ -91,6 +116,15 @@ export class ChessBoardComponent {
   public isSquareSelected(x: number, y: number): boolean {
     if (!this.selectedSquare.piece) return false;
     return this.selectedSquare.x === x && this.selectedSquare.y === y;
+  }
+
+  public isSquareChecked(x: number, y: number): boolean {
+    return this.checkState.isInCheck && this.checkState.x === x && this.checkState.y === y;
+  }
+
+  public isSquarePromotionSquare(x: number, y: number): boolean {
+    if (!this.promotionCoords) return false;
+    return this.promotionCoords.x === x && this.promotionCoords.y === y;
   }
 
   public isSquareSafeForSelectedPiece(x: number, y: number): boolean {
