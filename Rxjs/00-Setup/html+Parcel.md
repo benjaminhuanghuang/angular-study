@@ -1,4 +1,5 @@
-## Method 2: Use Parcel
+# Use Rxjs with Parcel
+
 ```bash
     npm i -g parcel-bundler
 
@@ -10,7 +11,8 @@
 ```
 
 index.ts
-```
+
+```ts
 import { fromEvent } from "rxjs";
 import { map } from "rxjs/operators";
 
@@ -23,7 +25,8 @@ fromEvent<MouseEvent>(document, "click")
 ```
 
 index.html
-```
+
+```html
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -37,6 +40,6 @@ index.html
 ```
 
 Run
-```
+```hash
     parcel index.html
 ```

@@ -1,5 +1,7 @@
 # 4 Types of Subject
-There 4 types of Subject in RxJS: 
+
+There 4 types of Subject in RxJS:
+
 - Subject
 - BehaviorSubject
 - AsyncSubject

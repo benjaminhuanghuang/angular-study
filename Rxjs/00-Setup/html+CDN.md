@@ -28,7 +28,8 @@
 </html>
 ```
 
-## Method 2 Use separate js file and  Destructuring Assignment
+## Method 2 Use separate js file and Destructuring Assignment
+
 ```html
 <!DOCTYPE html>
 <html lang="en">

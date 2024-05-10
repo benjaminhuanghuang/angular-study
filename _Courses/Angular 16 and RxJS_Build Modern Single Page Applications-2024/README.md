@@ -1,7 +1,11 @@
 # Angular 16 & RxJS: Build Modern Single Page Applications
+
 https://www.udemy.com/course/angular-16-rxjs-build-modern-single-page-applications/
 
+https://learning.oreilly.com/videos/angular-16-and/10000DIVC202416/10000DIVC202416-aaaaa1/
+
 ## Table of Contents
+
 • Introduction
 • Setup and installation
 • JavaScript, ES6, and Typescript Basics

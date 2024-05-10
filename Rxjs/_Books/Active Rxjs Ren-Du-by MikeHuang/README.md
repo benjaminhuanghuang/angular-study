@@ -1,8 +1,9 @@
 # 打通 RxJS 任督二脈
+
 by 黃升煌(Mike) 2021
 
-
 ## Table of Contents
+
 • 第一章：RxJS 超快速入門
     速進入 RxJS 的世界，寫出第一份 RxJS 程式碼
 
@@ -17,5 +18,3 @@ by 黃升煌(Mike) 2021
 
 • 第五章：進階 RxJS 技巧
     更加深入理解 RxJS 運作機制及應用
-
-    
