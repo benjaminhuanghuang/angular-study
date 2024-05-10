@@ -1,10 +1,16 @@
 # Subjects and multicasting operators (9 lessons)
+
 A multicasted Observable uses a Subject under the hood to make multiple Observers see the same Observable execution.
 
-##  What’s a Subject?
+## What’s a Subject?
 
- 
-##  Share data among multiple subscribers with Subjects
+Observables are unicast (each subscribed Observer owns an independent execution of the Observable)
+
+An RxJS Subject is a special type of Observable that allows values to be multicasted to many Observers.
+
+## Share data among multiple subscribers with Subjects
+
+
 
  
 ##  Lab: Manage application loading state with Subjects ⭐
