@@ -1,6 +1,7 @@
+# RxJS: Reactive Extensions Library for JavaScript
 
+## Observable: the data stream
 
-## Observable (可观察对象)
 data or event (array, DOM event, HTTP requests, timers) generator 表示一个概念，这个概念是一个可调用的未来值或事件的集合。
 
 A collection of events or values emitted over time, like User actions, application events, http response.
@@ -22,7 +23,8 @@ source$.next(1);
 
 ```
 
-## Observer (观察者)  
+## Observer: The listener of Observable
+
 Observer is an object that observes and responses to notification. 
 
 Observer is a object that has 3 methods:
@@ -51,6 +53,7 @@ or pass in a function, it will be used as next method
 ```
 
 ```
+
 - Subscriber: One class implements the Observer interface. A subscriber is basically an observer with additional features to unsubscribe from an observable.
 
 - Subscription (订阅):  connects observer with observable. 表示 Observable 的执行，主要用于取消 Observable 的执行。 
