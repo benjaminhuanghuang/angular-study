@@ -13,7 +13,6 @@ Data streams can be created from many things
 - Array-like Objects
 - Memory / Cache
 
-
 A declarative programming paradigm concerned with data streams and the propagation of change
 
 Code is reactive when an input change leads to `an automatic change in output`
@@ -24,9 +23,7 @@ The reactive paradigm is centered around the idea of modeling `changes in state`
 3. Executing transformation pipelines and push into streams.
 4. Consume derived state from streams.
 
-
 ## Reactive Components & Services
-
 
 ## Resources
 https://dev.azure.com/powerbi/PowerBIClients/_wiki/wikis/Power%20BI%20Clients%20Wiki/2285/Writing-Reactive-Code
