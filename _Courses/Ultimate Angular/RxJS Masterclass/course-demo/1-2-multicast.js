@@ -8,8 +8,8 @@ const observer = {
 };
 
 const subject = new Subject();
-subject.subscribe(observer);
-subject.subscribe(observer);
+const subscription = subject.subscribe(observer);
+const subscription2 = subject.subscribe(observer);
 
 const interval$ = interval(1000).pipe(
   tap((value) => console.log("new interval", value)) // new interval will be displayed once
