@@ -18,3 +18,7 @@ export const routes: Routes = [
 }
 ];
 ```
+
+## Sample
+
+projects\angular17-student-record
