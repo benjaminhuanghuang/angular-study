@@ -31,6 +31,12 @@ ng add @ng-bootstrap/ng-bootstrap
 
 import bootstrap css in styles.css
 
+bootstrap icon
+
+```html
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+```
+
 ## ag-grid
 
 ```bash
@@ -69,4 +75,10 @@ app-routs.ts
     loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
     canMatch: [authGuardGuard]
   }
+```
+
+## Signals
+
+```ts
+studentsRecordsCount: WritableSignal<number> = signal(0);
 ```
