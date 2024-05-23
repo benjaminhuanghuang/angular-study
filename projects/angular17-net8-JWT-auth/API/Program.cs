@@ -8,7 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-var JWTSettings = builder.Configuration.GetSection("JWTSettings");//.Get<JWTSettings>();
+var JWTSetting = builder.Configuration.GetSection("JWTSetting");//.Get<JWTSettings>();
 
 // Add services to the container.
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -27,14 +27,13 @@ builder.Services.AddAuthentication(opt =>
     opt.RequireHttpsMetadata = false;
     opt.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuerSigningKey = true,
         ValidateIssuer = true,
         ValidateAudience = true,
         ValidateLifetime = true,
-        ValidAudience = JWTSettings["ValidAudience"],
-        ValidIssuer = JWTSettings["ValidIssuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTSettings.GetSection("securityKey").Value!)),
-
+        ValidateIssuerSigningKey = true,
+        ValidAudience = JWTSetting["ValidAudience"],
+        ValidIssuer = JWTSetting["ValidIssuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTSetting.GetSection("securityKey").Value!))
     };
 });
 
