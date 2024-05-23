@@ -44,3 +44,14 @@ Run API
 ```sh
 dotnet watch run
 ```
+
+## Setup database
+
+```sh
+dotnet ef migrations add Initial
+
+dotnet ef database update
+```
+
+Open SQLite database:
+Ctrl + Shift + P, SQLite: Open Database
