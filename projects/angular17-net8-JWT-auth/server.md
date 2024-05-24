@@ -53,5 +53,12 @@ dotnet ef migrations add Initial
 dotnet ef database update
 ```
 
+Fix error "Failed to open database 'xxxx.db': Parse error near line 4: no such column: table
+  aster                                 WHERE (type="table" OR type="view")
+                                      error here ---^"
+
+Open  C:\Users\username\.vscode\extensions\alexcvzz.vscode-sqlite-0.14.1\dist\extension.js, replace
+type=\"table"\ OR type=\"view\" with type='table' OR type='view'
+
 Open SQLite database:
 Ctrl + Shift + P, SQLite: Open Database
