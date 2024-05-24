@@ -25,8 +25,6 @@ ng g c pages/login
 ng g c pages/home
 
 ng g c components/navbar
-
-ng g s services/auth
 ```
 
 ## Setup routing
@@ -57,3 +55,18 @@ Modify index.html
 ```
 
 ## Login form
+
+## Service
+
+```bash
+ng g environments
+
+ng g s services/auth
+
+ng g interface interfaces/login-request
+ng g interface interfaces/auth-response
+```
+
+set the API URL in environment.ts
+
+remember to add  UseCors in API program.cs
