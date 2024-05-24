@@ -72,3 +72,9 @@ ng g interface interfaces/auth-response
 set the API URL in environment.ts
 
 remember to add  UseCors in API program.cs
+
+## JWT
+  
+```bash
+npm i jwt-decode
+```
