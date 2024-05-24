@@ -51,10 +51,7 @@ namespace API.Controllers
     [HttpGet]
     public async Task<ActionResult<IEnumerable<RoleResponseDto>>> GetRoles()
     {
-
-
       // list of roles with total users in each role 
-
       var roles = await _roleManager.Roles.Select(r => new RoleResponseDto
       {
         Id = r.Id,
@@ -70,23 +67,19 @@ namespace API.Controllers
     public async Task<IActionResult> DeleteRole(string id)
     {
       // find role by their id
-
       var role = await _roleManager.FindByIdAsync(id);
-
       if (role is null)
       {
         return NotFound("Role not found.");
       }
 
       var result = await _roleManager.DeleteAsync(role);
-
       if (result.Succeeded)
       {
         return Ok(new { message = "Role deleted successfully." });
       }
 
       return BadRequest("Role deletion failed.");
-
     }
 
 
@@ -94,16 +87,13 @@ namespace API.Controllers
     public async Task<IActionResult> AssignRole([FromBody] RoleAssignDto roleAssignDto)
     {
       var user = await _userManager.FindByIdAsync(roleAssignDto.UserId);
-
       if (user is null)
       {
         return NotFound("User not found.");
       }
 
       var role = await _roleManager.FindByIdAsync(roleAssignDto.RoleId);
-
       if (role is null)
-
       {
         return NotFound("Role not found.");
       }

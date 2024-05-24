@@ -11,7 +11,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace API.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
@@ -74,7 +74,6 @@ namespace API.Controllers
 
         [AllowAnonymous]
         [HttpPost("login")]
-
         public async Task<ActionResult<AuthResponseDto>> Login(LoginDto loginDto)
         {
             if (!ModelState.IsValid)
@@ -116,7 +115,6 @@ namespace API.Controllers
 
 
         }
-
         private string GenerateToken(AppUser user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -155,13 +153,13 @@ namespace API.Controllers
 
             return tokenHandler.WriteToken(token);
         }
+
         //api/account/detail
         [HttpGet("detail")]
         public async Task<ActionResult<UserDetailDto>> GetUserDetail()
         {
             var currentUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var user = await _userManager.FindByIdAsync(currentUserId!);
-
 
             if (user is null)
             {
@@ -183,9 +181,7 @@ namespace API.Controllers
                 AccessFailedCount = user.AccessFailedCount,
 
             });
-
         }
-
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<UserDetailDto>>> GetUsers()

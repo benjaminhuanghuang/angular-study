@@ -1,14 +1,14 @@
 # Server side
 
-Install vs code extension Nuget Gallery
+## Install vs code extension Nuget Gallery
 
-Create project
+## Create project
 
 ```sh
 dotnet new webapi -controllers -o API
 ```
 
-Install packages
+## Install packages
 
 ```sh
 ctrl + shift + p
@@ -22,9 +22,9 @@ Microsoft.AspNetCore.Identity.EntityFrameworkCore
 Microsoft.AspNetCore.Authentication.JwtBearer
 ```
 
-Create Models folder
+## Setup project
 
-Create Data folder 
+Create folders: Models, Data, Dtos
 
 Inject AppDbContext in Program.cs
 
@@ -53,12 +53,18 @@ dotnet ef migrations add Initial
 dotnet ef database update
 ```
 
-Fix error "Failed to open database 'xxxx.db': Parse error near line 4: no such column: table
+Fix error
+
+```txt
+"Failed to open database 'xxxx.db': Parse error near line 4: no such column: table
   aster                                 WHERE (type="table" OR type="view")
                                       error here ---^"
+```
 
 Open  C:\Users\username\.vscode\extensions\alexcvzz.vscode-sqlite-0.14.1\dist\extension.js, replace
 type=\"table"\ OR type=\"view\" with type='table' OR type='view'
 
 Open SQLite database:
 Ctrl + Shift + P, SQLite: Open Database
+
+## Add controllers
