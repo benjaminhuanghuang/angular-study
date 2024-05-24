@@ -23,6 +23,7 @@ npx tailwindcss init
 ```bash
 ng g c pages/login
 ng g c pages/home
+ng g c pages/register 
 
 ng g c components/navbar
 ```
@@ -62,6 +63,7 @@ Modify index.html
 ng g environments
 
 ng g s services/auth
+ng g s services/role
 
 ng g interface interfaces/login-request
 ng g interface interfaces/auth-response
