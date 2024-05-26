@@ -94,16 +94,24 @@ categorySelectedAction$ = this.categorySubject.asObservable();
 
 Tip: To subscribe to a inner observable and flatten the result, use a higher-order mapping operator
 
-```ts
 Higher-Order Mapping Operators
-Automatically subscribe to the inner Observable
-Flatten the resulting Observable
-Returning Observable<T> not Observable<Observable<T>>
-Automatically unsubscribe from the inner Observable
+
+- Automatically subscribe to the inner Observable
+- Flatten the resulting Observable
+- Returning Observable<T> not Observable<Observable<T>>
+- Automatically unsubscribe from the inner Observable
 
 - switchMap: Stops the current operation and performs the new operation
+  2-> get 2
+  3-> Cancel 2, get 3
+
 - concatMap: Performs each operation one at a time, in order
+  2-> get 2
+  3-> Wait for 2 to complete, get 3
+
 - mergeMap: Performs each operation concurrently
+  1, 2, 3
+  response 3, 1, 2
 
 ```ts
 private categorySubject = new Subject<number>();
@@ -120,9 +128,11 @@ products$ = this.categorySelectedAction$.pipe(
 ## Shape on Action Pattern: Filter, map, transform an Observable
 
 To work with multiple streams, use a combination operator
-- combineLatest Emits a combined value when any of the Observables emit. Won't emit until all Observables have emitted at least once
-- merge Emits the one value when any of the Observables emit
-- forkJoin When all Observables complete, emit the last value from each Observable into an array
-
+- combineLatest
+  Emits a combined value when any of the Observables emit. Won't emit until all Observables have emitted at least once
+- merge
+  Emits the one value when any of the Observables emit
+- forkJoin
+  When all Observables complete, emit the last value from each Observable into an array
 
 ## Retrieve Related Data Pattern: Retrieve data nad use ids to retrieve related data

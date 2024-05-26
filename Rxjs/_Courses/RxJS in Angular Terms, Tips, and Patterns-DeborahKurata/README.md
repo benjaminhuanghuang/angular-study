@@ -1,7 +1,8 @@
 # RxJS in Angular: Terms, Tips, and Patterns 
 
 by Deborah Kurata
-https://www.youtube.com/watch?v=vtCDRiG__D4
+
+
 
 ## RxJS Patterns
 
