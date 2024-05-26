@@ -1,6 +1,6 @@
+# Terms
 
-## Terms
-###  Observable: 
+##  Observable: 
 A collection of items `over time`. Unlike an array, it doesn't retain items. It emits items can be observed over time. 
 For example, Key press, Mouse move, Http response, Notifications, etc.
 

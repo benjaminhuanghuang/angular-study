@@ -1,5 +1,19 @@
+# Rxjs Patterns
+
+- Declarative Data Access
+- Retrieve on Action
+- Shape on Action
+- Retrieve Related Data
+
+Ask questions to determine the pattern to use:
+What do you have?
+What do you want?
+When do you want it?
+
 ## Declarative data access pattern: Retrieving Data
+
 Procedural Service  
+
 ```ts
 @Injectable({ providedIn: 'root' })
 export class ProductService {
@@ -7,6 +21,7 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
   
+  // return an observable from a function
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.productsUrl)
     .pipe(
@@ -16,7 +31,9 @@ export class ProductService {
   }
 }
 ```
-Declarative Service  
+
+Declarative Service
+
 ```ts
 getProducts$ = this.http.get<Product[]>(this.productsUrl)
   .pipe(
@@ -25,7 +42,8 @@ getProducts$ = this.http.get<Product[]>(this.productsUrl)
   );
 ```
 
-Component using Procedural Service 
+Component using Procedural Service
+
 ```ts
 ngOnInit(): void {
   this.sub = this.productService.getProducts().subscribe(
@@ -38,11 +56,14 @@ ngOnDestroy(): void {
 }
 ```
 
-Component using declarative Service 
+Component using declarative Service
+
 ```ts
   products$ = this.productService.getProducts$;
 ```
-bind observable to template, the async will automatically subscribe and unsubscribe
+
+bind observable to template using `async` pipe, the async will `automatically subscribe and unsubscribe`
+
 ```html
 <div *ngIf="products$ | async as products">
   <button type='button' *ngFor='let product of products'>
@@ -51,9 +72,10 @@ bind observable to template, the async will automatically subscribe and unsubscr
 </div>
 ```
 
+## Retrieve on Action Pattern: Retrieve data based on user selection, paging ...
 
-## Retrieve on Action Pattern: Retrieve data based on user selection, paging...
-To respond to an action, use a Subject or BehaviorSubject to pass data from the component to the service.  
+Problem: How to pass `catId` to a service?
+
 ```ts
 products$=this.http.get<Product[]>(`${this.url}?cat=${catId}`)
 .pipe(
@@ -62,6 +84,17 @@ products$=this.http.get<Product[]>(`${this.url}?cat=${catId}`)
 );
 ```
 
+Tip: to respond to an action, use a `Subject` or `BehaviorSubject` to pass data from the component to the service.
+When you define a Subject, it does not emit anything until you call `next()`
+
+```ts
+private categorySubject = new Subject<number>();
+categorySelectedAction$ = this.categorySubject.asObservable();
+```
+
+Tip: To subscribe to a inner observable and flatten the result, use a higher-order mapping operator
+
+```ts
 Higher-Order Mapping Operators
 Automatically subscribe to the inner Observable
 Flatten the resulting Observable
@@ -85,6 +118,7 @@ products$ = this.categorySelectedAction$.pipe(
 ```
 
 ## Shape on Action Pattern: Filter, map, transform an Observable
+
 To work with multiple streams, use a combination operator
 - combineLatest Emits a combined value when any of the Observables emit. Won't emit until all Observables have emitted at least once
 - merge Emits the one value when any of the Observables emit
