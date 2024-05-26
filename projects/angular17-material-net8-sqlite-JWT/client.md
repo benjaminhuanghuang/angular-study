@@ -78,3 +78,27 @@ remember to add  UseCors in API program.cs
 ```bash
 npm i jwt-decode
 ```
+
+## Register form
+
+## Account page + interceptor
+
+```bash
+ng g c pages/account --skip-tests
+```
+
+Add router
+
+```ts
+  { path: 'account/:id', component: AccountComponent },
+```
+
+```html
+  <button [routerLink]="['account',userDetail.id]" mat-menu-item>
+```
+
+To get account detail, need to attach the token on the header for the request.
+
+```hash
+ng g interceptor interceptors/token
+```

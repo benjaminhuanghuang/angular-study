@@ -30,6 +30,15 @@ Inject AppDbContext in Program.cs
 
 Setup JWT in appsettings.json
 
+``json
+"JWTSetting": {
+    "securityKey": "xyz2l303kkejoejeke23423sdfsf3r4wef4k044494kfgrerersdfe2r2errfewre4343434erererererererererr",
+    "ValidAudience": "http://localhost:4200",
+    "ValidIssuer": "http://localhost:5000"
+  }
+```
+The securityKey should be a long string, otherwise it will throw an error.
+
 Setup Identity in Program.cs
 
 ```cs
