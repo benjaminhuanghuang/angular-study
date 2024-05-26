@@ -68,3 +68,25 @@ Open SQLite database:
 Ctrl + Shift + P, SQLite: Open Database
 
 ## Add controllers
+
+```json
+{
+  "email": "user@example.com",
+  "fullName": "string",
+  "password": "Passowrd@1234",
+  "roles": [
+    "admin"
+  ]
+}
+
+{
+  "email": "user@example.com",
+  "password": "Password@1234"
+}
+
+
+{
+  "email": "admin@gmail.com",
+  "password": "Password@1234"
+}
+```

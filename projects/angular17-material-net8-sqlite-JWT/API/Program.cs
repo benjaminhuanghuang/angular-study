@@ -33,7 +33,7 @@ builder.Services.AddAuthentication(opt =>
         ValidateIssuerSigningKey = true,
         ValidAudience = JWTSetting["ValidAudience"],
         ValidIssuer = JWTSetting["ValidIssuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(JWTSetting.GetSection("securityKey").Value!))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("this is my custom Secret key for authentication")) //JWTSetting.GetSection("securityKey").Value!
     };
 });
 

@@ -103,8 +103,7 @@ namespace API.Controllers
                 });
             }
 
-
-            var token = GenerateToken(user);
+            var token = this.GenerateToken(user);
 
             return Ok(new AuthResponseDto
             {
@@ -112,8 +111,6 @@ namespace API.Controllers
                 IsSuccess = true,
                 Message = "Login Success."
             });
-
-
         }
         private string GenerateToken(AppUser user)
         {

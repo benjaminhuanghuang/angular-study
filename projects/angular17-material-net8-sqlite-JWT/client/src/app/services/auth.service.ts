@@ -7,6 +7,7 @@ import { jwtDecode } from 'jwt-decode';
 import { environment } from '../../environments/environment';
 import { LoginRequest } from '../interfaces/login-request';
 import { AuthResponse } from '../interfaces/auth-response';
+import { RegisterRequest } from '../interfaces/register-request';
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +29,10 @@ export class AuthService {
           return response;
         })
       );
+  }
+
+  register(data: RegisterRequest): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.apiUrl}account/register`, data);
   }
 
   getUserDetail = () => {
