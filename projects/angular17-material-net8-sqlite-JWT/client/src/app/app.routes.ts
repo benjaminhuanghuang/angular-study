@@ -4,9 +4,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AccountComponent } from './pages/account/account.component';
 import { UsersComponent } from './pages/users/users.component';
-
 import { authGuard } from './guards/auth.guard';
 import { roleGuard } from './guards/role.guard';
+import { RoleComponent } from './pages/role/role.component';
 
 export const routes: Routes = [
   {
@@ -29,6 +29,14 @@ export const routes: Routes = [
   {
     path: 'users',
     component: UsersComponent,
+    canActivate: [roleGuard],
+    data: {
+      roles: ['Admin'],
+    },
+  },
+  {
+    path: 'roles',
+    component: RoleComponent,
     canActivate: [roleGuard],
     data: {
       roles: ['Admin'],

@@ -36,15 +36,10 @@
                   " (click)="assignRole()">
           Assign
         </button>
-
       </div>
     </div>
-
-
-
     <div class="w-full shadow-sm">
       <app-role-list [roles]="roles$ | async" (deleteRole)="deleteRole($event)" />
     </div>
   </div>
-
 </div>
