@@ -142,3 +142,14 @@ Use guard in routing
     },
   },
 ```
+
+## Role management
+
+Only for admin
+
+```bash
+ng g c pages/role --skip-tests  
+
+ng g c components/role-form --skip-tests  
+ng g c components/role-list --skip-tests  
+```
