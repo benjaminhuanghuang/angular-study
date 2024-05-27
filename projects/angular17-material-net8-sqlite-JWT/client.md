@@ -102,3 +102,43 @@ To get account detail, need to attach the token on the header for the request.
 ```hash
 ng g interceptor interceptors/token
 ```
+
+Add the interceptor to the providers in app.config.ts
+
+```ts
+  provideHttpClient(withInterceptors([tokenInterceptor])),
+```
+
+Create guard
+
+```bash
+ng g guard guards/auth --skip-tests
+```
+
+Use the guard in the routing
+
+```ts
+  { path: 'account/:id', component: AccountComponent, canActivate: [AuthGuard] },
+```
+
+## Uses
+
+Only for admin
+
+```bash
+ng g c pages/uses --skip-tests  
+ng g guard guards/role --skip-tests   
+```
+
+Use guard in routing
+
+```ts
+ {
+    path: 'users',
+    component: UsersComponent,
+    canActivate: [roleGuard],
+    data: {
+      roles: ['Admin'],
+    },
+  },
+```

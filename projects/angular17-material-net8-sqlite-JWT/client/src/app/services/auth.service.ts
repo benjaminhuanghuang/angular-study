@@ -69,6 +69,15 @@ export class AuthService {
     return isTokenExpired;
   }
 
+
+  getRoles = (): string[] | null => {
+    const token = this.getToken();
+    if (!token) return null;
+
+    const decodedToken: any = jwtDecode(token);
+    return decodedToken.role || null;
+  };
+
   logout = (): void => {
     localStorage.removeItem(this.tokenKey);
   };
