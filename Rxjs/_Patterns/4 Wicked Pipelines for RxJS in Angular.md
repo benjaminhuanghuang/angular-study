@@ -74,11 +74,54 @@ Scenario: We have the category id in the post object, we want to get the categor
 
 ## Grouping
 
+What do you have: The post objects
+What do you want: The post objects grouped by category
+When do you want it: When get data for this page
+
+
 ```ts
 postsGroupedByCategory$ = this.postsWithCategory$.pipe (
   concatAll(),
   groupBy (post => post.categoryId, post => post),
-  mergeMap (group => zip(of(group.key), group.pipe(toArray()))),
+  mergeMap (group => zip(of(group.key), group.pipe(toArray()))), // for each group, emits one tuple with the category id and post[]
   toArray ()
 ) ;
+```
+
+## Autocomplete Pipeline
+
+What do you have: We have the list of categories
+What do you want: Type: Filter the list of categories based on the user input, Click/Focus: Open the list of categories, Click x: Close the list of categories
+
+```html
+<input type="text"
+  [(ngModel) ]="selectedCategory"
+  (selectItem)="categorySelected($event.item)"
+  [ngbTypeahead]="search"
+  ...
+  (focus)="focus$.next($any($event).target.value)"
+  (click)="click$.next($any($event).target.value)"
+/>
+<button type="button" (click)="onClear()">
+  <i class="fa fa-times"></i>
+</button>
+```
+
+```ts
+focus$ = new Subject<string>();
+click$ = new Subject<string>();
+clear$ = new Subject<string>();
+
+search = (text$: Observable<string >) => {
+  const debouncedText$ = text$.pipe(debounceTime(200), distinctUntilChanged ());
+  const clickToOpen$ = this.click$.pipe(filter(() => !this.instance.isPopupOpen()));  
+  
+  const operations$ = merge(debouncedText$, clickToOpen$, this. focus$, this.clear$);
+  return combineLatest([
+    operations$,
+    this.categories$]).pipe(
+    map (([txt, cat]) =>
+      txt === '' ? categories : cat. filter (c => new RegExp(*^${txt}, 'i'). test(c.name)))
+    );
+}
 ```
