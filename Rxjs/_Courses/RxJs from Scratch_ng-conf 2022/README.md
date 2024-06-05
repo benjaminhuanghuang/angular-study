@@ -2,11 +2,14 @@
 
 https://www.youtube.com/watch?v=nQrMgNIvqxM
 
-Observables: provide support for passing messages between publishers
-and subscribers in your application. They offer significant benefits for
-asynchronous programming and handling multiple values.
+https://docs.google.com/presentation/d/1jvYM8jXXPBN0-SnGPqh2IcDCehcTlDa_vWQh9jeuJ2c/edit#slide=id.g3be0a19c6d_0_0
 
-Get data from an Observable
+## Observables
+
+provide support for passing messages between publishers and subscribers in your application.
+They offer significant benefits for asynchronous programming and handling multiple values.
+
+Get data from an Observable:
 
 - We have to call the subscribe method and pass a callback function as a parameter.
 - The callback function will be called every time the observable emits a new value.
@@ -18,11 +21,22 @@ Get data from an Observable
   });
 ```
 
-In the Angular framework, Observables are used by multiple services to get notified:
+## Rxjs in the Angular framework, Observables are used by multiple services to get notified:
 
 - Whenever the URL changes in the browser
 - When a form input value gets updated
+
+```ts
+continentSelect = new FormControl();
+
+continentSelect.valueChanges.subscribe((newValue) => {
+  console.log(newValue);
+});
+```
+
 - When a HTTP request completes successfully
+
+Observables will be used to broadcast information to several components in the application.
 
 ## Angular HttpClient
 
@@ -34,58 +48,59 @@ HttpClient is useful in fetching external data, posting data to a server, and mo
 - HttpClient is a service that can be injected in any constructor
 
 ```ts
-import (HttpClient) from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable ()
 export class CartService {
   constructor (private http: HttpClient) { }
 
   getCartContents (): Observable<Car[]> {
-    return this.http.get<Car[]>('http://localhost:8000/cart');
+    return this.http.get<Car[]>('http://localhost:8000/cart');  
   }
 }
 ```
 
+Sample: select continent and get countries from the selected continent
 https://stackblitz.com/edit/at-rxjs-demo1
-
 
 ## Operators
 
 - Operators are pure functions that take one or more Observables and return a modified Observable
-- Operators are used to transform/filter/concatenate information from one or more sources
-- RxJs has over 120 operators available!|
+- Operators are used to transform/filter/concatenate information from `one or more sources`
+- RxJs has over 120 operators available!
+
 ```ts
 observable.pipe(
   map(data => data. toUpperCase())
   ).subscribe(newValue => this.currentSelection = newValue);
-
 ```
 
-## Two selection operators
+## Select continent and filter countries
+
 ```ts
-const country$ = http.get<Country>(this.COUNTRY_URL);
+const country$ = http.get<Country>(this.COUNTRY_URL); //Observable of country data
 
-//Observable of country data
-this.continents = this.continentSelect.valueChanges.pipe(
-//Observable of the latest continent selected
-withLatestFrom(country$),
-// We combine country selection with the latest list of countries
-nap(([continent, countries]) => [
-// Now we have an array of two values, first the continent, second the countries
-continent,
-// We return a new array with the continent in first position (untouched)
-countries. filter((c) => c.continent == continent), // And a filtered list of countries (by continent) in second position
-]),
-tap(([continent, filteredCountries]) => { //The data at that point is: 1) selected continent 2) countries of that continent
-this.countries = filteredCountries;
-//Assign the filtered countries to a component property used by the dropdown
-}),
-this.countrySelect.setValue(filteredCountries[0].country); // Select the first country by default
-map(([continent]) => continent. substring(0, 3). toUpperCase()) // Finally, turn our continent into a 3-letter uppercase string
-// We don't subscribe anynore. The async pipe is doing that on our HTML template.|
+this.continents = this.continentSelect.valueChanges.pipe( // Observable of the latest continent selected
+  withLatestFrom(country$), // combine country selection with the latest list of countries
+  map(([continent, countries]) => [
+    continent,
+    // We return a new array with the continent in first position (untouched)
+    countries. filter((c) => c.continent == continent), // And a filtered list of countries (by continent) in second position
+  ]),
+  tap(([continent, filteredCountries]) => { 
+    this.countries = filteredCountries;
+    this.countrySelect.setValue(filteredCountries[0].country); // Select the first country by default
+  }),
+  map(([continent]) => continent. substring(0, 3). toUpperCase()) // Finally, turn our continent into a 3-letter uppercase string
+  // We don't subscribe anymore. The async pipe is doing that on our HTML template.
+);
 ```
 
-## Create observables
+## Emit data with RxJs
+
+### Create observables
+
+The constructor of the Observable class takes a function as a parameter. This function will be called every time a new subscriber subscribes to the observable.
 
 ```ts
 const observable = new Observable<number>((observer) => {
@@ -95,7 +110,7 @@ const observable = new Observable<number>((observer) => {
 });
 ```
 
-## Subjects
+### Subjects
 
 Subject is a special type of Observable that allows values to be sent to multiple Observers.
 Used in service.
