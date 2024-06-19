@@ -1,6 +1,10 @@
 import { Component, Signal, computed, signal } from "@angular/core";
+import { Router } from "@angular/router";
+//
 import { Product } from "../model/product.model";
 import { ProductRepository } from "../model/product.repository";
+import { Cart } from "../model/cart.model";
+
 @Component({
   selector: 'app-store',
   templateUrl: './store.component.html',
@@ -17,7 +21,11 @@ export class StoreComponent {
   pageCount: Signal<number>;
 
 
-  constructor(private repository: ProductRepository) {
+  constructor(
+    private repository: ProductRepository,
+    private cart: Cart,
+    private router: Router
+  ) {
     this.products = computed(() => {
       if (this.selectedCategory() == undefined) {
         return this.repository.products();
@@ -57,5 +65,10 @@ export class StoreComponent {
   changePageSize(newSize: number) {
     this.productsPerPage.set(Number(newSize));
     this.changePage(1);
+  }
+
+  addProductToCart(product: Product) {
+    this.cart.addLine(product);
+    this.router.navigateByUrl("/cart");
   }
 }
