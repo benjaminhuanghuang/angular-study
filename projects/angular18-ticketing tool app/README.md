@@ -74,3 +74,11 @@ To avoid  CORS policy error, need to run app on 4029 port
 ```
 
 ## Login page
+
+## Layout page
+
+## Department page
+
+## Parent Category page
+
+## Employee page
