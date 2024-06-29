@@ -12,7 +12,7 @@ https://freeapi.miniprojectideas.com/index.html
 ## Setup
 
 ```bash
-npm i bootstrap fontawesome
+npm i bootstrap @fortawesome/fontawesome-free
 ```
 
 add css to the angular.json file
@@ -21,7 +21,7 @@ add css to the angular.json file
 "styles": [
   "src/styles.css",
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
-  "node_modules/font-awesome/css/font-awesome.min.css"
+  "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
 ],
 ```
 
@@ -46,5 +46,31 @@ add css to the angular.json file
 update app.routes.ts
 
 
+## API call
+
+Add HTTP client module in the app.config.ts
+
+```ts
+export const appConfig: ApplicationConfig = {
+  providers: [provideHttpClient(), provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes)]
+};
+
+```
+
+Services
+
+To avoid  CORS policy error, need to run app on 4029 port
+
+```json
+"my-project": {
+    "architect": {
+        "serve": {
+            "options": {
+                "port": 4201
+            }
+        }
+    }
+}
+```
 
 ## Login page

@@ -15,7 +15,6 @@ export class MasterService {
   }
 
   login(obj: any) {
-    debugger;
     return this.http.post(this.apiUrl + "Login", obj);
   }
 

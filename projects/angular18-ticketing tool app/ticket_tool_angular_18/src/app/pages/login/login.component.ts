@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MasterService } from '../../services/master.service';
 import { Router } from '@angular/router';
+//
+import { MasterService } from '../../services/master.service';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -19,9 +20,7 @@ export class LoginComponent {
   router = inject(Router);
 
   onLogin() {
-    debugger;
     this.masterSrv.login(this.loginObj).subscribe((res: any) => {
-      debugger;
       if (res.result) {
         localStorage.setItem('ticketUser', JSON.stringify(res.data));
         this.router.navigateByUrl('dashboard');
