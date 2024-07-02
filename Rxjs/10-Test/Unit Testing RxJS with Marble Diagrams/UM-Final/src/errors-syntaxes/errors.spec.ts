@@ -31,7 +31,7 @@ function getData() {
 }
 
 function getEmployees() {
-  return Observable.create(observer => {
+  return new Observable(observer => {
     observer.next('orange');
     observer.next('apple');
     observer.error(new Error('server error'));
