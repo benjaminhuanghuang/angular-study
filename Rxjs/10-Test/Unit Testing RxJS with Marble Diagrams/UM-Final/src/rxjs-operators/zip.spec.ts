@@ -1,12 +1,14 @@
 import { cold } from 'jasmine-marbles';
 
-import { zip } from 'rxjs/operators';
+import { zip } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 describe('zip', () => {
   it('can zip 2 streams', () => {
     const $obs1 = cold('---a---b---|', { a: 1, b: 3 });
     const $obs2 = cold('-----c---d---|', { c: 5, d: 7 });
-    const $result = $obs1.pipe(zip($obs2, (x: number, y: number) => x + y));
+    //const $result = $obs1.pipe(zip($obs2, (x: number, y: number) => x + y));
+    const $result = zip($obs1, $obs2).pipe(map((x, y) => (x: number, y: number) => x + y));
     const $expected = cold('-----x---y-|', {
       x: 1 + 5,
       y: 3 + 7
@@ -20,7 +22,7 @@ describe('zip', () => {
       b: 'Paul',
       c: 'Neel',
       d: 'Stacy',
-      e: 'Carey' 
+      e: 'Carey'
     });
     const $userids = cold('-j-k-l-m-|', {
       j: 'john',
